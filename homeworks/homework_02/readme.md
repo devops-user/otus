@@ -100,4 +100,4 @@
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_02/images/erase.png)
 
 7. Дождемся его полной загрузки и увидим, что комутатор загрузился в начальной конфигурации. Как показано на рисунке ниже. 
-![]()
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_02/images/boot.png)
