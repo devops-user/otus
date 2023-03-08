@@ -84,7 +84,14 @@
    * Сосотояние канального протокола vlan 1  - *down*
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_02/images/vlan_1_status.png)
 
-3. Протестируем сквозное соединение, отправив эхо-запрос на ip-адрес нашего интерфейс vlan 1 на коммутаторе. Эхо-запрос не будет проходить, т.к. интерфейс vlan 1 - выключен. Как показано на рисунке ниже.
+3. Протестируем сквозное соединение, отправив эхо-запрос на ip-адрес нашего интерфейс vlan 1 на коммутаторе. Эхо-запрос не будет проходить, т.к. интерфейс vlan 1 - выключен и находится в состоянии - *down*. Как показано на рисунке ниже.
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_02/images/ping_1.png)
 
-5. 
+Для того, чтобы включить наш интерфейс vlan 1, надо выполнить команду - "**no shutdown**" после этого состояние интерфейса vlan 1 перейдет - *Up*. Как показано на рисунке ниже.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_02/images/vlan_1_no_shut.png)
+
+5. Проверим удаленное управление коммутатором S1 по протоколу "**telnet**" с нашего компьютера. Как показано на рисунке ниже.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_02/images/telnet_1.png)
+
+Как видно подключение прошло успешно, необходимо ввести пароль на доступ, после перехода в Привилегированный режим так же необходимо ввести пароль, сохраним нашу конфигурацию с помощью команды "**copy running-config startup-config**". Как показано на рисунке ниже.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_02/images/telnet_2.png)
