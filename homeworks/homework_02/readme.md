@@ -44,7 +44,14 @@
    * Настройки скорости и дуплекса - *Full-duplex, 100Mb/s*.
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_02/images/FastEthernet_6.png)
 
-11. Изучим флеш-память с помощью команды "**show flash**". Как показано на рисунке ниже.
+11. Изучим параметры сети vlan по умолчанию на коммутаторе с помощью команды "**show vlan id 1**". Как показано на рисунке ниже.
+   * Какое имя присвоено сети vlan 1 по умолчанию - *default*;
+   * Какие порты расположены в сети vlan 1 - *все*;
+   * Активна ли сеть vlan 1 - *да*, статус *active*;
+   * К какому типу сетей VLAN принадлежит VLAN по умолчанию - *enet*.
+ ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_02/images/vlan_1_2.png)
+
+12. Изучим флеш-память с помощью команды "**show flash**". Как показано на рисунке ниже.
    * Имя присвоеное образу Cisco IOS - *2960-lanbasek9-mz.150-2.SE4*
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_02/images/show_flash.png)
 
@@ -80,8 +87,8 @@
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_02/images/check_cfg.png)
 
 2. Проверим параметры VLAN 1 с помощью команды - "**show interface vlan 1**". Как показано на рисунке ниже.
-   * Сосотояние vlan 1 - *administratively down*
-   * Сосотояние канального протокола vlan 1  - *down*
+   * Сосотояние vlan 1 - *administratively down*;
+   * Сосотояние канального протокола vlan 1  - *down*.
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_02/images/vlan_1_status.png)
 
 3. Протестируем сквозное соединение, отправив эхо-запрос на ip-адрес нашего интерфейс vlan 1 на коммутаторе. Эхо-запрос не будет проходить, т.к. интерфейс vlan 1 - выключен и находится в состоянии - *down*. Как показано на рисунке ниже.
