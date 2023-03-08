@@ -78,3 +78,13 @@
 
 1. Отобразим конфигурацию коммутатора с помощью команды "**show running-config**" и увидим параметры которые мы настроили выше. Как показано на рисунке ниже.
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_02/images/check_cfg.png)
+
+2. Проверим параметры VLAN 1 с помощью команды - "**show interface vlan 1**". Как показано на рисунке ниже.
+   * Сосотояние vlan 1 - *administratively down*
+   * Сосотояние канального протокола vlan 1  - *down*
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_02/images/vlan_1_status.png)
+
+3. Протестируем сквозное соединение, отправив эхо-запрос на ip-адрес нашего интерфейс vlan 1 на коммутаторе. Эхо-запрос не будет проходить, т.к. интерфейс vlan 1 - выключен. Как показано на рисунке ниже.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_02/images/ping_1.png)
+
+5. 
