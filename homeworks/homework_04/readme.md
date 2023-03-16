@@ -35,12 +35,22 @@
 # Изучение таблицы МАС-адресов коммутатора
  
 ## 1. Запишем МАС-адреса сетевых устройств.
-1.
-2.
+1. Откроем командную строку на PC-A и PC-B и введем команду **ipconfig /all** для того чтобы увидеть MAC-адреса. Как показано на рисунке ниже.
+  * MAC-адрес компьютера PC-A - *00E0.F783.5316*  
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_04/images/PC_A_mac.png)
+  * MAC-адрес компьютера PC-B - *0030.A36A.45BD*  
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_04/images/PC_B_mac.png)
+
+2. Подключимся к коммутаторам S1 и S2 через консоль и введем команду **show interface F0/1** на каждом коммутаторедля того чтобы увидеть MAC-адреса. Как показано на рисунке ниже.
+  * МАС-адрес коммутатора S1 FastEthernet 0/1 - *0003.e4b3.3701*
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_04/images/S1_mac.png)
+  * МАС-адрес коммутатора S2 FastEthernet 0/1 - *0000.0c37.9801*
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_04/images/S2_mac.png)
 
 ## 2. Просмотрим таблицу МАС-адресов коммутатора.
-1.
-2.
+  * Подключимся к коммутатору S2 через консоль и войдем в привилегированный режим EXEC. При входе через консоль коммутатор запросил пароль, также при переходе в привилегированный режим необходимо ввести пароль. Как показано на рисунке ниже.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_04/images/S2_psw.png)
+  * 
 
 ## 3. Очистим таблицу МАС-адресов коммутатора S2 и снова отобразим таблицу МАС-адресов.
 1.
