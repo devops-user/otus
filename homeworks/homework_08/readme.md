@@ -39,8 +39,8 @@
 ![](https://github.com/devops-user/otus/raw/main/homeworks/homework_08/images/S1_ip.png)
   * Проверим правильность назначения IPv6-адресов интерфейсу управления с помощью команды **show ipv6 interface vlan1**, как показано на рисунке ниже:
 ![](https://github.com/devops-user/otus/raw/main/homeworks/homework_08/images/S1_sh_br_vl.png)
-
-
 4. Назначим компьютерам статические IPv6-адреса.
-
+  * Откроем окно Свойства Ethernet для каждого ПК и назначим адресацию IPv6 каждому ПК, как показано на рисунке ниже:
+![](https://github.com/devops-user/otus/raw/main/homeworks/homework_08/images/PC_A_ip.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_08/images/PC_B_ip.png)
 # Проверка сквозного подключения
