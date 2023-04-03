@@ -53,4 +53,4 @@
   * Введем команду **tracert** на PC-A, чтобы проверить наличие сквозного подключения к PC-B, для того чтобы команда **tracert** прошла, надо на PC-A и PC-B в качестве шлюза по-умолчанию прописать глобальные IPv6-адреса интерфейсов маршрутизатора к которым они подключены, как показано на рисунке ниже:
 ![](https://github.com/devops-user/otus/raw/main/homeworks/homework_08/images/tracert.png)
   * С PC-B отправим эхо-запрос на PC-A, как показано на рисунке ниже:
-![](https://github.com/devops-user/otus/raw/main/homeworks/homework_08/images/ping_a_b.png)
+![](https://github.com/devops-user/otus/raw/main/homeworks/homework_08/images/ping_b_a.png)
