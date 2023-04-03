@@ -43,4 +43,14 @@
   * Откроем окно Свойства Ethernet для каждого ПК и назначим адресацию IPv6 каждому ПК, как показано на рисунке ниже:
 ![](https://github.com/devops-user/otus/raw/main/homeworks/homework_08/images/PC_A_ip.png)
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_08/images/PC_B_ip.png)
+  * Убедитесь, что оба компьютера имеют правильную информацию адреса IPv6. Каждый компьютер должен иметь два глобальных адреса IPv6: один статический и один SLACC - **Интересно как это сделать в Packet Tracer? Два глобальных адреса, один прописанный статикой, а другой полученый от маршрутизатора по SLACC.**
+
 # Проверка сквозного подключения
+  * С PC-A отправим эхо-запрос на FE80::1. В качестве шлюза по-умолчанию у нас прописан локальный IPv6-адрес маршрутизатора, эхо-запрос будет проходить., как показано на рисунке ниже:
+![](https://github.com/devops-user/otus/raw/main/homeworks/homework_08/images/ping_pc_a.png)
+  * Отправим эхо-запрос на интерфейс управления S1 с PC-A, для того чтобы эхо-запрос проходил, нам надо в качестве шлюза по-умолванию прописать глобальный IPv^-адрес маршрутизатора, как показано на рисунке ниже:
+![](https://github.com/devops-user/otus/raw/main/homeworks/homework_08/images/ping_vlan1.png)
+  * Введем команду **tracert** на PC-A, чтобы проверить наличие сквозного подключения к PC-B, для того чтобы команда **tracert** прошла, надо на PC-A и PC-B в качестве шлюза по-умолчанию прописать глобальные IPv6-адреса интерфейсов маршрутизатора к которым они подключены, как показано на рисунке ниже:
+![](https://github.com/devops-user/otus/raw/main/homeworks/homework_08/images/tracert.png)
+  * С PC-B отправим эхо-запрос на PC-A, как показано на рисунке ниже:
+![](https://github.com/devops-user/otus/raw/main/homeworks/homework_08/images/ping_a_b.png)
