@@ -45,3 +45,9 @@ ________________________________________________________________________________
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_12/images/S1_ssh_view.png)
 2. Установим с коммутатора S1 соединение по протоколу SSH с маршрутизатором R1, как показано на рисунке ниже.
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_12/images/S1_ssh_R1.png)
+  * Какие версии протокола SSH поддерживаются при использовании интерфейса командной строки? - *Внрсии 1 и 2*
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_12/images/S1_ssh_version.png)
+__________________________________________________________________________________________________
+## Как предоставить доступ к сетевому устройству нескольким пользователям, у каждого из которых есть собственное имя пользователя?
+  * Для каждого пользователя можно создать отдельную пару login/password, на примере как показано на рисунке ниже.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_12/images/users.png)
