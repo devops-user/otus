@@ -31,9 +31,13 @@ ________________________________________________________________________________
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_12/images/PC-A_ssh.png)
 
 # Настройка коммутатора для доступа по протоколу SSH
-1. 
-2. 
-3. 
+1. Настроим основные параметры коммутатора, как показано на рисунке ниже.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_12/images/S1_cfg.png)
+2. Настроим коммутатор для соединения по протоколу SSH, как показано на рисунке ниже.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_12/images/S1_ssh.png)
+3. Установим соединение с коммутатором по протоколу SSH, как показано на рисунке ниже.
+  * С PC-A установим подключение по протоколу SSH к интерфейсу SVI коммутатора S1.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_12/images/S1_connect.png)
 
 # Настройка протокола SSH с использованием интерфейса командной строки (CLI) коммутатора
 1. 
