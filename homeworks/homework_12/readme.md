@@ -22,10 +22,13 @@ ________________________________________________________________________________
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_12/images/R1_key.png)
 2. Создадим имя пользователя в локальной базе учетных записей, как показано на рисунке ниже.
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_12/images/R1_login.png)
-3. 
-4. 
-5. 
-6. 
+3. Активируем протокол SSH на линиях VTY, как показано на рисунке ниже.
+  * Активируем протоколы **Telnet** и **SSH** на входящих линиях VTY и изменим способ входа в систему таким образом, чтобы использовалась проверка пользователей по локальной базе учетных записей.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_12/images/R1_vty.png)
+4. Сохраним текущую конфигурацию в файл загрузочной конфигурации с помощью команды - **copy running-config startup-config**
+5. Установим соединение с маршрутизатором по протоколу SSH, как показано на рисунке ниже.
+  * С PC-A установим SSH-подключение к R1:
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_12/images/PC-A_ssh.png)
 
 # Настройка коммутатора для доступа по протоколу SSH
 1. 
