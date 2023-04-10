@@ -9,9 +9,13 @@
 | PC-A | NIC | 192.168.1.3/24 | 192.168.1.1 |
 _________________________________________________________________________________
 # Настройка основных параметров устройств
-1. Настройка маршрутизатора.
-2. Настройка компьютера PC-A.
+1. Настроим маршрутизатор, как показано на рисунке ниже.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_12/images/R1_cfg.png)
+2. Настроим компьютер PC-A, как показано на рисунке ниже.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_12/images/PC-A_cfg.png)
 3. Проверка подключения к сети.
+  * Отправим с PC-A команду Ping на маршрутизатор R1, как показано на рисунке ниже.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_12/images/ping.png)
 
 # Настройка маршрутизатора для доступа по протоколу SSH
 1. 
