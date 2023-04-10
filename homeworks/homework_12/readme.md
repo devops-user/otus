@@ -18,8 +18,10 @@ ________________________________________________________________________________
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_12/images/ping.png)
 
 # Настройка маршрутизатора для доступа по протоколу SSH
-1. 
-2. 
+1. Настроим аутентификацию устройства, зададим домен для устройства и создадим ключ шифрования с указанием его длины, так же включим для протокола ssh поддержку 2-й версии, как показано на рисунке ниже.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_12/images/R1_key.png)
+2. Создадим имя пользователя в локальной базе учетных записей, как показано на рисунке ниже.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_12/images/R1_login.png)
 3. 
 4. 
 5. 
