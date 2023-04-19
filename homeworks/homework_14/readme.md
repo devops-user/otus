@@ -36,8 +36,23 @@
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/PC-B.png)
 
 # Создание сетей VLAN и назначение портов коммутатора
-1. Создадим сети VLAN на коммутаторах,
+1. Создадим сети VLAN на коммутаторах.
+  * Создадим и назовем необходимые VLAN на каждом коммутаторе из таблицы выше, как показвно на рисунке ниже.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/vlan_1.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/vlan_1_1.png)
+* Настроим интерфейс управления и шлюз по умолчанию на каждом коммутаторе, используя информацию об IP-адресе в таблице адресации, как показвно на рисунке ниже.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/vlan_10.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/vlan_10_1.png)
+  * Назначим все неиспользуемые порты коммутатора VLAN Parking_Lot, настроим их для статического режима доступа и административно деактивируйте их, как показвно на рисунке ниже.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/S1_999.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/S2_999.png)
 2. Назначим сети VLAN соответствующим интерфейсам коммутатора,
+  * Назначим используемые порты соответствующей VLAN (указанной в таблице VLAN выше) и настроим их для режима статического доступа, как показвно на рисунке ниже.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/S1_20.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/S2_30.png)
+  * Убедимся, что VLAN назначены на правильные интерфейсы с помощью команды **show vlan**, как показвно на рисунке ниже.  
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/S1_if.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/S2_if.png)
 
 # Конфигурация магистрального канала стандарта 802.1Q между коммутаторами
 1. Вручную настроим магистральный интерфейс F0/1 на коммутаторах S1 и S2, как показано на рисунке ниже.
