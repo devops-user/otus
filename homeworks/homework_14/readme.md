@@ -25,9 +25,15 @@
 
 # Создание сети и настройка основных параметров устройства
 1. Создадим сеть согласно топологии.
+  * Подключиv устройства, как показано в топологии.
 2. Настроим базовые параметры для маршрутизатора, как показано на рисунке ниже.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/R1.png)
 3. Настроим базовые параметры каждого коммутатора, как показано на рисунке ниже.
-4. Настроим узлы ПК, как показано на рисунке ниже.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/S1.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/S2.png)
+4. Настроим узлы ПК, как показано на рисунке ниже.  
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/PC-A.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/PC-B.png)
 
 # Создание сетей VLAN и назначение портов коммутатора
 1. Создадим сети VLAN на коммутаторах,
