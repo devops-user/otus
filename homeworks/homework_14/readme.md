@@ -77,4 +77,14 @@
 
 # Проверка работы маршрутизации между VLAN
 1. Выполним следующие тесты с PC-A, как показано на рисунке ниже.
+  * Отправим эхо-запрос с PC-A на шлюз по умолчанию.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/PC-A_ping_1.png)
+  * Отправим эхо-запрос с PC-A на PC-B.  
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/PC-A_ping_2.png)
+  * Отправим команду ping с компьютера PC-A на коммутатор S2.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/PC-A_ping_3.png)
+
 2. Пройдем следующий тест с PC-B, как показано на рисунке ниже.
+  * В окне командной строки на PC-B выполним команду **tracert** на адрес PC-A.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/PC-B_tracert.png)
+  * Какие промежуточные IP-адреса отображаются в результатах? - *Отображаются IP-адреса подинтерфесов на маршрутизаторе.*
