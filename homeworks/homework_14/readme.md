@@ -67,8 +67,13 @@
   * Проверка транкинга.
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/S1_tr_5.png)
   * Что произойдет, если G0/0/1 на R1 будет отключен? - *Как можно увидеть на рисунке выше **Operational Mode** находится в состоянии - down*.
+
 # Настройка маршрутизации между сетями VLAN
 1. Настроим маршрутизатор, как показано на рисунке ниже.
+  * Настроим подинтерфейсы для каждой VLAN, как указано в таблице IP-адресации.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/R1_sub.png)
+  * Убедимся, что вспомогательные интерфейсы работают, как показано на рисунке ниже.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/R1_sh_tr.png)
 
 # Проверка работы маршрутизации между VLAN
 1. Выполним следующие тесты с PC-A, как показано на рисунке ниже.
