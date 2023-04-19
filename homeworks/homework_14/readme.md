@@ -43,10 +43,11 @@
 * Настроим интерфейс управления и шлюз по умолчанию на каждом коммутаторе, используя информацию об IP-адресе в таблице адресации, как показвно на рисунке ниже.
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/vlan_10.png)
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/vlan_10_1.png)
-  * Назначим все неиспользуемые порты коммутатора VLAN Parking_Lot, настроим их для статического режима доступа и административно деактивируйте их, как показвно на рисунке ниже.
+
+* Назначим все неиспользуемые порты коммутатора VLAN Parking_Lot, настроим их для статического режима доступа и административно деактивируйте их, как показвно на рисунке ниже.
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/S1_999.png)
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/S2_999.png)
-2. Назначим сети VLAN соответствующим интерфейсам коммутатора,
+2. Назначим сети VLAN соответствующим интерфейсам коммутатора, как показвно на рисунке ниже.
   * Назначим используемые порты соответствующей VLAN (указанной в таблице VLAN выше) и настроим их для режима статического доступа, как показвно на рисунке ниже.
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/S1_20.png)
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/S2_30.png)
