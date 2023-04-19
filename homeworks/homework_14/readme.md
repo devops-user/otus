@@ -57,8 +57,16 @@
 
 # Конфигурация магистрального канала стандарта 802.1Q между коммутаторами
 1. Вручную настроим магистральный интерфейс F0/1 на коммутаторах S1 и S2, как показано на рисунке ниже.
-2. Вручную настроим магистральный интерфейс F0/5 на коммутаторе S1, как показано на рисунке ниже.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/S1_f1.png)
+  * Проверим транки, native VLAN и разрешенные VLAN через транк на обоих коммутаторах, как показано на рисунке ниже.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/S1_tr.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/S2_tr.png)
 
+2. Вручную настроим магистральный интерфейс F0/5 на коммутаторе S1, как показано на рисунке ниже.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/S1_f5.png)
+  * Проверка транкинга.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/S1_tr_5.png)
+  * Что произойдет, если G0/0/1 на R1 будет отключен? - *Как можно увидеть на рисунке выше **Operational Mode** находится в состоянии - down*.
 # Настройка маршрутизации между сетями VLAN
 1. Настроим маршрутизатор, как показано на рисунке ниже.
 
