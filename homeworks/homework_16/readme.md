@@ -1,5 +1,5 @@
 ### Топология
-![](https://github.com/devops-user/otus/blob/main/homeworks/homework_16/images/topology.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_16/images/topo.png)
 
 ### Таблица адресации
 | Устройство | Интерфейс | IP-адрес | Маска подсети |
@@ -22,7 +22,13 @@
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_16/images/ping_S2.png)
 
 # Определение корневого моста
-1. 
+1. Отключим все порты на коммутаторах.
+2. Настроим подключенные порты в качестве транковых.
+3. Включим порты F0/2 и F0/4 на всех коммутаторах.
+4. Отобразим данные протокола **spanning-tree** на каждом коммутаторе, как показано на рисунке ниже.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_16/images/S1_stp.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_16/images/S2_stp.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_16/images/S3_stp.png)
 
 #	Наблюдение за процессом выбора протоколом STP порта, исходя из стоимости портов
 1. Определим коммутатор с заблокированным портом.
