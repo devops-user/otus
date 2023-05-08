@@ -57,8 +57,10 @@
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_16/images/S3_stp.png)
 2. Изменим стоимость порта, как показано на рисунке.
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_16/images/S3_cost.png)
-3. Просмотрим изменения протокола **spanning-tree**.
-4. Удалим изменения стоимости порта.
+3. Просмотрим изменения протокола **spanning-tree**, как показано на рисунке.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_16/images/S3_cost_2.png)
+4. Удалим изменения стоимости порта, как показано на рисунке.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_16/images/S3_cost_3.png)
 
 # Наблюдение за процессом выбора протоколом STP порта, исходя из приоритета портов
 1. Какое значение протокол STP использует первым после выбора корневого моста, чтобы определить выбор порта? - **
