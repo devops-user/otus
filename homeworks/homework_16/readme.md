@@ -1,6 +1,25 @@
+### Топология
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_16/images/topology.png)
+
+### Таблица адресации
+| Устройство | Интерфейс | IP-адрес | Маска подсети |
+--- | --- | --- | --- |
+| S1 | VLAN 1 | 192.168.1.1 | 255.255.255.0 |
+| S2 | VLAN 1 | 192.168.1.2 | 255.255.255.0 |
+| S3 | VLAN 1 | 192.168.1.3 | 255.255.255.0 |
+
 # Создание сети и настройка основных параметров устройства
-1. Настроим базовые параметры каждого коммутатора, как показано на рисунке ниже.
-2. Проверка связи.
+1. Создадим сеть согласно топологии.
+2. Настроим базовые параметры каждого коммутатора, как показано на рисунке ниже.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_16/images/S1_cfg.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_16/images/S2_cfg.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_16/images/S3_cfg.png)
+3. Проверка связи.
+  * Успешно ли выполняется эхо-запрос от коммутатора S1 на коммутатор S2?	- *Да*
+  * Успешно ли выполняется эхо-запрос от коммутатора S1 на коммутатор S3?	- *Да*
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_16/images/ping_S1.png)
+  * Успешно ли выполняется эхо-запрос от коммутатора S2 на коммутатор S3?	- *Да*
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_16/images/ping_S2.png)
 
 # Определение корневого моста
 1. 
