@@ -1,4 +1,4 @@
-# Реализация DHCPv4 
+# I. Реализация DHCPv4 
 
 ### Топология
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/topo.png)
@@ -48,3 +48,5 @@
 # Настройка и проверка DHCP-ретрансляции на R2
 1. Настроим R2 в качестве агента DHCP-ретрансляции для локальной сети на G0/0/1
 2. Попытаемся получить IP-адрес от DHCP на PC-B
+
+# II. Настройка DHCPv6
