@@ -1,7 +1,7 @@
 # Реализация DHCPv4 
 
 ### Топология
-![](https://github.com/devops-user/otus/blob/main/homeworks/homeworks_20/images/topo.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/topo.png)
 
 ### Таблица адресации
 | Устройство | Интерфейс | IP-адрес/Маска подсети | Шлюз по умолчанию |
