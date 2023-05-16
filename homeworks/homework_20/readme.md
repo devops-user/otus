@@ -48,7 +48,7 @@
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/R1_r2.png)
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/R2_r1.png)
   * Убедимся, что статическая маршрутизация работает с помощью пинга до адреса G0/0/1 R2 от R1, как показано на рисунке ниже:
-
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/R2_ping.png)
 6. Настроим базовые параметры каждого коммутатора
 7. Создадим сети VLAN на коммутаторе S1
 8. Назначим сети VLAN соответствующим интерфейсам коммутатора
