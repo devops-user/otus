@@ -53,7 +53,14 @@
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/SW1.png)
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/SW2.png)
 7. Создадим сети VLAN на коммутаторе S1
-
+  * Создадим необходимые VLAN и настроим и активируем интерфейс управления на S1, как показано на рисунке ниже:  
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/SW1_IP.png)
+  * Настроим и активируем интерфейс управления на S2, как показано на рисунке ниже:
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/SW2_IP.png)
+  * Назначим все неиспользуемые порты S1 VLAN Parking_Lot и административно деактивируем их, как показано на рисунке ниже:
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/SW1_sh.png)
+  * На S2 административно деактивируем все неиспользуемые порты, как показано на рисунке ниже:
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/SW2_sh.png)
 8. Назначим сети VLAN соответствующим интерфейсам коммутатора
 9. Вручную настроим интерфейс S1 F0/5 в качестве транка 802.1Q
 
