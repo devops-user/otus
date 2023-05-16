@@ -39,7 +39,16 @@
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/R1.png)
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/R2.png)
 4. Настроим маршрутизацию между сетями VLAN на маршрутизаторе R1
-5. Настроим G0/1 на R2, затем G0/0/0 и статическую маршрутизацию для обоих маршрутизаторов
+  * Активируем интерфейс G0/0/1 и настроим подинтерфейсы для каждой VLAN, как показано на рисунке ниже:
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/R1_sub.png) 
+5. Настроим G0/0/1 на R2, затем G0/0/0 и статическую маршрутизацию для обоих маршрутизаторов
+  * Настроим G0/0/1 на R2 с первым IP-адресом подсети C, как показано на рисунке ниже:
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/R2_sub.png)
+  * Настроим интерфейс G0/0/0 для каждого маршрутизатора и маршрут по умолчанию на каждом маршрутизаторе, указываемом на IP-адрес G0/0/0 на другом маршрутизаторе, как показано на рисунке ниже: 
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/R1_r2.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/R2_r1.png)
+  * Убедимся, что статическая маршрутизация работает с помощью пинга до адреса G0/0/1 R2 от R1, как показано на рисунке ниже:
+
 6. Настроим базовые параметры каждого коммутатора
 7. Создадим сети VLAN на коммутаторе S1
 8. Назначим сети VLAN соответствующим интерфейсам коммутатора
