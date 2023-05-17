@@ -75,7 +75,7 @@
 
 # Настройка и проверка двух серверов DHCPv4 на R1
 1. Настроим R1 с пулами DHCPv4 для двух поддерживаемых подсетей и сохраним конфигурацию, как показано на рисунке ниже:
-  * *время аренды нельзя настроит в CPT.*
+  * *время аренды нельзя настроить в CPT.*
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/R1_dhcp.png)
 2. Проверим конфигурацию сервера DHCPv4, как показано на рисунке ниже:
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/R1_sh_ip_1.png)
@@ -86,7 +86,10 @@
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/PC-A_ip.png)
 
 # Настройка и проверка DHCP-ретрансляции на R2
-1. Настроим R2 в качестве агента DHCP-ретрансляции для локальной сети на G0/0/1
-2. Попытаемся получить IP-адрес от DHCP на PC-B
-
+1. Настроим R2 в качестве агента DHCP-ретрансляции для локальной сети на G0/0/1, как показано на рисунке:
+  * Настроим команду **ip helper-address** на G0/0/1, указав IP-адрес G0/0/0 R1 и сохраним конфигурацию
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/R2_helper.png)
+2. Попытаемся получить IP-адрес от DHCP на PC-B, как показано на рисунке:
+  * Выполним команду ipconfig для просмотра информации об IP-адресе и поверим подключение с помощью пинга
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/PC-B_ping.png)
 # II. Настройка DHCPv6
