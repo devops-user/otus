@@ -76,7 +76,7 @@
 # Настройка и проверка двух серверов DHCPv4 на R1
 1. Настроим R1 с пулами DHCPv4 для двух поддерживаемых подсетей и сохраним конфигурацию, как показано на рисунке ниже:
   * *время аренды нельзя настроить в CPT.*
-![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/R1_dhcp.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/R1_ip_dhcp.png)
 2. Проверим конфигурацию сервера DHCPv4, как показано на рисунке ниже:
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/R1_sh_ip_1.png)
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/R1_sh_ip_2.png)
