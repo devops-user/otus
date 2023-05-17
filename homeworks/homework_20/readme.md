@@ -99,7 +99,7 @@ ________________________________________________________________________________
 # II. Настройка DHCPv6
 
 ### Топология
-![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/topo.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/topov6.png)
 
 ### Таблица адресации
 | Устройство | Интерфейс | IPv6-адрес |
