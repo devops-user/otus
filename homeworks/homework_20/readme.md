@@ -61,12 +61,20 @@
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/SW1_sh.png)
   * На S2 административно деактивируем все неиспользуемые порты, как показано на рисунке ниже:
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/SW2_sh.png)
-8. Назначим сети VLAN соответствующим интерфейсам коммутатора
-9. Вручную настроим интерфейс S1 F0/5 в качестве транка 802.1Q
+8. Назначим сети VLAN соответствующим интерфейсам коммутаторов, как показано на рисунке ниже:
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/SW1_fa6.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/SW2_fa5.png)
+  * Убедимся, что VLAN назначены на правильные интерфейсы, как показано на рисунке ниже:
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/SW1_vl.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/SW2_vl.png)
+  * Почему интерфейс F0/5 указан в VLAN 1? - *т.к. мы не используем VLAN'ы и субинтерфейсы на роутере.*
+9. Вручную настроим интерфейс S1 F0/5 в качестве транка 802.1Q, как показано на рисунке ниже:
+  * Изменим режим порта коммутатора и проверим состояние транка
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/SW1_tr.png)
 
 # Настройка и проверка двух серверов DHCPv4 на R1
 1. Настроим R1 с пулами DHCPv4 для двух поддерживаемых подсетей. Ниже приведен только пул DHCP для подсети A
-2. Сохраниv конфигурацию
+2. Сохраним конфигурацию
 3. Проверим конфигурацию сервера DHCPv4
 4. Попытаемся получить IP-адрес от DHCP на PC-A
 
