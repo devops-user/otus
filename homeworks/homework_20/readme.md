@@ -78,7 +78,7 @@
   * *время аренды нельзя настроить в CPT.*
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/R1_ip_dhcp.png)
 2. Проверим конфигурацию сервера DHCPv4, как показано на рисунке ниже:
-![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/R1_sh_ip_1.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/R1_sh_ip.png)
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/R1_sh_ip_2.png)
   * show ip dhcp server statistics - не поддерживается данная команда в CPT
 3. Попытаемся получить IP-адрес от DHCP на PC-A
