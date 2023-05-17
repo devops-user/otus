@@ -92,4 +92,6 @@
 2. Попытаемся получить IP-адрес от DHCP на PC-B, как показано на рисунке:
   * Выполним команду ipconfig для просмотра информации об IP-адресе и поверим подключение с помощью пинга
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/PC-B_ping.png)
+  * Выполним **show ip dhcp binding** для R1 для проверки назначений адресов в DHCP
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/R1_sh_ip_3.png)
 # II. Настройка DHCPv6
