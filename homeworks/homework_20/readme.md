@@ -94,4 +94,11 @@
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/PC-B_ping.png)
   * Выполним **show ip dhcp binding** для R1 для проверки назначений адресов в DHCP
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/R1_sh_ip_3.png)
+______________________________________________________________________________________________________
+
 # II. Настройка DHCPv6
+
+### Топология
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/topo.png)
+
+### Таблица адресации
