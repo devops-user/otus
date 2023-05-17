@@ -82,7 +82,7 @@
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/R1_sh_ip_2.png)
   * show ip dhcp server statistics - не поддерживается данная команда в CPT
 3. Попытаемся получить IP-адрес от DHCP на PC-A
-  * IP-адрес успешно получен
+  * IP-адрес успешно получен  
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/PC-A_ip.png)
 
 # Настройка и проверка DHCP-ретрансляции на R2
