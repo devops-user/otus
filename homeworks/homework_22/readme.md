@@ -39,4 +39,4 @@
 | Sticky MAC Address | ** |
 
 5. Реализуем безопасность DHCP snooping
-6. Реализetv PortFast и BPDU Guard
+6. Реализeем PortFast и BPDU Guard
