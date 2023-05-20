@@ -145,6 +145,8 @@ ________________________________________________________________________________
 # Настройка и проверка ретрансляции DHCPv6 на R2
 1. Включим PC-B и проверим адрес SLAAC, который он генерирует, как показано на рисунке:
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/PC-Bv6_ip1.png)
-2. Настроим R2 в качестве агента DHCP-ретрансляции для локальной сети на G0/0/1, как показано на рисунке:
-
+2. Настроим R2 в качестве агента DHCP-ретрансляции для локальной сети на e0/1, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/R2v6_dhcp1.png)
 3. Попытаемся получить адрес IPv6 из DHCPv6 на PC-B
+  * Выполним команду **ipconfig /all** и проверим выходные данные, проверим подключение с помощью пинга
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/PC-Bv6_ip2.png)
