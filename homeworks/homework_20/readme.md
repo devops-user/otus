@@ -137,11 +137,9 @@ ________________________________________________________________________________
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/R1v6_dhcp1.png)
   *	Проверим вывод **ipconfig /all** и сделаем тестирование подключения с помощью пинга
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/PC-Av6_ip2.png)
-
 # Настройка сервера DHCPv6 с сохранением состояния на R1
 1. Создадим пул DHCPv6 на R1 для сети 2001:db8:acad:3:aaa::/80 и назначим только что созданный пул DHCPv6 интерфейсу e0/0 на R1, как показано на рисунке:
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/R1v6_dhcp2.png)
-
 # Настройка и проверка ретрансляции DHCPv6 на R2
 1. Включим PC-B и проверим адрес SLAAC, который он генерирует, как показано на рисунке:
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/PC-Bv6_ip1.png)
