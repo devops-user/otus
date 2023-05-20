@@ -122,7 +122,10 @@ ________________________________________________________________________________
 2. Настроим интерфейсы и маршрутизацию для обоих маршрутизаторов, как показано на рисунке:
   * Настроим интерфейсы G0/0/0 и G0/1 на R1 и R2 с адресами IPv6;
   * Настроим маршрут по умолчанию на каждом маршрутизаторе;
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/R1v6_ip.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/R2v6_ip.png)
   * Убедимся, что маршрутизация работает с помощью пинга;
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/R1v6_ping.png)
 
 # Проверка назначения адреса SLAAC от R1
 
