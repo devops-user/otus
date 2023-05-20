@@ -128,11 +128,15 @@ ________________________________________________________________________________
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/R1v6_ping.png)
 
 # Проверка назначения адреса SLAAC от R1
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/PC-Av6_ip1.png)
 
 # Настройка и проверка сервера DHCPv6 на R1
-1. Более подробно изучим конфигурацию PC-A, как показано на рисунке:
-
-2. Настроим R1 для предоставления DHCPv6 без состояния для PC-A, как показано на рисунке:
+1. Настроим R1 для предоставления DHCPv6 без состояния для PC-A, как показано на рисунке:
+  * Создадим пул DHCP IPv6 на R1
+  * Настроим интерфейс e0/1 на R1
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/R1v6_dhcp1.png)
+  *	Проверим вывод **ipconfig /all** и сделаем тестирование подключения с помощью пинга
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_20/images/PC-Av6_ip2.png)
 
 # Настройка сервера DHCPv6 с сохранением состояния на R1
 
