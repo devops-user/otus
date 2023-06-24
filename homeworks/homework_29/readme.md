@@ -29,6 +29,12 @@
 | 1000 | Собственная | - |
 
 ## 1. Создание сети и настройка основных параметров устройства
+  * Произведем базовую настройку маршрутизаторов, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/R1.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/R2.png)
+  * Настроим базовые параметры каждого коммутатора, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/S1.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/S2.png)
 
 ## 2. Назначение сети VLAN соответствующим интерфейсам коммутатора
 
