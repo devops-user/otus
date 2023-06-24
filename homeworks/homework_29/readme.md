@@ -57,6 +57,9 @@
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/S1_trunk2.png)
 
 ## Настройка маршрутизации
+1. Настроим маршрутизацию между сетями VLAN на R1
+  * Настроим подинтерфейсы для каждой VLAN, настроим интерфейс Loopback 1 на R1, с помощью команды **show ip interface brief** проверим конфигурацию подынтерфейса, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/R1_vlan.png)
 
 ## Настройка удаленного доступа
 
