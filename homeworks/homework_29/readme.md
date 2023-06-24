@@ -32,7 +32,7 @@
 1. Произведем базовую настройку маршрутизаторов, как показано на рисунке:
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/R1.png)
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/R2.png)
-2. Настроим базовые параметры каждого коммутатора, как показано на рисунке:
+3. Настроим базовые параметры каждого коммутатора, как показано на рисунке:
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/S1.png)
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/S2.png)
 
@@ -43,7 +43,7 @@
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/S2_vlan.png)
 
 2. Назначим сети VLAN соответствующим интерфейсам коммутатора
-  * Назначим используемые порты соответствующей VLAN и выполните команду **show vlan brief** для проверки, как показано на рисунке:
+  * Назначим используемые порты соответствующей VLAN и выполните команду **show vlan brief** для проверки, как показано на рисунке:  
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/S1_vlan2.png)
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/S2_vlan2.png)
 
