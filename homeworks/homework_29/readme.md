@@ -48,6 +48,13 @@
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/S2_vlan2.png)
 
 ## Настройка транков (магистральные каналы)
+1. Вручную настроим магистральный интерфейс Fa0/1
+  * Изменим режим порта, установим для native vlan значение 1000, укажим, что VLAN 10, 20, 30 и 1000 разрешены в транке и выполним команду **show interfaces trunk** для проверки портов магистрали, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/S1_trunk.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/S2_trunk.png)
+2. Вручную настроим магистральный интерфейс Fa0/5 на коммутаторе S1
+  * Настроим интерфейс S1 Fa0/5 с теми же параметрами транка, что и Fa0/1,	выполним команду **show interfaces trunk** для проверки настроек транка, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/S1_trunk2.png)
 
 ## Настройка маршрутизации
 
