@@ -60,9 +60,26 @@
 1. Настроим маршрутизацию между сетями VLAN на R1
   * Настроим подинтерфейсы для каждой VLAN, настроим интерфейс Loopback 1 на R1, с помощью команды **show ip interface brief** проверим конфигурацию подынтерфейса, как показано на рисунке:
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/R1_vlan.png)
+2. Настроим интерфейс R2 g0/0/1, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/R2_ip.png)
 
 ## Настройка удаленного доступа
+1. Настроим все сетевые устройства для базовой поддержки SSH
+  * Создадим локального пользователя, в качестве доменного имени используем **ccna-lab.com**, сгенерируем криптоключи и настроим первые пять линий VTY на каждом устройстве, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/R1_ssh.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/R2_ssh.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/S1_ssh.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/S2_ssh.png)
+2. Включим защищенные веб-службы с проверкой подлинности на R1
+  * Не поддерживается в CPT
 
 ## Проверка подключения
+1. Настроим узлы ПК, как показано на рисунке:  
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/PC-A_ip.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/PC-B_ip.png)
+2. Выполним следующие тесты, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/PC-A_test.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/PC-B_test.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/PC-B_test2.png)
 
 ## Настройка и проверка списков контроля доступа (ACL)
