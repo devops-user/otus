@@ -83,3 +83,38 @@
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/PC-B_test2.png)
 
 ## Настройка и проверка списков контроля доступа (ACL)
+1. Создадим два расширенных access-list и применим их на свои сабинтерфейсы маршрутизатора R1, как показано на рисунке:
+  * **SALES_DENY**  
+*ip access-list extended SALES_DENY*  
+*10 deny tcp 10.40.0.0 0.0.0.255 10.20.0.0 0.0.0.255 eq 22*  
+*20 deny icmp 10.40.0.0 0.0.0.255 10.20.0.0 0.0.0.255*  
+*30 deny tcp 10.40.0.0 0.0.0.255 10.20.0.0 0.0.0.255 eq 80*  
+*40 deny tcp 10.40.0.0 0.0.0.255 10.20.0.0 0.0.0.255 eq 443*  
+*50 deny tcp 10.40.0.0 0.0.0.255 host 10.30.0.1 eq 80*  
+*60 deny tcp 10.40.0.0 0.0.0.255 host 10.30.0.1 eq 443*  
+*70 deny tcp 10.40.0.0 0.0.0.255 host 10.40.0.1 eq 80*  
+*80 deny tcp 10.40.0.0 0.0.0.255 host 10.40.0.1 eq 443*  
+*90 deny icmp 10.40.0.0 0.0.0.255 10.30.0.0 0.0.0.255*  
+*100 permit ip any any*  
+  * **OPERATIONS_DENY**  
+*ip access-list extended OPERATIONS_DENY*  
+ *10 deny icmp 10.30.0.0 0.0.0.255 10.40.0.0 0.0.0.255*  
+ *20 permit ip any any*
+2. Выполним следующие тесты, как показано на рисунке:
+
+| От | Протокол | Назначениеи | Результат |
+--- | --- | --- | --- |
+| PC-A | Ping | 10.40.0.10 | $${\color{red}Сбой}$$ |
+| PC-A | Ping | 10.20.0.1 | $${\color{green}Успех}$$ |
+| PC-B | Ping | 10.30.0.10 | $${\color{red}Сбой}$$ |
+| PC-B | Ping | 10.20.0.1 | $${\color{red}Сбой}$$ |
+| PC-B | Ping | 172.16.1.1 | $${\color{green}Успех}$$ |
+| PC-B | HTTPS | 10.20.0.1 | $${\color{red}Сбой}$$ |
+| PC-B | HTTPS | 172.16.1.1 | $${\color{green}Успех}$$ |
+| PC-B | Ping | 10.20.0.4 | $${\color{red}Сбой}$$ |
+| PC-B | Ping | 172.16.1.1 | $${\color{green}Успех}$$ |
+
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/PC-A_test2.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/PC-B_test3.png)  
+Как можно увидеть по статистике, access-list'ы работают корректно 
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_29/images/R1_acl.png)
