@@ -31,13 +31,17 @@
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_22/images/S1_trunk.png)
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_22/images/S2_trunk.png)
 2. Настройка портов доступа
-  * На S1 настроим Gi0/0 и Gi0/2 в качестве портов доступа и свяжим их с VLAN 10
+  * На S1 настроим Gi0/0 и Gi0/2 в качестве портов доступа и свяжим их с VLAN 10, как показано на рисунке ниже:
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_22/images/S1_acc.png) 
-  * На S2 настроим порт доступа Gi0/2 и свяжим его с VLAN 10
+  * На S2 настроим порт доступа Gi0/2 и свяжим его с VLAN 10, как показано на рисунке ниже:
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_22/images/S2_acc.png)
 3. Безопасность неиспользуемых портов коммутатора
-
+  * На S1 и S2 переместим неиспользуемые порты из VLAN 1 в VLAN 999 и отключим неиспользуемые порты, убедимся, что неиспользуемые порты отключены и связаны с VLAN 999, введя команду **show interfaces status**, как показано на рисунке ниже:
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_22/images/S1_sh.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_22/images/S2_sh.png)
 4. Документирование и реализация функций безопасности порта
+  * На S1, введем команду **show port-security interface Gi0/2**  для отображения настроек по умолчанию безопасности порта для интерфейса Gi0/2 и запишем ответы ниже в таблицу, как показано на рисунке ниже:
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_22/images/S1_vlan_ps.png)
 
 **Конфигурация безопасности порта по умолчанию**  
 | Функция | Настройка по умолчанию |
