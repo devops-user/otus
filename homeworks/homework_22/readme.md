@@ -46,13 +46,13 @@
 **Конфигурация безопасности порта по умолчанию**  
 | Функция | Настройка по умолчанию |
  --- | --- |
-| Защита портов | ** |
-| Максимальное количество записей MAC-адресов | ** |
-| Режим проверки на нарушение безопасности | ** |
-| Aging Time | ** |
-| Aging Type | ** |
-| Secure Static Address Aging | ** |
-| Sticky MAC Address | ** |
+| Защита портов | *Disabled* |
+| Максимальное количество записей MAC-адресов | *1* |
+| Режим проверки на нарушение безопасности | *Shutdown* |
+| Aging Time | *0 mins* |
+| Aging Type | *Absolute* |
+| Secure Static Address Aging | *Disabled* |
+| Sticky MAC Address | *0* |
 
 5. Реализуем безопасность DHCP snooping
 6. Реализeем PortFast и BPDU Guard
