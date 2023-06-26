@@ -41,7 +41,7 @@
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_22/images/S2_sh.png)
 4. Документирование и реализация функций безопасности порта
   * На S1, введем команду **show port-security interface Gi0/2**  для отображения настроек по умолчанию безопасности порта для интерфейса Gi0/2 и запишем ответы ниже в таблицу, как показано на рисунке ниже:
-![](https://github.com/devops-user/otus/blob/main/homeworks/homework_22/images/S1_vlan_ps.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_22/images/S1_ps.png)
 
 **Конфигурация безопасности порта по умолчанию**  
 | Функция | Настройка по умолчанию |
