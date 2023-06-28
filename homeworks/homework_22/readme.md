@@ -55,13 +55,13 @@
 | Sticky MAC Address | *0* |
 
   * На S1 включим защиту порта на Gi0/2 со следующими настройками, как показано на рисунке ниже:
-
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_22/images/S1_ps2.png)
   * Проверим функции безопасности порта Gi0/2 на S1, как показано на рисунке ниже:
-
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_22/images/S1_ps3.png)
   * Включим безопасность порта Gi0/2 на S2 со следующими параметрами безопасности, как показано на рисунке ниже:
-
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_22/images/S2_ps.png)
   * Проверим функции безопасности порта Gi0/2 на S2, как показано на рисунке ниже:
-
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_22/images/S2_ps2.png)
 
 5. Реализуем безопасность DHCP snooping
   * На S2 включим DHCP snooping и настроим DHCP snooping во VLAN 10, настроим магистральные порты на S2 как доверенные порты, ограничим ненадежный порт Gi0/2 на S2 пятью DHCP-пакетами в секунду и проверим DHCP Snooping на S2, как показано на рисунке ниже:
