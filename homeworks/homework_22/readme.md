@@ -64,9 +64,14 @@
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_22/images/S2_ps2.png)
 
 5. Реализуем безопасность DHCP snooping
-  * На S2 включим DHCP snooping и настроим DHCP snooping во VLAN 10, настроим магистральные порты на S2 как доверенные порты, ограничим ненадежный порт Gi0/2 на S2 пятью DHCP-пакетами в секунду и проверим DHCP Snooping на S2, как показано на рисунке ниже:
-
+  * На S2 включим DHCP snooping и настроим DHCP snooping во VLAN 10, настроим магистральный порт на S2 как доверенный порт, ограничим ненадежный порт Gi0/2 на S2 пятью DHCP-пакетами в секунду и проверим DHCP Snooping на S2, как показано на рисунке ниже:  
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_22/images/S2_dhcp.png)
+  * Проверим привязку отслеживания DHCP с помощью команды **show ip dhcp snooping binding**, как показано на рисунке ниже:
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_22/images/S2_dhcp2.png)
 6. Реализeем PortFast и BPDU Guard
   * Настроим PortFast на всех портах доступа, включим защиту BPDU на портах доступа VLAN 10 S1 и S2, убедимся, что защита BPDU и PortFast включены на соответствующих портах, как показано на рисунке ниже:
-
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_22/images/S1_bpdu.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_22/images/S2_bpdu.png)
 7. Проверим наличие сквозного ⁪подключения между всеми устройствами
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_22/images/PC-A.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_22/images/PC-B.png)
