@@ -27,9 +27,11 @@
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_26/images/R1_sh.png)
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_26/images/R2_sh.png)
   * На R1 выполним команду **show ip route ospf**, чтобы убедиться, что сеть R2 Loopback1 присутствует в таблице маршрутизации, как показано на рисунке:
-
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_26/images/R1_sh2.png)
+  * - *Какой маршрутизатор является DR? Какой маршрутизатор является BDR? Каковы критерии отбора?*
+    - *Маршрутизатор R2 является DR, маршрутизатор R1 является BDR, критерии выбора DR (Designated Router) назначается маршрутизатор с наивысшим приоритетом, если приоритеты равны, то выбирается маршрутизатор с наивысшим router-id, в нашем случае у R2 router-id выше.*
   * Запустим Ping до адреса интерфейса R2 Loopback 1 из R1, как показано на рисунке:
-
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_26/images/R1_ping.png)
 
 3. Оптимизация и проверка конфигурации OSPFv2 для одной области
   * Реализуем различных оптимизаций на каждом маршрутизаторе, как показано на рисунке:
