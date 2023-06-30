@@ -35,5 +35,13 @@
 
 3. Оптимизация и проверка конфигурации OSPFv2 для одной области
   * Реализуем различных оптимизаций на каждом маршрутизаторе, как показано на рисунке:
-
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_26/images/R1_ospf.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_26/images/R2_ospf.png)
   * Убедимся, что оптимизация OSPFv2 реализовалась, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_26/images/R1_ospf2.png)
+  * На R1 выполним команду **show ip route ospf**, чтобы убедиться, что сеть R2 Loopback1 присутствует в таблице маршрутизации, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_26/images/R1_ospf3.png)
+  * Выполним команду **show ip route ospf** на маршрутизаторе R2 и убедимя, что единственная информация о маршруте OSPF должна быть распространяемый по умолчанию маршрут R1, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_26/images/R2_ospf2.png)
+  * Запустим Ping до адреса интерфейса R1 Loopback 1 из R2, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_26/images/R1_ping2.png)
