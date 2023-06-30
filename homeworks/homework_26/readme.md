@@ -45,3 +45,5 @@
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_26/images/R2_ospf2.png)
   * Запустим Ping до адреса интерфейса R1 Loopback 1 из R2, как показано на рисунке:
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_26/images/R1_ping2.png)
+_______________________________________________________________________________________
+*Почему стоимость OSPF для маршрута по умолчанию отличается от стоимости OSPF в R1 для сети 192.168.1.0/24? - Потому что, этот маршрут является кандидатом по умолчанию*
