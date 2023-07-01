@@ -24,6 +24,10 @@
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_33/images/S2.png)
 
 2. Настройка и проверка NAT для IPv4
+  * Настроим NAT на R1, используя пул из трех адресов 209.165.200.226-209.165.200.228, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_33/images/R1_nat.png)
+  * Выполним диагностику и проверим конфигурацию, как показано на рисунке:
+
 
 3. Настройка и проверка PAT для IPv4
 
