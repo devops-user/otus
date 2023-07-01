@@ -23,8 +23,8 @@
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_33/images/S1.png)
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_33/images/S2.png)
 
-1. Настройка и проверка NAT для IPv4
+2. Настройка и проверка NAT для IPv4
 
-2. Настройка и проверка PAT для IPv4
+3. Настройка и проверка PAT для IPv4
 
-3. Настройка и проверка статического NAT для IPv4
+4. Настройка и проверка статического NAT для IPv4
