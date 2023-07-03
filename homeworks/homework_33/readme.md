@@ -34,7 +34,7 @@
   
   * Протестируем и проверим конфигурацию, как показано на рисунке:
   
-  * На R1 удалим команды преобразования nat pool - **no ip nat inside source list 1 pool PUBLIC_ACCESS overload** и **no ip nat pool PUBLIC_ACCESS** затем добавим команду PAT overload, указав внешний интерфейс - **ip nat inside source list 1 interface g0/0/0 overload**, как показано на рисунке:
+  * На R1 удалим команды преобразования nat pool - **no ip nat inside source list 1 pool PUBLIC_ACCESS overload** и **no ip nat pool PUBLIC_ACCESS** затем добавим команду PAT overload, указав внешний интерфейс - **ip nat inside source list 1 interface Fa0/0 overload**, как показано на рисунке:
 
   * Протестируем и проверим конфигурацию, как показано на рисунке:
 
