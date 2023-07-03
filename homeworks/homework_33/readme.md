@@ -30,16 +30,16 @@
 
 
 3. Настройка и проверка PAT для IPv4
-  * Удалим команду преобразования на R1 - **no ip nat inside source list 1 pool PUBLIC_ACCESS** и добавим команду PAT на R1 - **ip nat inside source list 1 pool PUBLIC_ACCESS overload**, как показано на рисунке:
+  * Удалим команду преобразования на R1 - ***no ip nat inside source list 1 pool PUBLIC_ACCESS*** и добавим команду PAT на R1 - ***ip nat inside source list 1 pool PUBLIC_ACCESS overload***, как показано на рисунке:
   
   * Протестируем и проверим конфигурацию, как показано на рисунке:
   
-  * На R1 удалим команды преобразования nat pool - **no ip nat inside source list 1 pool PUBLIC_ACCESS overload** и **no ip nat pool PUBLIC_ACCESS** затем добавим команду PAT overload, указав внешний интерфейс - **ip nat inside source list 1 interface Fa0/0 overload**, как показано на рисунке:
+  * На R1 удалим команды преобразования nat pool - ***no ip nat inside source list 1 pool PUBLIC_ACCESS overload*** и ***no ip nat pool PUBLIC_ACCESS*** затем добавим команду PAT overload, указав внешний интерфейс - ***ip nat inside source list 1 interface Fa0/0 overload***, как показано на рисунке:
 
   * Протестируем и проверим конфигурацию, как показано на рисунке:
 
 4. Настройка и проверка статического NAT для IPv4
-  * На R1 очистим текущие трансляции и статистику и выполним команду NAT - **ip nat inside source static 192.168.1.2 209.165.200.229**, необходимую для статического сопоставления внутреннего адреса с внешним адресом, как показано на рисунке:
+  * На R1 очистим текущие трансляции и статистику и выполним команду NAT - ***ip nat inside source static 192.168.1.2 209.165.200.229***, необходимую для статического сопоставления внутреннего адреса с внешним адресом, как показано на рисунке:
   
   * Протестируем и проверим конфигурацию, как показано на рисунке:
 
