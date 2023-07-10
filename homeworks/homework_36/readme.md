@@ -13,10 +13,11 @@
 | S2 | SVI VLAN 1  | 10.22.0.3/24 | 10.22.0.1 |
 
 # Создание сети и настройка основных параметров устройства
-1. Настроим базовые параметры для маршрутизатора
-
-2. Настроим базовые параметры каждого коммутатора
-
+1. Настроим базовые параметры для маршрутизатора, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_36/images/R1.png)
+2. Настроим базовые параметры каждого коммутатора, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_36/images/S1.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_36/images/S2.png)
 
 # Обнаружение сетевых ресурсов с помощью протокола CDP
 
