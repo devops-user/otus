@@ -20,9 +20,22 @@
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_36/images/S2.png)
 
 # Обнаружение сетевых ресурсов с помощью протокола CDP
-
+  * На R1 используем соответствующую команду *show cdp interface*, чтобы определить, сколько интерфейсов включено CDP, как показано на рисунке:  
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_36/images/R1_cdp.png)  
+*Сколько интерфейсов участвует в объявлениях CDP? Какие из них активны? - Участвуют все интерфейсы в объявлениях CDP, активен только один интерфейс - FastEthernet0/0*
+  * На R1 используйте соответствующую команду **show cdp entry S1**, чтобы определить версию IOS, используемую на S1, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_36/images/R1_cdp2.png)
+*Какая версия IOS используется на S1? - Experimental Version 15.1(20130726:213425)*
+  * На S1 используйте соответствующую команду **show cdp traffic**, чтобы определить, сколько пакетов CDP было выданных, как показано на рисунке:  
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_36/images/S1_cdp.png)  
+*Сколько пакетов имеет выход CDP с момента последнего сброса счетчика? - 67 пакетов*
+  * Отключим CDP глобально на всех устройствах, с помощью команжы - **no cdp run**
 # Обнаружение сетевых ресурсов с помощью протокола LLDP
-
+  * Выполним команду - **lldp run**, чтобы включить LLDP на всех устройствах в топологии, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_36/images/S1_lldp.png)
+  * На S1 выполним соответствующую команду - **show lldp entry S2**, чтобы предоставить подробную информацию о S2, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_36/images/S1_lldp2.png)
+*Что такое chassis ID  для коммутатора S2? - Это его mac-address*
 # Настройка NTP
 1. Выведим на экран текущее время с помощью команды **show clock** и запишем сведения о текущем времени в таблицу, как показано на рисунке:
 
