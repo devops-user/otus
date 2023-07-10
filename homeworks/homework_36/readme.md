@@ -37,11 +37,14 @@
 ![](https://github.com/devops-user/otus/blob/main/homeworks/homework_36/images/S1_lldp2.png)
 *Что такое chassis ID  для коммутатора S2? - Это его mac-address*
 # Настройка NTP
-1. Выведим на экран текущее время с помощью команды **show clock** и запишем сведения о текущем времени в таблицу, как показано на рисунке:
+1. Выведим на экран текущее время с помощью команды **show clock detail** и запишем сведения о текущем времени в таблицу, как показано на рисунке:  
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_36/images/R1_clock.png)
 
-
+| Дата | Время | Часовой пояс | Источник времени |
+--- | --- | --- | --- |
+| Jul 10 2023 | 18:40:41.483 | UTC | hardware calendar |
 2. Установим время с помощью команды **clock set** на маршрутизаторе R1, как показано на рисунке:
-
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_36/images/R1_clock2.png)
 3. Настроим клиент NTP
 
 4. Проверим настройку NTP
