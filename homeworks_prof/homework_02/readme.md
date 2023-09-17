@@ -186,5 +186,5 @@ no shutdown
 ```
 
   * Убедимся, что VLAN назначены на правильные интерфейсы с помощью команды **show vlan**, как показвно на рисунке ниже.  
-![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_02/images/S1_vlan.PNG)
-![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_02/images/S2_vlan.PNG)
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_02/images/S1_vlan.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_02/images/S2_vlan.png)
