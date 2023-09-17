@@ -147,7 +147,7 @@ end
 ```
 enable
 configure terminal
-interface range Ge1/1-3
+interface range Gi1/1-3
 switchport mode access 
 switchport access vlan 7
 shutdown
@@ -156,7 +156,7 @@ shutdown
 ```
 enable
 configure terminal
-interface range Ge0/0, Ge1/1-3
+interface range Gi0/0, Gi1/1-3
 switchport mode access 
 switchport access vlan 7
 shutdown
@@ -168,7 +168,7 @@ shutdown
 ```
 enable
 configure terminal
-interface Ge0/2
+interface Gi0/2
 description Link to PC-A
 switchport mode access 
 switchport access vlan 3
@@ -178,7 +178,7 @@ no shutdown
 ```
 enable
 configure terminal
-interface Ge0/2
+interface Gi0/2
 description Link to PC-B
 switchport mode access 
 switchport access vlan 4
@@ -186,5 +186,5 @@ no shutdown
 ```
 
   * Убедимся, что VLAN назначены на правильные интерфейсы с помощью команды **show vlan**, как показвно на рисунке ниже.  
-![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/S1_if.png)
-![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/S2_if.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_02/images/S1_vlan.PNG)
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_02/images/S2_vlan.PNG)
