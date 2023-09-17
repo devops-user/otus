@@ -250,7 +250,7 @@ exit
   * Отправим эхо-запрос с PC-A на PC-B.  
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_02/images/ping_2.png)
   * Отправим команду ping с компьютера PC-A на коммутатор S2.
-![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_02/images/ping_2.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_02/images/ping_3.png)
 
 2. Пройдем следующий тест с PC-B, как показано на рисунке ниже.
   * В окне командной строки на PC-B выполним команду **trace** на адрес PC-A.
