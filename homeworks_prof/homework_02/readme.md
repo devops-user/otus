@@ -205,7 +205,13 @@ no shutdown
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_02/images/S1_trunk.png)
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_02/images/S2_trunk.png)
 
-2. Вручную настроим магистральный интерфейс F0/5 на коммутаторе S1, как показано на рисунке ниже.
-![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/S1_f5.png)
+2. Вручную настроим магистральный интерфейс Gi0/0 на коммутаторе S1, как показано ниже.
+```
+interface Gi0/0
+switchport mode trunk
+switchport trunk native vlan 8
+switchport trunk all vlan 3,4,8
+no shutdown
+```
   * Проверка транкинга.
-![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/S1_tr_5.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_02/images/S1_trunk2.png)
