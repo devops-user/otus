@@ -207,7 +207,10 @@ no shutdown
 
 2. Вручную настроим магистральный интерфейс Gi0/0 на коммутаторе S1, как показано ниже.
 ```
+enable
+configure terminal
 interface Gi0/0
+switchport trunk encapsulation dot1q
 switchport mode trunk
 switchport trunk native vlan 8
 switchport trunk all vlan 3,4,8
@@ -215,3 +218,27 @@ no shutdown
 ```
   * Проверка транкинга.
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_02/images/S1_trunk2.png)
+
+# Настройка маршрутизации между сетями VLAN
+1. Настроим маршрутизатор, как показано ниже.
+  * Настроим подинтерфейсы для каждой VLAN, как указано в таблице IP-адресации.
+```
+enable
+configure terminal
+interface Fa0/0
+no shutdow
+interface Fa0/0.3
+encapsulation dot1Q 3
+ip address 192.168.3.1 255.255.255.0
+description --Management--
+interface Fa0/0.4
+encapsulation dot1Q 4
+ip address 192.168.4.1 255.255.255.0
+description --Operations--
+interface Fa0/0.8
+encapsulation dot1Q 1000 native
+description --NATIVE Vlan--
+exit
+```
+  * Убедимся, что вспомогательные интерфейсы работают, как показано на рисунке ниже.
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_02/images/R1_br.png)
