@@ -188,3 +188,24 @@ no shutdown
   * Убедимся, что VLAN назначены на правильные интерфейсы с помощью команды **show vlan**, как показвно на рисунке ниже.  
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_02/images/S1_vlan.png)
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_02/images/S2_vlan.png)
+
+# Конфигурация магистрального канала стандарта 802.1Q между коммутаторами
+1. Вручную настроим магистральный интерфейс Gi0/1 на коммутаторах S1 и S2, как показано ниже.
+```
+enable
+configure terminal
+interface Gi0/1
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk native vlan 8
+switchport trunk all vlan 3,4,8
+no shutdown
+```
+  * Проверим транки, native VLAN и разрешенные VLAN через транк на обоих коммутаторах, как показано на рисунке ниже.
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_02/images/S1_trunk.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_02/images/S2_trunk.png)
+
+2. Вручную настроим магистральный интерфейс F0/5 на коммутаторе S1, как показано на рисунке ниже.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/S1_f5.png)
+  * Проверка транкинга.
+![](https://github.com/devops-user/otus/blob/main/homeworks/homework_14/images/S1_tr_5.png)
