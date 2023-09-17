@@ -136,10 +136,10 @@ end
 enable
 configure terminal
 interface vlan3
-ip address 192.168.4.11 255.255.255.0
+ip address 192.168.3.12 255.255.255.0
 no shutdown
 exit
-ip default-gateway 192.168.4.1
+ip default-gateway 192.168.3.1
 end
 ```
 * Назначим все неиспользуемые порты коммутатора VLAN ParkingLot, настроим их для статического режима доступа и административно деактивируйте их, как показвно ниже.
@@ -242,3 +242,17 @@ exit
 ```
   * Убедимся, что вспомогательные интерфейсы работают, как показано на рисунке ниже.
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_02/images/R1_br.png)
+
+# Проверка работы маршрутизации между VLAN
+1. Выполним следующие тесты с PC-A, как показано на рисунке ниже.
+  * Отправим эхо-запрос с PC-A на шлюз по умолчанию.
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_02/images/ping_1.png)
+  * Отправим эхо-запрос с PC-A на PC-B.  
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_02/images/ping_2.png)
+  * Отправим команду ping с компьютера PC-A на коммутатор S2.
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_02/images/ping_2.png)
+
+2. Пройдем следующий тест с PC-B, как показано на рисунке ниже.
+  * В окне командной строки на PC-B выполним команду **trace** на адрес PC-A.
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_02/images/trace.png)
+  * Какие промежуточные IP-адреса отображаются в результатах? - *Отображается IP-адрес подинтерфейса - Fa0/0.4 на маршрутизаторе, который является шлюзом по-умолчанию для данного PC-B.*
