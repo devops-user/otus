@@ -1,5 +1,8 @@
 # Архитектура сети
 
+### Топология
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_11/images/topo.png)
+
 ### Таблица адресации Триада
 | Устройство | Интерфейс | IP-адрес/Маска подсети |
 --- | --- | --- |
