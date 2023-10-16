@@ -498,6 +498,9 @@ ip address 1.1.32.32 255.255.255.255
 no shutdown
 exit
 ```
+  * Проверка работы с VPCs
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_11/images/vpc8.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_11/images/vpc.png)
 
 
 ### Таблица адресации Москва
