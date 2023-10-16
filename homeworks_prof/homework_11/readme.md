@@ -133,6 +133,20 @@ exit
 | R27 | e0/0 | 85.75.123.10/30 |
 | R27 | lo0 | 1.1.27.27/32 |
 
+**R27**
+```
+configure terminal
+hostname R27
+interface eth0/0
+ip address 85.75.123.10 255.255.255.252
+no shutdown
+exit
+interface lo0
+ip address 1.1.27.27 255.255.255.255
+no shutdown
+exit
+```
+
 ### Таблица адресации Чокурдах
 | Устройство | Интерфейс | IP-адрес/Маска подсети |
 --- | --- | --- |
@@ -145,6 +159,70 @@ exit
 | VPC30 | NIC | 192.168.50.2/29 |
 | VPC31 | NIC | 192.168.50.3/29 |
 
+**R28**
+```
+configure terminal
+hostname R28
+interface eth0/0
+ip address 85.75.123.18 255.255.255.252
+no shutdown
+exit
+interface eth0/1
+ip address 85.75.123.14 255.255.255.252
+no shutdown
+exit
+interface eth0/2
+no shutdown
+exit
+interface eth0/2.14
+description Management
+encapsulation dot1Q 14
+ip address 10.123.14.1 255.255.255.240
+exit
+interface eth0/2.50
+description LAN
+encapsulation dot1Q 50
+ip address 192.168.50.1 255.255.255.248
+exit
+interface lo0
+ip address 1.1.28.28 255.255.255.255
+no shutdown
+exit
+```
+
+**SW29**
+```
+configure terminal
+hostname SW29
+vlan 14
+name MNGT
+exit
+vlan 50
+name LAN
+exit
+hostname SW29
+interface eth0/0
+switchport mode access
+switchport access vlan 50
+no shutdown
+exit
+interface eth0/1
+switchport mode access
+switchport access vlan 50
+no shutdown
+exit
+interface eth0/2
+switchport trunk encapsulation dot1Q
+switchport mode trunk
+switchport trunk all vlan 14,50
+no shutdown
+exit
+interface vlan14
+ip address 10.123.14.2 255.255.255.240
+no shutdown
+```
+
+
 ### Таблица адресации Ламас
 | Устройство | Интерфейс | IP-адрес/Маска подсети |
 --- | --- | --- |
@@ -153,6 +231,28 @@ exit
 | R21 | e0/2 | 85.75.123.6/30 |
 | R21 | lo0 | 1.1.21.21/32 |
 
+**SW21**
+```
+configure terminal
+hostname R21
+interface eth0/0
+ip address 85.75.123.33 255.255.255.252
+no shutdown
+exit
+interface eth0/1
+ip address 85.75.123.30 255.255.255.252
+no shutdown
+exit
+interface eth0/2
+ip address 85.75.123.6 255.255.255.252
+no shutdown
+exit
+interface lo0
+ip address 1.1.21.21 255.255.255.255
+no shutdown
+exit
+```
+
 ### Таблица адресации Киторн
 | Устройство | Интерфейс | IP-адрес/Маска подсети |
 --- | --- | --- |
@@ -160,6 +260,28 @@ exit
 | R22 | e0/1 | 85.75.123.29/30 |
 | R22 | e0/2 | 85.75.123.2/30 |
 | R22 | lo0 | 1.1.22.22/32 |
+
+**SW22**
+```
+configure terminal
+hostname R22
+interface eth0/0
+ip address 85.75.123.37 255.255.255.252
+no shutdown
+exit
+interface eth0/1
+ip address 85.75.123.29 255.255.255.252
+no shutdown
+exit
+interface eth0/2
+ip address 85.75.123.2 255.255.255.252
+no shutdown
+exit
+interface lo0
+ip address 1.1.22.22 255.255.255.255
+no shutdown
+exit
+```
 
 ### Таблица адресации С.-Петербург
 | Устройство | Интерфейс | IP-адрес/Маска подсети |
