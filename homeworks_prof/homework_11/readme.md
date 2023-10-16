@@ -261,7 +261,7 @@ exit
 | R22 | e0/2 | 85.75.123.2/30 |
 | R22 | lo0 | 1.1.22.22/32 |
 
-**SW22**
+**R22**
 ```
 configure terminal
 hostname R22
@@ -305,13 +305,200 @@ exit
 | SW9 | e0/3 | 10.123.42.7/31 |
 | SW9 | e1/0 | 10.123.42.11/31 |
 | SW9 | vlan242 | 192.168.242.2/29 |
+| SW9 | vrrp 1 | 192.168.242.1/29 |
 | SW9 | lo0 | 1.1.9.9/32 |
 | SW10 | e0/3 | 10.123.142.13/31 |
 | SW10 | e1/0 | 10.123.42.9/31 |
 | SW10 | vlan242 | 192.168.242.3/29 |
+| SW10 | vrrp 1 | 192.168.242.1/29 |
 | SW10 | lo0 | 1.1.10.10/32 |
 | VPC8 | NIC | 192.168.42.4/29 |
 | VPC | NIC | 192.168.42.5/29 |
+
+
+**R16**
+```
+configure terminal
+hostname R16
+interface eth0/0
+ip address 10.123.42.12 255.255.255.254
+no shutdown
+exit
+interface eth0/1
+ip address 10.123.42.3 255.255.255.254
+no shutdown
+exit
+interface eth0/2
+ip address 10.123.42.10 255.255.255.254
+no shutdown
+exit
+interface eth0/3
+ip address 10.123.42.4 255.255.255.254
+no shutdown
+exit
+interface lo0
+ip address 1.1.16.16 255.255.255.255
+no shutdown
+exit
+```
+
+**R17**
+```
+configure terminal
+hostname R17
+interface eth0/0
+ip address 10.123.42.6 255.255.255.254
+no shutdown
+exit
+interface eth0/1
+ip address 10.123.42.1 255.255.255.254
+no shutdown
+exit
+interface eth0/2
+ip address 10.123.42.8 255.255.255.254
+no shutdown
+exit
+interface lo0
+ip address 1.1.17.17 255.255.255.255
+no shutdown
+exit
+```
+
+**R18**
+```
+configure terminal
+hostname R18
+interface eth0/0
+ip address 10.123.42.2 255.255.255.254
+no shutdown
+exit
+interface eth0/1
+ip address 10.123.42.0 255.255.255.254
+no shutdown
+exit
+interface eth0/2
+ip address 85.75.123.26 255.255.255.252
+no shutdown
+exit
+interface eth0/3
+ip address 85.75.123.22 255.255.255.252
+no shutdown
+exit
+interface lo0
+ip address 1.1.18.18 255.255.255.255
+no shutdown
+exit
+```
+
+**SW9**
+```
+configure terminal
+hostname SW9
+vlan 242
+name LAN
+exit
+interface eth0/0
+switchport trunk encapsulation dot1q
+switchport mode trunk
+channel-group 1 mode active
+no shutdown
+exit
+interface eth0/1
+switchport trunk encapsulation dot1q
+switchport mode trunk
+channel-group 1 mode active
+no shutdown
+exit
+interface Port-channel1
+switchport trunk encapsulation dot1q
+switchport mode trunk
+exit
+interface eth0/2
+switchport mode access
+switchport access vlan 242
+no shutdown
+exit
+interface eth0/3
+ip address 10.123.42.7 255.255.255.254
+no shutdown
+exit
+interface eth1/0
+ip address 10.123.42.11 255.255.255.254
+no shutdown
+exit
+interface lo0
+ip address 1.1.9.9 255.255.255.255
+no shutdown
+exit
+interface Vlan242
+ip address 192.168.242.2 255.255.255.248
+vrrp 1 ip 192.168.242.1
+vrrp 1 priority 120
+vrrp 1 preempt
+```
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_11/images/sw9_vrrp.png)
+
+**SW10**
+```
+configure terminal
+hostname SW10
+vlan 242
+name LAN
+exit
+interface eth0/0
+switchport trunk encapsulation dot1q
+switchport mode trunk
+channel-group 1 mode active
+no shutdown
+exit
+interface eth0/1
+switchport trunk encapsulation dot1q
+switchport mode trunk
+channel-group 1 mode active
+no shutdown
+exit
+interface Port-channel1
+switchport trunk encapsulation dot1q
+switchport mode trunk
+exit
+interface eth0/2
+switchport mode access
+switchport access vlan 242
+no shutdown
+exit
+interface eth0/3
+ip address 10.123.42.13 255.255.255.254
+no shutdown
+exit
+interface eth1/0
+ip address 10.123.42.9 255.255.255.254
+no shutdown
+exit
+interface lo0
+ip address 1.1.10.10 255.255.255.255
+no shutdown
+exit
+interface Vlan242
+ip address 192.168.242.3 255.255.255.248
+vrrp 1 ip 192.168.242.1
+vrrp 1 priority 100
+```
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_11/images/sw10_vrrp.png)
+
+**R32**
+```
+configure terminal
+hostname R32
+interface eth0/0
+ip address 10.123.42.5 255.255.255.254
+no shutdown
+exit
+interface lo0
+ip address 1.1.32.32 255.255.255.255
+no shutdown
+exit
+```
+
 
 ### Таблица адресации Москва
 | Устройство | Интерфейс | IP-адрес/Маска подсети |
