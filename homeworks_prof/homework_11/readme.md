@@ -746,6 +746,7 @@ vrrp 55 ip 192.168.55.1
 vrrp 55 priority 100
 exit
 ```
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_11/images/sw4_vrrp.png)
 
 **SW5**
 ```
@@ -810,6 +811,7 @@ vrrp 55 priority 120
 vrrp 55 preempt
 exit
 ```
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_11/images/sw5_vrrp.png)
 
 **SW2**
 ```
