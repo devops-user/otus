@@ -48,6 +48,85 @@ no shutdown
 exit
 ```
 
+**R24**
+```
+configure terminal
+hostname R24
+interface eth0/0
+ip address 85.75.123.5 255.255.255.252
+no shutdown
+exit
+interface eth0/1
+ip address 10.123.52.4 255.255.255.254
+no shutdown
+exit
+interface eth0/2
+ip address 10.123.52.3 255.255.255.254
+no shutdown
+exit
+interface eth0/3
+ip address 85.75.123.25 255.255.255.252
+no shutdown
+exit
+interface lo0
+ip address 1.1.24.24 255.255.255.255
+no shutdown
+exit
+```
+
+**R25**
+```
+configure terminal
+hostname R25
+interface eth0/0
+ip address 10.123.52.1 255.255.255.254
+no shutdown
+exit
+interface eth0/1
+ip address 85.75.123.9 255.255.255.252
+no shutdown
+exit
+interface eth0/2
+ip address 10.123.52.7 255.255.255.254
+no shutdown
+exit
+interface eth0/3
+ip address 85.75.123.13 255.255.255.252
+no shutdown
+exit
+interface lo0
+ip address 1.1.25.25 255.255.255.255
+no shutdown
+exit
+```
+
+**R26**
+```
+configure terminal
+hostname R26
+interface eth0/0
+ip address 10.123.52.5 255.255.255.254
+no shutdown
+exit
+interface eth0/1
+ip address 85.75.123.17 255.255.255.252
+no shutdown
+exit
+interface eth0/2
+ip address 10.123.52.6 255.255.255.254
+no shutdown
+exit
+interface eth0/3
+ip address 85.75.123.21 255.255.255.252
+no shutdown
+exit
+interface lo0
+ip address 1.1.26.26 255.255.255.255
+no shutdown
+exit
+
+```
+
 ### Таблица адресации Лабытнанги
 | Устройство | Интерфейс | IP-адрес/Маска подсети |
 --- | --- | --- |
