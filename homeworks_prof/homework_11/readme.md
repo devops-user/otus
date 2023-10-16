@@ -544,3 +544,135 @@ exit
 | SW5 | e1/1 | 10.101.101.3/31 |
 | VPC1 | NIC | 192.168.55.4/29 |
 | VPC7 | NIC | 192.168.55.5/29 |
+
+**R12**
+```
+configure terminal
+hostname R12
+interface eth0/0
+ip address 10.101.101.0 255.255.255.254
+no shutdown
+exit
+interface eth0/1
+ip address 10.101.101.2 255.255.255.254
+no shutdown
+exit
+interface eth0/2
+ip address 10.101.101.4 255.255.255.254
+no shutdown
+exit
+interface eth0/3
+ip address 10.101.101.6 255.255.255.254
+no shutdown
+exit
+interface lo0
+ip address 1.1.12.12 255.255.255.255
+no shutdown
+exit
+```
+
+**R13**
+```
+configure terminal
+hostname R13
+interface eth0/0
+ip address 10.101.101.8 255.255.255.254
+no shutdown
+exit
+interface eth0/1
+ip address 10.101.101.10 255.255.255.254
+no shutdown
+exit
+interface eth0/2
+ip address 10.101.101.12 255.255.255.254
+no shutdown
+exit
+interface eth0/3
+ip address 10.101.101.14 255.255.255.254
+no shutdown
+exit
+interface lo0
+ip address 1.1.13.13 255.255.255.255
+no shutdown
+exit
+```
+
+**R14**
+```
+configure terminal
+hostname R14
+interface eth0/0
+ip address 10.101.101.5 255.255.255.254
+no shutdown
+exit
+interface eth0/1
+ip address 10.101.101.15 255.255.255.254
+no shutdown
+exit
+interface eth0/2
+ip address 85.75.123.38 255.255.255.252
+no shutdown
+exit
+interface eth0/3
+ip address 10.101.101.16 255.255.255.254
+no shutdown
+exit
+interface lo0
+ip address 1.1.14.14 255.255.255.255
+no shutdown
+exit
+```
+
+**R15**
+```
+configure terminal
+hostname R15
+interface eth0/0
+ip address 10.101.101.13 255.255.255.254
+no shutdown
+exit
+interface eth0/1
+ip address 10.101.101.7 255.255.255.254
+no shutdown
+exit
+interface eth0/2
+ip address 85.75.123.34 255.255.255.252
+no shutdown
+exit
+interface eth0/3
+ip address 10.101.101.18 255.255.255.254
+no shutdown
+exit
+interface lo0
+ip address 1.1.15.15 255.255.255.255
+no shutdown
+exit
+```
+
+**R19**
+```
+configure terminal
+hostname R19
+interface eth0/0
+ip address 10.101.101.17 255.255.255.254
+no shutdown
+exit
+interface lo0
+ip address 1.1.19.19 255.255.255.255
+no shutdown
+exit
+```
+
+**R20**
+```
+configure terminal
+hostname R20
+interface eth0/0
+ip address 10.101.101.19/31 255.255.255.254
+no shutdown
+exit
+interface lo0
+ip address 1.1.20.20 255.255.255.255
+no shutdown
+exit
+```
