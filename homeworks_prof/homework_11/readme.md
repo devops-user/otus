@@ -668,7 +668,7 @@ exit
 configure terminal
 hostname R20
 interface eth0/0
-ip address 10.101.101.19/31 255.255.255.254
+ip address 10.101.101.19 255.255.255.254
 no shutdown
 exit
 interface lo0
