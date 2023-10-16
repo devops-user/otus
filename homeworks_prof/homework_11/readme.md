@@ -880,3 +880,6 @@ ip address 10.123.101.3 255.255.255.248
 no shutdown
 exit
 ```
+  * Проверка работы с VPCs  
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_11/images/vpc1.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_11/images/vpc7.png)
