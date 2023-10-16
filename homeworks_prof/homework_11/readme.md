@@ -204,11 +204,13 @@ hostname SW29
 interface eth0/0
 switchport mode access
 switchport access vlan 50
+spanning-tree portfast
 no shutdown
 exit
 interface eth0/1
 switchport mode access
 switchport access vlan 50
+spanning-tree portfast
 no shutdown
 exit
 interface eth0/2
@@ -416,6 +418,7 @@ exit
 interface eth0/2
 switchport mode access
 switchport access vlan 242
+spanning-tree portfast
 no shutdown
 exit
 interface eth0/3
@@ -467,6 +470,7 @@ exit
 interface eth0/2
 switchport mode access
 switchport access vlan 242
+spanning-tree portfast
 no shutdown
 exit
 interface eth0/3
@@ -839,6 +843,7 @@ exit
 interface eth0/2
 switchport mode access
 switchport access vlan 55
+spanning-tree portfast
 no shutdown
 exit
 interface vlan101
@@ -873,6 +878,7 @@ exit
 interface eth0/2
 switchport mode access
 switchport access vlan 55
+spanning-tree portfast
 no shutdown
 exit
 interface vlan101
