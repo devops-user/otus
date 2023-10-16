@@ -26,6 +26,28 @@
 | R26 | e0/3 | 85.75.123.21/30 |
 | R26 | lo0 | 1.1.26.26/32 |
 
+**R23**
+```
+configure terminal
+hostname R23
+interface eth0/0
+ip address 85.75.123.1 255.255.255.252
+no shutdown
+exit
+interface eth0/1
+ip address 10.123.52.0 255.255.255.254
+no shutdown
+exit
+interface eth0/2
+ip address 10.123.52.2 255.255.255.254
+no shutdown
+exit
+interface lo0
+ip address 1.1.23.23 255.255.255.255
+no shutdown
+exit
+```
+
 ### Таблица адресации Лабытнанги
 | Устройство | Интерфейс | IP-адрес/Маска подсети |
 --- | --- | --- |
