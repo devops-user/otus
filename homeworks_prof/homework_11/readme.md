@@ -419,10 +419,12 @@ switchport access vlan 242
 no shutdown
 exit
 interface eth0/3
+no switchport
 ip address 10.123.42.7 255.255.255.254
 no shutdown
 exit
 interface eth1/0
+no switchport
 ip address 10.123.42.11 255.255.255.254
 no shutdown
 exit
@@ -467,10 +469,12 @@ switchport access vlan 242
 no shutdown
 exit
 interface eth0/3
+no switchport
 ip address 10.123.42.13 255.255.255.254
 no shutdown
 exit
 interface eth1/0
+no switchport
 ip address 10.123.42.9 255.255.255.254
 no shutdown
 exit
