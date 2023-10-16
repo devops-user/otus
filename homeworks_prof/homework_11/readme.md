@@ -682,3 +682,199 @@ ip address 1.1.20.20 255.255.255.255
 no shutdown
 exit
 ```
+**SW4**
+```
+configure terminal
+hostname SW4
+vlan 101
+name MNGT
+exit
+vlan 55
+name LAN
+exit
+interface eth0/2
+switchport trunk encapsulation dot1q
+switchport mode trunk
+channel-group 1 mode active
+no shutdown
+exit
+interface eth0/3
+switchport trunk encapsulation dot1q
+switchport mode trunk
+channel-group 1 mode active
+no shutdown
+exit
+interface Port-channel1
+switchport trunk encapsulation dot1q
+switchport mode trunk
+exit
+interface eth0/0
+switchport trunk encapsulation dot1q
+switchport mode trunk
+no shutdown
+exit
+interface eth0/1
+switchport trunk encapsulation dot1q
+switchport mode trunk
+shutdown
+exit
+interface eth1/1
+no switchport
+ip address 10.101.101.11 255.255.255.254
+no shutdown
+exit
+interface eth1/0
+no switchport
+ip address 10.101.101.1 255.255.255.254
+no shutdown
+exit
+interface lo0
+ip address 1.1.4.4 255.255.255.255
+no shutdown
+exit
+interface Vlan101
+no shutdown
+ip address 10.123.101.4 255.255.255.248
+vrrp 101 ip 10.123.101.1
+vrrp 101 priority 120
+vrrp 101 preempt
+exit
+interface Vlan55
+no shutdown
+ip address 192.168.55.3 255.255.255.248
+vrrp 55 ip 192.168.55.1
+vrrp 55 priority 100
+exit
+```
+
+**SW5**
+```
+configure terminal
+hostname SW5
+vlan 101
+name MNGT
+exit
+vlan 55
+name LAN
+exit
+interface eth0/2
+switchport trunk encapsulation dot1q
+switchport mode trunk
+channel-group 1 mode active
+no shutdown
+exit
+interface eth0/3
+switchport trunk encapsulation dot1q
+switchport mode trunk
+channel-group 1 mode active
+no shutdown
+exit
+interface Port-channel1
+switchport trunk encapsulation dot1q
+switchport mode trunk
+exit
+interface eth0/0
+switchport trunk encapsulation dot1q
+switchport mode trunk
+no shutdown
+exit
+interface eth0/1
+switchport trunk encapsulation dot1q
+switchport mode trunk
+shutdown
+exit
+interface eth1/1
+no switchport
+ip address 10.101.101.3 255.255.255.254
+no shutdown
+exit
+interface eth1/0
+no switchport
+ip address 10.101.101.9 255.255.255.254
+no shutdown
+exit
+interface lo0
+ip address 1.1.5.5 255.255.255.255
+no shutdown
+exit
+interface Vlan101
+no shutdown
+ip address 10.123.101.5 255.255.255.248
+vrrp 101 ip 10.123.101.1
+vrrp 101 priority 100
+interface Vlan55
+no shutdown
+ip address 192.168.55.2 255.255.255.248
+vrrp 55 ip 192.168.55.1
+vrrp 55 priority 120
+vrrp 55 preempt
+exit
+```
+
+**SW2**
+```
+configure terminal
+hostname SW2
+vlan 101
+name MNGT
+exit
+vlan 55
+name LAN
+exit
+hostname SW2
+interface eth0/0
+switchport trunk encapsulation dot1Q
+switchport mode trunk
+switchport trunk all vlan 55,101
+no shutdown
+exit
+interface eth0/1
+switchport trunk encapsulation dot1Q
+switchport mode trunk
+switchport trunk all vlan 55,101
+no shutdown
+exit
+interface eth0/2
+switchport mode access
+switchport access vlan 55
+no shutdown
+exit
+interface vlan101
+ip address 10.123.101.2 255.255.255.248
+no shutdown
+exit
+```
+
+**SW3**
+```
+configure terminal
+hostname SW3
+vlan 101
+name MNGT
+exit
+vlan 55
+name LAN
+exit
+hostname SW2
+interface eth0/0
+switchport trunk encapsulation dot1Q
+switchport mode trunk
+switchport trunk all vlan 55,101
+no shutdown
+exit
+interface eth0/1
+switchport trunk encapsulation dot1Q
+switchport mode trunk
+switchport trunk all vlan 55,101
+no shutdown
+exit
+interface eth0/2
+switchport mode access
+switchport access vlan 55
+no shutdown
+exit
+interface vlan101
+ip address 10.123.101.3 255.255.255.248
+no shutdown
+exit
+```
