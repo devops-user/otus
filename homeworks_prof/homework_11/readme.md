@@ -433,6 +433,7 @@ ip address 1.1.9.9 255.255.255.255
 no shutdown
 exit
 interface Vlan242
+no shutdown
 ip address 192.168.242.2 255.255.255.248
 vrrp 1 ip 192.168.242.1
 vrrp 1 priority 120
@@ -483,6 +484,7 @@ ip address 1.1.10.10 255.255.255.255
 no shutdown
 exit
 interface Vlan242
+no shutdown
 ip address 192.168.242.3 255.255.255.248
 vrrp 1 ip 192.168.242.1
 vrrp 1 priority 100
