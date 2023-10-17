@@ -886,6 +886,155 @@ ip address 10.123.101.3 255.255.255.248
 no shutdown
 exit
 ```
+
+  * На коммутаторах SW2 и SW3 включим протокол STP и зададим глобально режим - **spanning-tree mode rapid-pvst**. На портах eth0/1 обоих комутатров изменим стоимость портов - **spanning-tree cost 101**  для того, что порты eth0/1 заблокировались по STP.  
+
+**SW2**
+```
+SW2#show spanning-tree                       
+
+VLAN0001
+  Spanning tree enabled protocol rstp
+  Root ID    Priority    32769
+             Address     aabb.cc00.2000
+             This bridge is the root
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+             Address     aabb.cc00.2000
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  300 sec
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Et0/3               Desg FWD 100       128.4    Shr 
+Et1/0               Desg FWD 100       128.5    Shr 
+Et1/1               Desg FWD 100       128.6    Shr 
+Et1/2               Desg FWD 100       128.7    Shr 
+Et1/3               Desg FWD 100       128.8    Shr 
+
+
+          
+VLAN0055
+  Spanning tree enabled protocol rstp
+  Root ID    Priority    32823
+             Address     aabb.cc00.2000
+             This bridge is the root
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32823  (priority 32768 sys-id-ext 55)
+             Address     aabb.cc00.2000
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  300 sec
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Et0/0               Desg FWD 100       128.1    Shr 
+Et0/1               Back BLK 101       128.2    Shr 
+Et0/2               Desg FWD 100       128.3    Shr Edge 
+
+
+          
+VLAN0101
+  Spanning tree enabled protocol rstp
+  Root ID    Priority    32869
+             Address     aabb.cc00.2000
+             This bridge is the root
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32869  (priority 32768 sys-id-ext 101)
+             Address     aabb.cc00.2000
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  300 sec
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Et0/0               Desg FWD 100       128.1    Shr 
+Et0/1               Back BLK 101       128.2    Shr 
+
+SW2#show spanning-tree interface Et0/1
+
+Vlan                Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+VLAN0055            Back BLK 101       128.2    Shr 
+VLAN0101            Back BLK 101       128.2    Shr 
+SW2#
+```
+
+**SW3**
+```
+SW3#show spanning-tree 
+
+VLAN0001
+  Spanning tree enabled protocol rstp
+  Root ID    Priority    32769
+             Address     aabb.cc00.3000
+             This bridge is the root
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+             Address     aabb.cc00.3000
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  300 sec
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Et0/3               Desg FWD 100       128.4    Shr 
+Et1/0               Desg FWD 100       128.5    Shr 
+Et1/1               Desg FWD 100       128.6    Shr 
+Et1/2               Desg FWD 100       128.7    Shr 
+Et1/3               Desg FWD 100       128.8    Shr 
+
+
+          
+VLAN0055
+  Spanning tree enabled protocol rstp
+  Root ID    Priority    32823
+             Address     aabb.cc00.2000
+             Cost        100
+             Port        1 (Ethernet0/0)
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32823  (priority 32768 sys-id-ext 55)
+             Address     aabb.cc00.3000
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  300 sec
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Et0/0               Root FWD 100       128.1    Shr 
+Et0/1               Altn BLK 101       128.2    Shr 
+Et0/2               Desg FWD 100       128.3    Shr Edge 
+
+
+          
+VLAN0101
+  Spanning tree enabled protocol rstp
+  Root ID    Priority    32869
+             Address     aabb.cc00.2000
+             Cost        100
+             Port        1 (Ethernet0/0)
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32869  (priority 32768 sys-id-ext 101)
+             Address     aabb.cc00.3000
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  300 sec
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Et0/0               Root FWD 100       128.1    Shr 
+Et0/1               Altn BLK 101       128.2    Shr 
+
+SW3#show spanning-tree interface Et0/1
+
+Vlan                Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+VLAN0055            Altn BLK 101       128.2    Shr 
+VLAN0101            Altn BLK 101       128.2    Shr 
+SW3#
+```
+
   * Проверка работы с VPCs  
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_11/images/vpc1.png)
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_11/images/vpc7.png)
