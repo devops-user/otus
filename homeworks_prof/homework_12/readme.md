@@ -22,8 +22,11 @@ ip sla schedule 26 life forever start-time now
 ```
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_12/images/sla_1.png)
 
+
   * Погасим интерфейс на маршрутизаторе R26 провайдера Триада, ниже на рисунке увидим статистику и статус ответа:
+
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_12/images/sla.png)
+
 
   * Настрим маршрут по-умолчанию на маршрутизаторе офиса Лабытнанги:
 ```
