@@ -3,10 +3,10 @@
 ### Топология
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_11/images/topo.png)
 
-  * Настроим два маршрута по-умолчанию на маршрутизаторе офиса Чокурдах в сторону провайдера Триада:
+  * Настроим два маршрута по-умолчанию на маршрутизаторе офиса Чокурдах в сторону провайдера Триада, но маршрут в сторону R26 будет менее приоритетным:
 ```
 ip route 0.0.0.0 0.0.0.0 85.75.123.13 name to_R25
-ip route 0.0.0.0 0.0.0.0 85.75.123.17 name to_R26
+ip route 0.0.0.0 0.0.0.0 85.75.123.17 254 name to_R26
 ```
 
   * Настроим отслеживание линков на маршрутизаторе офиса Чокурдах, ниже на рисунке видим статистику и статус ответа, что всё *ОК*:
@@ -22,10 +22,26 @@ ip sla schedule 26 life forever start-time now
 ```
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_12/images/sla_1.png)
 
+  * Создадим track для отслеживания статуса линков и привяжем их к нашим маршрутам:
+```
+track 25 ip sla 25 reachability
+ delay down 60 up 60
+track 26 ip sla 26 reachability
+ delay down 60 up 60
+```
+```
+ip route 0.0.0.0 0.0.0.0 85.75.123.13 name to_R25 track 25
+ip route 0.0.0.0 0.0.0.0 85.75.123.17 254 name to_R26 track 26
+```
 
-  * Погасим интерфейс на маршрутизаторе R26 провайдера Триада, ниже на рисунке увидим статистику и статус ответа:
+  * Погасим интерфейс на маршрутизаторе R25 провайдера Триада, ниже на рисунке увидим статистику и статус ответа:
 
-![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_12/images/sla.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_12/images/sla.png)  
+
+  * Можно увидеть как сработал наш track и маршрут по-умолчанию изменился
+
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_12/images/track.png)
+
 
 
   * Настрим маршрут по-умолчанию на маршрутизаторе офиса Лабытнанги:
