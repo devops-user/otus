@@ -20,7 +20,7 @@ ip sla 26
  frequency 10
 ip sla schedule 26 life forever start-time now
 ```
-![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_12/images/sla_1.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_12/images/sla_ok.png)
 
   * Создадим track для отслеживания статуса линков и привяжем их к нашим маршрутам:
 ```
@@ -36,7 +36,7 @@ ip route 0.0.0.0 0.0.0.0 85.75.123.17 254 name to_R26 track 26
 
   * Погасим интерфейс на маршрутизаторе R25 провайдера Триада, ниже на рисунке увидим статистику и статус ответа:
 
-![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_12/images/sla.png)  
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_12/images/sla_nok.png)  
 
   * Можно увидеть как сработал наш track и маршрут по-умолчанию изменился
 
