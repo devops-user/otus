@@ -59,7 +59,7 @@ interface Ethernet0/2.50
  ip policy route-map rm_vpc31_nh
 end
 ```
-Для проверки на R25 и R26 прописал статический маршрут до loopback-адреса (1.1.27.27) офиса Лабытнанги и запустил trace с VPC31 и VPC30:
+  * Для проверки прохождения трафика на R25 и R26 прописал статический маршрут до loopback-адреса (1.1.27.27) офиса Лабытнанги и запустил trace с VPC31 и VPC30:  
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_12/images/trace.png)
 
 #### 1. Офис Лабытнанги
