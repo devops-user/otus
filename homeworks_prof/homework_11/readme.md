@@ -7,124 +7,140 @@
 | Устройство | Интерфейс | IP-адрес/Маска подсети |
 --- | --- | --- |
 | R23 | e0/0 | 85.75.123.1/30 |
-| R23 | e0/1 | 10.123.52.0/31 |
-| R23 | e0/2 | 10.123.52.2/31 |
-| R23 | lo0 | 1.1.23.23/32 |
+|  | e0/1 | 10.123.52.0/31 |
+|  | e0/1 | 2001:DB8:1212:1212::0/127 |
+|  | e0/1 | FE80::23 |
+|  | e0/2 | 10.123.52.2/31 |
+|  | e0/2 | 2001:DB8:1212:1212::2/127 |
+|  | e0/2 | FE80::23 |
+|  | lo0 | 1.1.23.23/32 |
+|  | lo0 | 2002:101::23:23/128 |
 | R24 | e0/0 | 85.75.123.5/30 |
-| R24 | e0/1 | 10.123.52.4/31 |
-| R24 | e0/2 | 10.123.52.3/31 |
-| R24 | e0/3 | 85.75.123.25/30 |
-| R24 | lo0 | 1.1.24.24/32 |
+|  | e0/1 | 10.123.52.4/31 |
+|  | e0/1 | 2001:DB8:1212:1212::4/127 |
+|  | e0/1 | FE80::24 |
+|  | e0/2 | 10.123.52.3/31 |
+|  | e0/2 | 2001:DB8:1212:1212::3/127 |
+|  | e0/2 | FE80::24 |
+|  | e0/3 | 85.75.123.25/30 |
+|  | lo0 | 1.1.24.24/32 |
+|  | lo0 | 2002:101::24:24/128 |
 | R25 | e0/0 | 10.123.52.1/31 |
-| R25 | e0/1 | 85.75.123.9/30 |
-| R25 | e0/2 | 10.123.52.7/31 |
-| R25 | e0/3 | 85.75.123.13/30 |
-| R25 | lo0 | 1.1.25.25/32 |
+|  | e0/0 | 2001:DB8:1212:1212::1/127 |
+|  | e0/0 | FE80::25 |
+|  | e0/1 | 85.75.123.9/30 |
+|  | e0/2 | 10.123.52.7/31 |
+|  | e0/2 | 2001:DB8:1212:1212::7/127 |
+|  | e0/2 | FE80::25 |
+|  | e0/3 | 85.75.123.13/30 |
+|  | lo0 | 1.1.25.25/32 |
+|  | lo0 | 2002:101::25:25/128 |
 | R26 | e0/0 | 10.123.52.5/31 |
-| R26 | e0/1 | 85.75.123.17/30 |
-| R26 | e0/2 | 10.123.52.6/31 |
-| R26 | e0/3 | 85.75.123.21/30 |
-| R26 | lo0 | 1.1.26.26/32 |
+|  | e0/0 | 2001:DB8:1212:1212::5/127 |
+|  | e0/0 | FE80::26 |
+|  | e0/1 | 85.75.123.17/30 |
+|  | e0/2 | 10.123.52.6/31 |
+|  | e0/2 | 2001:DB8:1212:1212::6/127 |
+|  | e0/2 | FE80::26 |
+|  | e0/3 | 85.75.123.21/30 |
+|  | lo0 | 1.1.26.26/32 |
+|  | lo0 | 2002:101::26:26/128 |
 
 **R23**
 ```
 configure terminal
 hostname R23
-interface eth0/0
-ip address 85.75.123.1 255.255.255.252
-no shutdown
-exit
-interface eth0/1
-ip address 10.123.52.0 255.255.255.254
-no shutdown
-exit
-interface eth0/2
-ip address 10.123.52.2 255.255.255.254
-no shutdown
-exit
-interface lo0
-ip address 1.1.23.23 255.255.255.255
-no shutdown
-exit
+interface Loopback0
+ ip address 1.1.23.23 255.255.255.255
+ ipv6 address 2002:101::23:23/128
+!         
+interface Ethernet0/0
+ ip address 85.75.123.1 255.255.255.252
+!
+interface Ethernet0/1
+ ip address 10.123.52.0 255.255.255.254
+ ipv6 address FE80::23 link-local
+ ipv6 address 2001:DB8:1212:1212::/127
+!
+interface Ethernet0/2
+ ip address 10.123.52.2 255.255.255.254
+ ipv6 address FE80::23 link-local
+ ipv6 address 2001:DB8:1212:1212::2/127
 ```
 
 **R24**
 ```
 configure terminal
 hostname R24
-interface eth0/0
-ip address 85.75.123.5 255.255.255.252
-no shutdown
-exit
-interface eth0/1
-ip address 10.123.52.4 255.255.255.254
-no shutdown
-exit
-interface eth0/2
-ip address 10.123.52.3 255.255.255.254
-no shutdown
-exit
-interface eth0/3
-ip address 85.75.123.25 255.255.255.252
-no shutdown
-exit
-interface lo0
-ip address 1.1.24.24 255.255.255.255
-no shutdown
-exit
+interface Loopback0
+ ip address 1.1.24.24 255.255.255.255
+ ipv6 address 2002:101::24:24/128
+!
+interface Ethernet0/0
+ ip address 85.75.123.5 255.255.255.252
+!
+interface Ethernet0/1
+ ip address 10.123.52.4 255.255.255.254
+ ipv6 address FE80::24 link-local
+ ipv6 address 2001:DB8:1212:1212::4/127
+!
+interface Ethernet0/2
+ ip address 10.123.52.3 255.255.255.254
+ ipv6 address FE80::24 link-local
+ ipv6 address 2001:DB8:1212:1212::3/127
+!
+interface Ethernet0/3
+ ip address 85.75.123.25 255.255.255.252
 ```
 
 **R25**
 ```
 configure terminal
 hostname R25
-interface eth0/0
-ip address 10.123.52.1 255.255.255.254
-no shutdown
-exit
-interface eth0/1
-ip address 85.75.123.9 255.255.255.252
-no shutdown
-exit
-interface eth0/2
-ip address 10.123.52.7 255.255.255.254
-no shutdown
-exit
-interface eth0/3
-ip address 85.75.123.13 255.255.255.252
-no shutdown
-exit
-interface lo0
-ip address 1.1.25.25 255.255.255.255
-no shutdown
-exit
+interface Loopback0
+ ip address 1.1.25.25 255.255.255.255
+ ipv6 address 2002:101::25:25/128
+!         
+interface Ethernet0/0
+ ip address 10.123.52.1 255.255.255.254
+ ipv6 address FE80::25 link-local
+ ipv6 address 2001:DB8:1212:1212::1/127
+!
+interface Ethernet0/1
+ ip address 85.75.123.9 255.255.255.252
+!
+interface Ethernet0/2
+ ip address 10.123.52.7 255.255.255.254
+ ipv6 address FE80::25 link-local
+ ipv6 address 2001:DB8:1212:1212::7/127
+!
+interface Ethernet0/3
+ ip address 85.75.123.13 255.255.255.252
 ```
 
 **R26**
 ```
 configure terminal
 hostname R26
-interface eth0/0
-ip address 10.123.52.5 255.255.255.254
-no shutdown
-exit
-interface eth0/1
-ip address 85.75.123.17 255.255.255.252
-no shutdown
-exit
-interface eth0/2
-ip address 10.123.52.6 255.255.255.254
-no shutdown
-exit
-interface eth0/3
-ip address 85.75.123.21 255.255.255.252
-no shutdown
-exit
-interface lo0
-ip address 1.1.26.26 255.255.255.255
-no shutdown
-exit
-
+interface Loopback0
+ ip address 1.1.26.26 255.255.255.255
+ ipv6 address 2002:101::26:26/128
+!         
+interface Ethernet0/0
+ ip address 10.123.52.5 255.255.255.254
+ ipv6 address FE80::26 link-local
+ ipv6 address 2001:DB8:1212:1212::5/127
+!
+interface Ethernet0/1
+ ip address 85.75.123.17 255.255.255.252
+!
+interface Ethernet0/2
+ ip address 10.123.52.6 255.255.255.254
+ ipv6 address FE80::26 link-local
+ ipv6 address 2001:DB8:1212:1212::6/127
+!
+interface Ethernet0/3
+ ip address 85.75.123.21 255.255.255.252
 ```
 
 ### Таблица адресации Лабытнанги
