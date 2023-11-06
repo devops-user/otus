@@ -29,16 +29,19 @@
 |  | e0/0 | 2001:DB8:1212:1212::1/127 |
 |  | e0/0 | FE80::25 |
 |  | e0/1 | 85.75.123.9/30 |
+|  | e0/1 | 2002:5555::/127 |
 |  | e0/2 | 10.123.52.7/31 |
 |  | e0/2 | 2001:DB8:1212:1212::7/127 |
 |  | e0/2 | FE80::25 |
 |  | e0/3 | 85.75.123.13/30 |
+|  | e0/3 | 2002:5555::2/127 |
 |  | lo0 | 1.1.25.25/32 |
 |  | lo0 | 2002:101::25:25/128 |
 | R26 | e0/0 | 10.123.52.5/31 |
 |  | e0/0 | 2001:DB8:1212:1212::5/127 |
 |  | e0/0 | FE80::26 |
 |  | e0/1 | 85.75.123.17/30 |
+|  | e0/1 | 2002:5555::4/127 |
 |  | e0/2 | 10.123.52.6/31 |
 |  | e0/2 | 2001:DB8:1212:1212::6/127 |
 |  | e0/2 | FE80::26 |
@@ -108,6 +111,7 @@ interface Ethernet0/0
 !
 interface Ethernet0/1
  ip address 85.75.123.9 255.255.255.252
+ ipv6 address 2002:5555::/127
 !
 interface Ethernet0/2
  ip address 10.123.52.7 255.255.255.254
@@ -116,6 +120,7 @@ interface Ethernet0/2
 !
 interface Ethernet0/3
  ip address 85.75.123.13 255.255.255.252
+ ipv6 address 2002:5555::2/127
 ```
 
 **R26**
@@ -133,6 +138,7 @@ interface Ethernet0/0
 !
 interface Ethernet0/1
  ip address 85.75.123.17 255.255.255.252
+ ipv6 address 2002:5555::4/127
 !
 interface Ethernet0/2
  ip address 10.123.52.6 255.255.255.254
@@ -147,30 +153,34 @@ interface Ethernet0/3
 | Устройство | Интерфейс | IP-адрес/Маска подсети |
 --- | --- | --- |
 | R27 | e0/0 | 85.75.123.10/30 |
-| R27 | lo0 | 1.1.27.27/32 |
+|  | e0/0 | 2002:5555::1/127 |
+|  | lo0 | 1.1.27.27/32 |
+|  | lo0 | 2002:101::27:27/128 |
 
 **R27**
 ```
 configure terminal
 hostname R27
-interface eth0/0
-ip address 85.75.123.10 255.255.255.252
-no shutdown
-exit
-interface lo0
-ip address 1.1.27.27 255.255.255.255
-no shutdown
-exit
+interface Loopback0
+ ip address 1.1.27.27 255.255.255.255
+ ipv6 address 2002:101::27:27/128
+!         
+interface Ethernet0/0
+ ip address 85.75.123.10 255.255.255.252
+ ipv6 address 2002:5555::1/127
 ```
 
 ### Таблица адресации Чокурдах
 | Устройство | Интерфейс | IP-адрес/Маска подсети |
 --- | --- | --- |
 | R28 | e0/0 | 85.75.123.18/30 |
-| R28 | e0/1 | 85.75.123.14/30 |
-| R28 | e0/2.14 | 10.123.14.1/28 |
-| R28 | e0/2.50 | 192.168.50.1/29 |
-| R28 | lo0 | 1.1.28.28/32 |
+|  | e0/0 | 2002:5555::5/127 |
+|  | e0/1 | 85.75.123.14/30 |
+|  | e0/1 | 2002:5555::3/127 |
+|  | e0/2.14 | 10.123.14.1/28 |
+|  | e0/2.50 | 192.168.50.1/29 |
+|  | lo0 | 1.1.28.28/32 |
+|  | lo0 | 2002:101::28:28/128 |
 | SW29 | vlan14 -> *Management* | 10.123.14.2/28 |
 | VPC30 | NIC | 192.168.50.2/29 |
 | VPC31 | NIC | 192.168.50.3/29 |
@@ -179,31 +189,31 @@ exit
 ```
 configure terminal
 hostname R28
-interface eth0/0
-ip address 85.75.123.18 255.255.255.252
-no shutdown
-exit
-interface eth0/1
-ip address 85.75.123.14 255.255.255.252
-no shutdown
-exit
-interface eth0/2
-no shutdown
-exit
-interface eth0/2.14
-description Management
-encapsulation dot1Q 14
-ip address 10.123.14.1 255.255.255.240
-exit
-interface eth0/2.50
-description LAN
-encapsulation dot1Q 50
-ip address 192.168.50.1 255.255.255.248
-exit
-interface lo0
-ip address 1.1.28.28 255.255.255.255
-no shutdown
-exit
+interface Loopback0
+ ip address 1.1.28.28 255.255.255.255
+ ipv6 address 2002:101::28:28/128
+!
+interface Ethernet0/0
+ ip address 85.75.123.18 255.255.255.252
+ ipv6 address 2002:5555::5/127
+!
+interface Ethernet0/1
+ ip address 85.75.123.14 255.255.255.252
+ ipv6 address 2002:5555::3/127
+!
+interface Ethernet0/2
+ no ip address
+ no shutdown
+!
+interface Ethernet0/2.14
+ description Management
+ encapsulation dot1Q 14
+ ip address 10.123.14.1 255.255.255.240
+!
+interface Ethernet0/2.50
+ description LAN
+ encapsulation dot1Q 50
+ ip address 192.168.50.1 255.255.255.248
 ```
 
 **SW29**
@@ -245,11 +255,15 @@ no shutdown
 | Устройство | Интерфейс | IP-адрес/Маска подсети |
 --- | --- | --- |
 | R21 | e0/0 | 85.75.123.33/30 |
-| R21 | e0/1 | 85.75.123.30/30 |
-| R21 | e0/2 | 85.75.123.6/30 |
-| R21 | lo0 | 1.1.21.21/32 |
+|  | e0/0 |  |
+|  | e0/1 | 85.75.123.30/30 |
+|  | e0/1 |  |
+|  | e0/2 | 85.75.123.6/30 |
+|  | e0/2 |  |
+|  | lo0 | 1.1.21.21/32 |
+|  | lo0 | 2002:101::21:21/128 |
 
-**SW21**
+**R21**
 ```
 configure terminal
 hostname R21
@@ -275,9 +289,13 @@ exit
 | Устройство | Интерфейс | IP-адрес/Маска подсети |
 --- | --- | --- |
 | R22 | e0/0 | 85.75.123.37/30 |
-| R22 | e0/1 | 85.75.123.29/30 |
-| R22 | e0/2 | 85.75.123.2/30 |
-| R22 | lo0 | 1.1.22.22/32 |
+|  | e0/0 |  |
+|  | e0/1 | 85.75.123.29/30 |
+|  | e0/1 |  |
+|  | e0/2 | 85.75.123.2/30 |
+|  | e0/2 |  |
+|  | lo0 | 1.1.22.22/32 |
+|  | lo0 | 2002:101::22:22/128 |
 
 **R22**
 ```
