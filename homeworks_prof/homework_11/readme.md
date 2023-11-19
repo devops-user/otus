@@ -573,29 +573,61 @@ interface Ethernet0/0
 | Устройство | Интерфейс | IP-адрес/Маска подсети |
 --- | --- | --- |
 | R12 | e0/0 | 10.101.101.0/31 |
-| R12 | e0/1 | 10.101.101.2/31 |
-| R12 | e0/2 | 10.101.101.4/31 |
-| R12 | e0/3 | 10.101.101.6/31 |
-| R12 | lo0 | 1.1.12.12/32 |
+|  | e0/1 | 10.101.101.2/31 |
+|  | e0/2 | 10.101.101.4/31 |
+|  | e0/2 | 2001:DB8:1001:1001::1/127 |
+|  | e0/2 | FE80::12 |
+|  | e0/3 | 10.101.101.6/31 |
+|  | e0/3 | 2001:DB8:1001:1001::8/127 |
+|  | e0/3 | FE80::12 |
+|  | lo0 | 1.1.12.12/32 |
+|  | lo0 | 2002:101::12:12/128 |
 | R13 | e0/0 | 10.101.101.8/31 |
-| R13 | e0/1 | 10.101.101.10/31 |
-| R13 | e0/2 | 10.101.101.12/31 |
-| R13 | e0/3 | 10.101.101.14/31 |
-| R13 | lo0 | 1.1.13.13/32 |
+|  | e0/1 | 10.101.101.10/31 |
+|  | e0/2 | 10.101.101.12/31 |
+|  | e0/2 | 2001:DB8:1001:1001::6/127 |
+|  | e0/2 | FE80::13 |
+|  | e0/3 | 10.101.101.14/31 |
+|  | e0/3 | 2001:DB8:1001:1001::3/127 |
+|  | e0/3 | FE80::13 |
+|  | lo0 | 1.1.13.13/32 |
+|  | lo0 | 2002:101::13:13/128 |
 | R14 | e0/0 | 10.101.101.5/31 |
-| R14 | e0/1 | 10.101.101.15/31 |
-| R14 | e0/2 | 85.75.123.38/30 |
-| R14 | e0/3 | 10.101.101.16/31 |
-| R14 | lo0 | 1.1.14.14/32 |
+|  | e0/0 | 2001:DB8:1001:1001::0/127 |
+|  | e0/0 | FE80::14 |
+|  | e0/1 | 10.101.101.15/31 |
+|  | e0/1 | 2001:DB8:1001:1001::2/127 |
+|  | e0/1 | FE80::14 |
+|  | e0/2 | 85.75.123.38/30 |
+|  | e0/2 | 2002:5555::13/127 |
+|  | e0/3 | 10.101.101.16/31 |
+|  | e0/3 | 2001:DB8:1001:1001::4/127 |
+|  | e0/3 | FE80::14 |
+|  | lo0 | 1.1.14.14/32 |
+|  | lo0 | 2002:101::14:14/128 |
 | R15 | e0/0 | 10.101.101.13/31 |
-| R15 | e0/1 | 10.101.101.7/31 |
-| R15 | e0/2 | 85.75.123.34/30 |
-| R15 | e0/3 | 10.101.101.18/31 |
-| R15 | lo0 | 1.1.15.15/32 |
+|  | e0/0 | 2001:DB8:1001:1001::7/127 |
+|  | e0/0 | FE80::15 |
+|  | e0/1 | 10.101.101.7/31 |
+|  | e0/1 | 2001:DB8:1001:1001::9/127 |
+|  | e0/1 | FE80::15 |
+|  | e0/2 | 85.75.123.34/30 |
+|  | e0/2 | 2002:5555::15/127 |
+|  | e0/3 | 10.101.101.18/31 |
+|  | e0/3 | 2001:DB8:1001:1001::11/127 |
+|  | e0/3 | FE80::15 |
+|  | lo0 | 1.1.15.15/32 |
+|  | lo0 | 2002:101::15:15/128 |
 | R19 | e0/0 | 10.101.101.17/31 |
-| R19 | lo0 | 1.1.19.19/32 |
+|  | e0/0 | 2001:DB8:1001:1001::5/127 |
+|  | e0/0 | FE80::19 |
+|  | lo0 | 1.1.19.19/32 |
+|  | lo0 | 2002:101::19:19/128 |
 | R20 | e0/0 | 10.101.101.19/31 |
-| R20 | lo0 | 1.1.20.20/32 |
+|  | e0/0 | 2001:DB8:1001:1001::10/127 |
+|  | e0/0 | FE80::20 |
+|  | lo0 | 1.1.20.20/32 |
+|  | lo0 | 2002:101::20:20/128 |
 | SW2 | vlan101 -> *Management* | 10.123.101.2/29 |
 | SW2 | vlan55 | 192.168.55.2/29 |
 | SW3 | vlan101 -> *Management* | 10.123.101.3/29 |
@@ -615,133 +647,136 @@ interface Ethernet0/0
 ```
 configure terminal
 hostname R12
-interface eth0/0
-ip address 10.101.101.0 255.255.255.254
-no shutdown
-exit
-interface eth0/1
-ip address 10.101.101.2 255.255.255.254
-no shutdown
-exit
-interface eth0/2
-ip address 10.101.101.4 255.255.255.254
-no shutdown
-exit
-interface eth0/3
-ip address 10.101.101.6 255.255.255.254
-no shutdown
-exit
-interface lo0
-ip address 1.1.12.12 255.255.255.255
-no shutdown
-exit
+interface Loopback0
+ ip address 1.1.12.12 255.255.255.255
+ ipv6 address 2002:101::12:12/128
+!
+interface Ethernet0/0
+ ip address 10.101.101.0 255.255.255.254
+!
+interface Ethernet0/1
+ ip address 10.101.101.2 255.255.255.254
+!
+interface Ethernet0/2
+ ip address 10.101.101.4 255.255.255.254
+ ipv6 address FE80::12 link-local
+ ipv6 address 2001:DB8:1001:1001::1/127
+!
+interface Ethernet0/3
+ ip address 10.101.101.6 255.255.255.254
+ ipv6 address FE80::12 link-local
+ ipv6 address 2001:DB8:1001:1001::8/127
 ```
 
 **R13**
 ```
 configure terminal
 hostname R13
-interface eth0/0
-ip address 10.101.101.8 255.255.255.254
-no shutdown
-exit
-interface eth0/1
-ip address 10.101.101.10 255.255.255.254
-no shutdown
-exit
-interface eth0/2
-ip address 10.101.101.12 255.255.255.254
-no shutdown
-exit
-interface eth0/3
-ip address 10.101.101.14 255.255.255.254
-no shutdown
-exit
-interface lo0
-ip address 1.1.13.13 255.255.255.255
-no shutdown
-exit
+interface Loopback0
+ ip address 1.1.13.13 255.255.255.255
+ ipv6 address 2002:101::13:13/128
+!
+interface Ethernet0/0
+ ip address 10.101.101.8 255.255.255.254
+!
+interface Ethernet0/1
+ ip address 10.101.101.10 255.255.255.254
+!
+interface Ethernet0/2
+ ip address 10.101.101.12 255.255.255.254
+ ipv6 address FE80::13 link-local
+ ipv6 address 2001:DB8:1001:1001::6/127
+!
+interface Ethernet0/3
+ ip address 10.101.101.14 255.255.255.254
+ ipv6 address FE80::13 link-local
+ ipv6 address 2001:DB8:1001:1001::3/127
 ```
 
 **R14**
 ```
 configure terminal
 hostname R14
-interface eth0/0
-ip address 10.101.101.5 255.255.255.254
-no shutdown
-exit
-interface eth0/1
-ip address 10.101.101.15 255.255.255.254
-no shutdown
-exit
-interface eth0/2
-ip address 85.75.123.38 255.255.255.252
-no shutdown
-exit
-interface eth0/3
-ip address 10.101.101.16 255.255.255.254
-no shutdown
-exit
-interface lo0
-ip address 1.1.14.14 255.255.255.255
-no shutdown
-exit
+interface Loopback0
+ ip address 1.1.14.14 255.255.255.255
+ ipv6 address 2002:101::14:14/128
+!
+interface Ethernet0/0
+ ip address 10.101.101.5 255.255.255.254
+ ipv6 address FE80::14 link-local
+ ipv6 address 2001:DB8:1001:1001::/127
+!
+interface Ethernet0/1
+ ip address 10.101.101.15 255.255.255.254
+ ipv6 address FE80::14 link-local
+ ipv6 address 2001:DB8:1001:1001::2/127
+!
+interface Ethernet0/2
+ ip address 85.75.123.38 255.255.255.252
+ ipv6 address 2002:5555::13/127
+!
+interface Ethernet0/3
+ ip address 10.101.101.16 255.255.255.254
+ ipv6 address FE80::14 link-local
+ ipv6 address 2001:DB8:1001:1001::4/127
 ```
 
 **R15**
 ```
 configure terminal
 hostname R15
-interface eth0/0
-ip address 10.101.101.13 255.255.255.254
-no shutdown
-exit
-interface eth0/1
-ip address 10.101.101.7 255.255.255.254
-no shutdown
-exit
-interface eth0/2
-ip address 85.75.123.34 255.255.255.252
-no shutdown
-exit
-interface eth0/3
-ip address 10.101.101.18 255.255.255.254
-no shutdown
-exit
-interface lo0
-ip address 1.1.15.15 255.255.255.255
-no shutdown
-exit
+interface Loopback0
+ ip address 1.1.15.15 255.255.255.255
+ ipv6 address 2002:101::15:15/128
+!
+interface Ethernet0/0
+ ip address 10.101.101.13 255.255.255.254
+ ipv6 address FE80::15 link-local
+ ipv6 address 2001:DB8:1001:1001::7/127
+!
+interface Ethernet0/1
+ ip address 10.101.101.7 255.255.255.254
+ ipv6 address FE80::15 link-local
+ ipv6 address 2001:DB8:1001:1001::9/127
+!
+interface Ethernet0/2
+ ip address 85.75.123.34 255.255.255.252
+ ipv6 address 2002:5555::15/127
+!
+interface Ethernet0/3
+ ip address 10.101.101.18 255.255.255.254
+ ipv6 address FE80::15 link-local
+ ipv6 address 2001:DB8:1001:1001::11/127
 ```
 
 **R19**
 ```
 configure terminal
 hostname R19
-interface eth0/0
-ip address 10.101.101.17 255.255.255.254
-no shutdown
-exit
-interface lo0
-ip address 1.1.19.19 255.255.255.255
-no shutdown
-exit
+interface Loopback0
+ ip address 1.1.19.19 255.255.255.255
+ ipv6 address 2002:101::19:19/128
+!
+interface Ethernet0/0
+ ip address 10.101.101.17 255.255.255.254
+ ipv6 address FE80::19 link-local
+ ipv6 address 2001:DB8:1001:1001::5/127
 ```
 
 **R20**
 ```
 configure terminal
 hostname R20
-interface eth0/0
-ip address 10.101.101.19 255.255.255.254
-no shutdown
-exit
-interface lo0
-ip address 1.1.20.20 255.255.255.255
-no shutdown
-exit
+interface Loopback0
+ ip address 1.1.20.20 255.255.255.255
+ ipv6 address 2002:101::20:20/128
+!
+interface Ethernet0/0
+ ip address 10.101.101.19 255.255.255.254
+ ipv6 address FE80::20 link-local
+ ipv6 address 2001:DB8:1001:1001::10/127
 ```
+
 **SW4**
 ```
 configure terminal
