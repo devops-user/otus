@@ -7,6 +7,7 @@
 | Устройство | Интерфейс | IP-адрес/Маска подсети |
 --- | --- | --- |
 | R23 | e0/0 | 85.75.123.1/30 |
+|  | e0/0 | 2002:5555::11/127 |
 |  | e0/1 | 10.123.52.0/31 |
 |  | e0/1 | 2001:DB8:1212:1212::0/127 |
 |  | e0/1 | FE80::23 |
@@ -16,6 +17,7 @@
 |  | lo0 | 1.1.23.23/32 |
 |  | lo0 | 2002:101::23:23/128 |
 | R24 | e0/0 | 85.75.123.5/30 |
+|  | e0/0 | 2002:5555::6/127 |
 |  | e0/1 | 10.123.52.4/31 |
 |  | e0/1 | 2001:DB8:1212:1212::4/127 |
 |  | e0/1 | FE80::24 |
@@ -23,6 +25,7 @@
 |  | e0/2 | 2001:DB8:1212:1212::3/127 |
 |  | e0/2 | FE80::24 |
 |  | e0/3 | 85.75.123.25/30 |
+|  | e0/3 | 2002:5555::14/127 |
 |  | lo0 | 1.1.24.24/32 |
 |  | lo0 | 2002:101::24:24/128 |
 | R25 | e0/0 | 10.123.52.1/31 |
@@ -46,6 +49,7 @@
 |  | e0/2 | 2001:DB8:1212:1212::6/127 |
 |  | e0/2 | FE80::26 |
 |  | e0/3 | 85.75.123.21/30 |
+|  | e0/3 | 2002:5555::16/127 |
 |  | lo0 | 1.1.26.26/32 |
 |  | lo0 | 2002:101::26:26/128 |
 
@@ -59,6 +63,7 @@ interface Loopback0
 !         
 interface Ethernet0/0
  ip address 85.75.123.1 255.255.255.252
+ ipv6 address 2002:5555::11/127
 !
 interface Ethernet0/1
  ip address 10.123.52.0 255.255.255.254
@@ -81,6 +86,7 @@ interface Loopback0
 !
 interface Ethernet0/0
  ip address 85.75.123.5 255.255.255.252
+ ipv6 address 2002:5555::6/127
 !
 interface Ethernet0/1
  ip address 10.123.52.4 255.255.255.254
@@ -94,6 +100,7 @@ interface Ethernet0/2
 !
 interface Ethernet0/3
  ip address 85.75.123.25 255.255.255.252
+ ipv6 address 2002:5555::14/127
 ```
 
 **R25**
@@ -147,6 +154,7 @@ interface Ethernet0/2
 !
 interface Ethernet0/3
  ip address 85.75.123.21 255.255.255.252
+ ipv6 address 2002:5555::16/127
 ```
 
 ### Таблица адресации Лабытнанги
@@ -255,11 +263,11 @@ no shutdown
 | Устройство | Интерфейс | IP-адрес/Маска подсети |
 --- | --- | --- |
 | R21 | e0/0 | 85.75.123.33/30 |
-|  | e0/0 |  |
+|  | e0/0 | 2002:5555::14/127 |
 |  | e0/1 | 85.75.123.30/30 |
-|  | e0/1 |  |
+|  | e0/1 | 2002:5555::9/127 |
 |  | e0/2 | 85.75.123.6/30 |
-|  | e0/2 |  |
+|  | e0/2 | 2002:5555::7/127 |
 |  | lo0 | 1.1.21.21/32 |
 |  | lo0 | 2002:101::21:21/128 |
 
@@ -267,33 +275,32 @@ no shutdown
 ```
 configure terminal
 hostname R21
-interface eth0/0
-ip address 85.75.123.33 255.255.255.252
-no shutdown
-exit
-interface eth0/1
-ip address 85.75.123.30 255.255.255.252
-no shutdown
-exit
-interface eth0/2
-ip address 85.75.123.6 255.255.255.252
-no shutdown
-exit
-interface lo0
-ip address 1.1.21.21 255.255.255.255
-no shutdown
-exit
+interface Loopback0
+ ip address 1.1.21.21 255.255.255.255
+ ipv6 address 2002:101::21:21/128
+!
+interface Ethernet0/0
+ ip address 85.75.123.33 255.255.255.252
+ ipv6 address 2002:5555::14/127
+!
+interface Ethernet0/1
+ ip address 85.75.123.30 255.255.255.252
+ ipv6 address 2002:5555::9/127
+!
+interface Ethernet0/2
+ ip address 85.75.123.6 255.255.255.252
+ ipv6 address 2002:5555::7/127
 ```
 
 ### Таблица адресации Киторн
 | Устройство | Интерфейс | IP-адрес/Маска подсети |
 --- | --- | --- |
 | R22 | e0/0 | 85.75.123.37/30 |
-|  | e0/0 |  |
+|  | e0/0 | 2002:5555::12/127 |
 |  | e0/1 | 85.75.123.29/30 |
-|  | e0/1 |  |
+|  | e0/1 | 2002:5555::8/127 |
 |  | e0/2 | 85.75.123.2/30 |
-|  | e0/2 |  |
+|  | e0/2 | 2002:5555::10/127 |
 |  | lo0 | 1.1.22.22/32 |
 |  | lo0 | 2002:101::22:22/128 |
 
@@ -301,43 +308,60 @@ exit
 ```
 configure terminal
 hostname R22
-interface eth0/0
-ip address 85.75.123.37 255.255.255.252
-no shutdown
-exit
-interface eth0/1
-ip address 85.75.123.29 255.255.255.252
-no shutdown
-exit
-interface eth0/2
-ip address 85.75.123.2 255.255.255.252
-no shutdown
-exit
-interface lo0
-ip address 1.1.22.22 255.255.255.255
-no shutdown
-exit
+interface Loopback0
+ ip address 1.1.22.22 255.255.255.255
+ ipv6 address 2002:101::22:22/128
+!
+interface Ethernet0/0
+ ip address 85.75.123.37 255.255.255.252
+ ipv6 address 2002:5555::12/127
+!
+interface Ethernet0/1
+ ip address 85.75.123.29 255.255.255.252
+ ipv6 address 2002:5555::8/127
+!
+interface Ethernet0/2
+ ip address 85.75.123.2 255.255.255.252
+ ipv6 address 2002:5555::10/127
 ```
 
 ### Таблица адресации С.-Петербург
 | Устройство | Интерфейс | IP-адрес/Маска подсети |
 --- | --- | --- |
 | R16 | e0/0 | 10.123.42.12/31 |
-| R16 | e0/1 | 10.123.42.3/31 |
-| R16 | e0/2 | 10.123.42.10/31 |
-| R16 | e0/3 | 10.123.42.4/31 |
-| R16 | lo0 | 1.1.16.16/32 |
+|  | e0/1 | 10.123.42.3/31 |
+|  | e0/1 | 2001:DB8:2042:2042::1/127 |
+|  | e0/1 | FE80::16 |
+|  | e0/2 | 10.123.42.10/31 |
+|  | e0/3 | 10.123.42.4/31 |
+|  | e0/3 | 2001:DB8:2042:2042::5/127 |
+|  | e0/3 | FE80::16 |
+|  | lo0 | 1.1.16.16/32 |
+|  | lo0 | 2002:101::16:16/128 |
 | R17 | e0/0 | 10.123.42.6/31 |
-| R17 | e0/1 | 10.123.42.1/31 |
-| R17 | e0/2 | 10.123.42.8/31 |
-| R17 | lo0 | 1.1.17.17/32 |
+|  | e0/1 | 10.123.42.1/31 |
+|  | e0/1 | 2001:DB8:2042:2042::3/127 |
+|  | e0/1 | FE80::17 |
+|  | e0/2 | 10.123.42.8/31 |
+|  | lo0 | 1.1.17.17/32 |
+|  | lo0 | 2002:101::17:17/128 |
 | R18 | e0/0 | 10.123.42.2/31 |
-| R18 | e0/1 | 10.123.42.0/31 |
-| R18 | e0/2 | 85.75.123.26/30 |
-| R18 | e0/3 | 85.75.123.22/30 |
-| R28 | lo0 | 1.1.18.18/32 |
+|  | e0/0 | 2001:DB8:2042:2042::/127 |
+|  | e0/0 | FE80::18 |
+|  | e0/1 | 10.123.42.0/31 |
+|  | e0/1 | 2001:DB8:2042:2042::2/127 |
+|  | e0/1 | FE80::18 |
+|  | e0/2 | 85.75.123.26/30 |
+|  | e0/2 | 2002:5555::15/127 |
+|  | e0/3 | 85.75.123.22/30 |
+|  | e0/3 | 2002:5555::17/127 |
+|  | lo0 | 1.1.18.18/32 |
+|  | lo0 | 2002:101::18:18/128 |
 | R32 | e0/0 | 10.123.42.5/31 |
-| R32 | lo0 | 1.1.32.32/32 |
+|  | e0/0 | 2001:DB8:2042:2042::4/127 |
+|  | e0/0 | FE80::32 |
+|  | lo0 | 1.1.32.32/32 |
+|  | lo0 | 2002:101::32:32/128 |
 | SW9 | e0/3 | 10.123.42.7/31 |
 | SW9 | e1/0 | 10.123.42.11/31 |
 | SW9 | vlan242 | 192.168.242.2/29 |
@@ -356,74 +380,72 @@ exit
 ```
 configure terminal
 hostname R16
-interface eth0/0
-ip address 10.123.42.12 255.255.255.254
-no shutdown
-exit
-interface eth0/1
-ip address 10.123.42.3 255.255.255.254
-no shutdown
-exit
-interface eth0/2
-ip address 10.123.42.10 255.255.255.254
-no shutdown
-exit
-interface eth0/3
-ip address 10.123.42.4 255.255.255.254
-no shutdown
-exit
-interface lo0
-ip address 1.1.16.16 255.255.255.255
-no shutdown
-exit
+interface Loopback0
+ ip address 1.1.16.16 255.255.255.255
+ ipv6 address 2002:101::16:16/128
+!         
+interface Ethernet0/0
+ ip address 10.123.42.12 255.255.255.254
+!
+interface Ethernet0/1
+ ip address 10.123.42.3 255.255.255.254
+ ipv6 address FE80::16 link-local
+ ipv6 address 2001:DB8:2042:2042::1/127
+!
+interface Ethernet0/2
+ ip address 10.123.42.10 255.255.255.254
+!
+interface Ethernet0/3
+ ip address 10.123.42.4 255.255.255.254
+ ipv6 address FE80::16 link-local
+ ipv6 address 2001:DB8:2042:2042::5/127
 ```
 
 **R17**
 ```
 configure terminal
 hostname R17
-interface eth0/0
-ip address 10.123.42.6 255.255.255.254
-no shutdown
-exit
-interface eth0/1
-ip address 10.123.42.1 255.255.255.254
-no shutdown
-exit
-interface eth0/2
-ip address 10.123.42.8 255.255.255.254
-no shutdown
-exit
-interface lo0
-ip address 1.1.17.17 255.255.255.255
-no shutdown
-exit
+interface Loopback0
+ ip address 1.1.17.17 255.255.255.255
+ ipv6 address 2002:101::17:17/128
+!         
+interface Ethernet0/0
+ ip address 10.123.42.6 255.255.255.254
+!
+interface Ethernet0/1
+ ip address 10.123.42.1 255.255.255.254
+ ipv6 address FE80::17 link-local
+ ipv6 address 2001:DB8:2042:2042::3/127
+!
+interface Ethernet0/2
+ ip address 10.123.42.8 255.255.255.254
 ```
 
 **R18**
 ```
 configure terminal
 hostname R18
-interface eth0/0
-ip address 10.123.42.2 255.255.255.254
-no shutdown
-exit
-interface eth0/1
-ip address 10.123.42.0 255.255.255.254
-no shutdown
-exit
-interface eth0/2
-ip address 85.75.123.26 255.255.255.252
-no shutdown
-exit
-interface eth0/3
-ip address 85.75.123.22 255.255.255.252
-no shutdown
-exit
-interface lo0
-ip address 1.1.18.18 255.255.255.255
-no shutdown
-exit
+interface Loopback0
+ ip address 1.1.18.18 255.255.255.255
+ ipv6 address 2002:101::18:18/128
+!         
+interface Ethernet0/0
+ ip address 10.123.42.2 255.255.255.254
+ ipv6 address FE80::18 link-local
+ ipv6 address 2001:DB8:2042:2042::/127
+!
+interface Ethernet0/1
+ ip address 10.123.42.0 255.255.255.254
+ ipv6 address FE80::18 link-local
+ ipv6 address 2001:DB8:2042:2042::2/127
+!
+interface Ethernet0/2
+ ip address 85.75.123.26 255.255.255.252
+ ipv6 address 2002:5555::15/127
+!
+interface Ethernet0/3
+ ip address 85.75.123.22 255.255.255.252
+ ipv6 address 2002:5555::17/127
 ```
 
 **SW9**
@@ -533,14 +555,14 @@ vrrp 1 priority 100
 ```
 configure terminal
 hostname R32
-interface eth0/0
-ip address 10.123.42.5 255.255.255.254
-no shutdown
-exit
-interface lo0
-ip address 1.1.32.32 255.255.255.255
-no shutdown
-exit
+interface Loopback0
+ ip address 1.1.32.32 255.255.255.255
+ ipv6 address 2002:101::32:32/128
+!
+interface Ethernet0/0
+ ip address 10.123.42.5 255.255.255.254
+ ipv6 address FE80::32 link-local
+ ipv6 address 2001:DB8:2042:2042::4/127
 ```
   * Проверка работы с VPCs  
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_11/images/vpc8.png)
