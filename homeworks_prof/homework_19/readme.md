@@ -1,7 +1,7 @@
 # Настройка IS-IS
 
 ### Топология
-![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_19/images/topo.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_19/images/isis.png)
 
 **R23**
 Настроим секцию для IS-IS и включим IS-IS IPv4/IPv6 на интерфейсах:
