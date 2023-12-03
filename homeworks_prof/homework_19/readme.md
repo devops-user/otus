@@ -21,6 +21,7 @@ interface Ethernet0/2
 !
 router isis
  net 49.2222.1000.1023.0023.00
+ passive-interface Loopback0
 !
 ```
 
@@ -42,6 +43,7 @@ interface Ethernet0/2
 !
 router isis
  net 49.0024.1000.1024.0024.00
+ passive-interface Loopback0
 !
 ```
 
@@ -63,6 +65,7 @@ interface Ethernet0/2
 !
 router isis
  net 49.2222.1000.1025.0025.00
+ passive-interface Loopback0
 !
 ```
 
@@ -84,5 +87,6 @@ interface Ethernet0/2
 !
 router isis
  net 49.0026.1000.1026.0026.00
+ passive-interface Loopback0
 !
 ```
