@@ -3,7 +3,7 @@
 ### Топология
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_19/images/isis.png)
 
-**R23**
+**R23**  
 Настроим секцию для IS-IS и включим IS-IS IPv4/IPv6 на интерфейсах:
 ```
 configure terminal
@@ -27,7 +27,7 @@ router isis
 Посмотрим соседей и полученые маршруты IPv4/IPv6, как показано на рисунке:
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_19/images/R23.png)
 
-**R24**
+**R24**  
 Настроим секцию для IS-IS и включим IS-IS IPv4/IPv6 на интерфейсах:
 ```
 configure terminal
@@ -51,7 +51,7 @@ router isis
 Посмотрим соседей и полученые маршруты IPv4/IPv6, как показано на рисунке:
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_19/images/R24.png)
 
-**R25**
+**R25**  
 Настроим секцию для IS-IS и включим IS-IS IPv4/IPv6 на интерфейсах:
 ```
 configure terminal
@@ -75,7 +75,7 @@ router isis
 Посмотрим соседей и полученые маршруты IPv4/IPv6, как показано на рисунке:
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_19/images/R25.png)
 
-**R26**
+**R26**  
 Настроим секцию для IS-IS и включим IS-IS IPv4/IPv6 на интерфейсах:
 ```
 configure terminal
