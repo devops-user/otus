@@ -24,6 +24,8 @@ router isis
  passive-interface Loopback0
 !
 ```
+Посмотрим соседей и полученые маршруты IPv4/IPv6, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_19/images/R23.png)
 
 **R24**
 Настроим секцию для IS-IS и включим IS-IS IPv4/IPv6 на интерфейсах:
@@ -46,6 +48,8 @@ router isis
  passive-interface Loopback0
 !
 ```
+Посмотрим соседей и полученые маршруты IPv4/IPv6, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_19/images/R24.png)
 
 **R25**
 Настроим секцию для IS-IS и включим IS-IS IPv4/IPv6 на интерфейсах:
@@ -68,6 +72,8 @@ router isis
  passive-interface Loopback0
 !
 ```
+Посмотрим соседей и полученые маршруты IPv4/IPv6, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_19/images/R25.png)
 
 **R26**
 Настроим секцию для IS-IS и включим IS-IS IPv4/IPv6 на интерфейсах:
@@ -90,3 +96,5 @@ router isis
  passive-interface Loopback0
 !
 ```
+Посмотрим соседей и полученые маршруты IPv4/IPv6, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_19/images/R26.png)
