@@ -3,8 +3,6 @@
 ### Топология
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_21/images/eigrp.png)
 
-   * *R16-17 анонсируют только суммарные префиксы - не совсем понятно, в нашем случае с eigrp named mode auto-summary (суммирование маршрутов не сделать), поэтому на R16 и R17 в сторону R18 настроил summary-address 0.0.0.0 0.0.0.0 на интерфейсах, что указано ниже в конфигурации.*
-
 **R16**  
 Настроим секцию для EIGRP и включим EIGRP IPv6 на интерфейсах:
 ```
@@ -35,10 +33,6 @@ router eigrp SPB
   exit-af-interface
   !
   af-interface Ethernet0/3
-   summary-address 0.0.0.0 0.0.0.0
-  exit-af-interface
-  !
-  af-interface Ethernet0/1
    summary-address 0.0.0.0 0.0.0.0
   exit-af-interface
   !
@@ -99,10 +93,6 @@ router eigrp SPB
    passive-interface
   exit-af-interface
   !
-  af-interface Ethernet0/1
-   summary-address 0.0.0.0 0.0.0.0
-  exit-af-interface
-  !
   topology base
   exit-af-topology
   network 1.1.17.17 0.0.0.0
@@ -124,6 +114,7 @@ router eigrp SPB
 ```
 Посмотрим соседей и полученые маршруты IPv4/IPv6, как показано на рисунке:
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_21/images/R17.png)
+
 
 **R18**  
 Настроим секцию для EIGRP и включим EIGRP IPv6 на интерфейсах:
