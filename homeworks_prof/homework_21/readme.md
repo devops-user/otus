@@ -24,32 +24,23 @@ router eigrp SPB
    passive-interface
   exit-af-interface
   !
-  af-interface Ethernet0/0
-   passive-interface
-  exit-af-interface
-  !
-  af-interface Ethernet0/2
-   passive-interface
-  exit-af-interface
-  !
   af-interface Ethernet0/3
    summary-address 0.0.0.0 0.0.0.0
   exit-af-interface
   !
   topology base
+   auto-summary
   exit-af-topology
   network 1.1.16.16 0.0.0.0
   network 10.123.42.2 0.0.0.1
   network 10.123.42.4 0.0.0.1
+  network 10.123.42.10 0.0.0.1
+  network 10.123.42.12 0.0.0.1
   eigrp router-id 1.1.16.16
  exit-address-family
  !
  address-family ipv6 unicast autonomous-system 2042
-  !
-  af-interface Ethernet0/1
-   summary-address ::/0
-  exit-af-interface
-  !
+  !       
   af-interface Ethernet0/3
    summary-address ::/0
   exit-af-interface
@@ -81,30 +72,22 @@ router eigrp SPB
    passive-interface
   exit-af-interface
   !
-  af-interface Ethernet0/0
-   passive-interface
-  exit-af-interface
-  !
-  af-interface Ethernet0/2
-   passive-interface
-  exit-af-interface
-  !
   af-interface Ethernet0/3
    passive-interface
   exit-af-interface
   !
   topology base
+   auto-summary
+   distribute-list prefix eigrp_summ out Ethernet0/1
   exit-af-topology
   network 1.1.17.17 0.0.0.0
   network 10.123.42.0 0.0.0.1
+  network 10.123.42.6 0.0.0.1
+  network 10.123.42.8 0.0.0.1
   eigrp router-id 1.1.17.17
  exit-address-family
  !
  address-family ipv6 unicast autonomous-system 2042
-  !
-  af-interface Ethernet0/1
-   summary-address ::/0
-  exit-af-interface
   !
   topology base
   exit-af-topology
@@ -152,7 +135,7 @@ router eigrp SPB
   network 10.123.42.2 0.0.0.1
   eigrp router-id 1.1.18.18
  exit-address-family
- !
+ !        
  address-family ipv6 unicast autonomous-system 2042
   !
   topology base
@@ -199,3 +182,31 @@ router eigrp SPB
 ```
 Посмотрим соседей и полученые маршруты IPv4/IPv6, как видим наш маршрутизатор получает только default'ый маршрут, как показано на рисунке:
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_21/images/R32.png)
+
+**SW9**  
+Настроим секцию для EIGRP и включим EIGRP IPv6 на интерфейсах:
+```
+configure terminal
+router eigrp 2042
+ network 1.1.9.9 0.0.0.0
+ network 10.123.42.6 0.0.0.1
+ network 10.123.42.10 0.0.0.1
+ network 192.168.242.0 0.0.0.7
+ passive-interface Loopback0
+ eigrp router-id 1.1.9.9
+!
+```
+
+**SW10**  
+Настроим секцию для EIGRP и включим EIGRP IPv6 на интерфейсах:
+```
+configure terminal
+router eigrp 2042
+ network 1.1.10.10 0.0.0.0
+ network 10.123.42.8 0.0.0.1
+ network 10.123.42.12 0.0.0.1
+ network 192.168.242.0 0.0.0.7
+ passive-interface Loopback0
+ eigrp router-id 1.1.10.10
+!
+```
