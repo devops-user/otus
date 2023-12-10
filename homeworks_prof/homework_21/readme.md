@@ -4,7 +4,7 @@
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_21/images/eigrp.png)
 
 **R16**  
-Настроим секцию для EIGRP и включим EIGRP IPv6 на интерфейсах:
+Настроим секцию для EIGRP и включим EIGRP IPv6 на интерфейсах, так же включим - auto-summary, чтобы маршрутизатор отдавал суммарные маршруты:
 ```
 configure terminal
 interface Loopback0 
@@ -55,7 +55,7 @@ router eigrp SPB
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_21/images/R16.png)
 
 **R17**  
-Настроим секцию для EIGRP и включим EIGRP IPv6 на интерфейсах:
+Настроим секцию для EIGRP и включим EIGRP IPv6 на интерфейсах, так же включим - auto-summary, чтобы маршрутизатор отдавал суммарные маршруты:
 ```
 configure terminal
 interface Loopback0
@@ -144,7 +144,7 @@ router eigrp SPB
  exit-address-family
 !
 ```
-Посмотрим соседей и полученые маршруты IPv4/IPv6, как показано на рисунке:
+Посмотрим соседей и полученые маршруты IPv4/IPv6, как видим наш маршрутизатор получает суммарный маршрут- *1.0.0.0/8* от двух соседей через интерфейсы - Ethernet0/0 и Ethernet0/1, как показано на рисунке:
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_21/images/R18.png)
 
 **R32**  
@@ -184,7 +184,7 @@ router eigrp SPB
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_21/images/R32.png)
 
 **SW9**  
-Настроим секцию для EIGRP и включим EIGRP IPv6 на интерфейсах:
+Настроим секцию для EIGRP:
 ```
 configure terminal
 router eigrp 2042
@@ -196,9 +196,11 @@ router eigrp 2042
  eigrp router-id 1.1.9.9
 !
 ```
+Посмотрим соседей и полученые маршруты IPv4, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_21/images/SW9.png)
 
 **SW10**  
-Настроим секцию для EIGRP и включим EIGRP IPv6 на интерфейсах:
+Настроим секцию для EIGRP:
 ```
 configure terminal
 router eigrp 2042
@@ -210,3 +212,5 @@ router eigrp 2042
  eigrp router-id 1.1.10.10
 !
 ```
+Посмотрим соседей и полученые маршруты IPv4, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_21/images/SW10.png)
