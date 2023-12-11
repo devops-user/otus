@@ -244,3 +244,14 @@ router bgp 520
 ```
 Посмотрим соседей и полученые маршруты IPv4/IPv6, как показано на рисунке:
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_25/images/R24.png)
+
+
+Проверим IP-связность между пограничными маршрутизаторами офисов в Москве и Санкт-Пеербурге
+  * от R14 до R18:  
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_25/images/ping_14.png)
+
+  * от R15 до R18:  
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_25/images/ping_15.png)
+
+  * от R18 до R14 и R15:  
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_25/images/ping_18.png)
