@@ -1,5 +1,8 @@
 # Настройка eBGP
 
+### Топология
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_25/images/bgp.png)
+
 **R14**  
 Настроим секцию для BGP:
 ```
