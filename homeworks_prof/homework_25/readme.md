@@ -13,13 +13,11 @@ router bgp 1001
  neighbor 85.75.123.37 description Kitorn
  !
  address-family ipv4
-  redistribute connected
   no neighbor 2002:5555::12 activate
   neighbor 85.75.123.37 activate
  exit-address-family
  !
  address-family ipv6
-  redistribute connected
   neighbor 2002:5555::12 activate
  exit-address-family
 !
@@ -38,13 +36,11 @@ router bgp 1001
  neighbor 85.75.123.33 description Lamas
  !
  address-family ipv4
-  redistribute connected
   no neighbor 2002:5555::14 activate
   neighbor 85.75.123.33 activate
  exit-address-family
  !
  address-family ipv6
-  redistribute connected
   neighbor 2002:5555::14 activate
  exit-address-family
 !
@@ -63,13 +59,11 @@ router bgp 2042
  neighbor 85.75.123.25 description Triada
  !
  address-family ipv4
-  redistribute connected
   no neighbor 2002:5555::14 activate
   neighbor 85.75.123.25 activate
  exit-address-family
  !
  address-family ipv6
-  redistribute connected
   neighbor 2002:5555::14 activate
  exit-address-family
 !
@@ -96,7 +90,6 @@ router bgp 301
  neighbor 85.75.123.34 description Moscow
  !
  address-family ipv4
-  redistribute connected
   no neighbor 2002:5555::6 activate
   no neighbor 2002:5555::8 activate
   no neighbor 2002:5555::15 activate
@@ -106,7 +99,6 @@ router bgp 301
  exit-address-family
  !
  address-family ipv6
-  redistribute connected
   neighbor 2002:5555::6 activate
   neighbor 2002:5555::8 activate
   neighbor 2002:5555::15 activate
@@ -135,7 +127,6 @@ router bgp 101
  neighbor 85.75.123.38 description Moscow
  !
  address-family ipv4
-  redistribute connected
   no neighbor 2002:5555::9 activate
   no neighbor 2002:5555::11 activate
   no neighbor 2002:5555::13 activate
@@ -145,7 +136,6 @@ router bgp 101
  exit-address-family
  !
  address-family ipv6
-  redistribute connected
   neighbor 2002:5555::9 activate
   neighbor 2002:5555::11 activate
   neighbor 2002:5555::13 activate
@@ -166,13 +156,11 @@ router bgp 520
  neighbor 85.75.123.2 description Kitorn
  !
  address-family ipv4
-  redistribute connected
   no neighbor 2002:5555::10 activate
   neighbor 85.75.123.2 activate
  exit-address-family
  !
  address-family ipv6
-  redistribute connected
   neighbor 2002:5555::10 activate
  exit-address-family
 !
@@ -195,7 +183,6 @@ router bgp 520
  neighbor 85.75.123.26 description SPB
  !
  address-family ipv4
-  redistribute connected
   no neighbor 2002:5555::7 activate
   no neighbor 2002:5555::15 activate
   neighbor 85.75.123.6 activate
@@ -203,7 +190,6 @@ router bgp 520
  exit-address-family
  !
  address-family ipv6
-  redistribute connected
   neighbor 2002:5555::7 activate
   neighbor 2002:5555::15 activate
  exit-address-family
