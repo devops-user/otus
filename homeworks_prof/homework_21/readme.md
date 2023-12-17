@@ -40,6 +40,7 @@ router eigrp SPB
   !
   af-interface Ethernet0/1
    summary-address 2002:101::/64
+   summary-address 2001:DB8:2042:2042::/64
   exit-af-interface
   !
   topology base
@@ -95,6 +96,7 @@ router eigrp SPB
   !
   af-interface Ethernet0/1
    summary-address 2002:101::/64
+   summary-address 2001:DB8:2042:2042::/64
   exit-af-interface
   !
   topology base
