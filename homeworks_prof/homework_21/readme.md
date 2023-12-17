@@ -38,6 +38,10 @@ router eigrp SPB
  !
  address-family ipv6 unicast autonomous-system 2042
   !
+  af-interface Ethernet0/1
+   summary-address 2002:101::/64
+  exit-af-interface
+  !
   topology base
    distribute-list prefix-list eigrp_default out Ethernet0/3
   exit-af-topology
@@ -88,6 +92,10 @@ router eigrp SPB
  exit-address-family
  !
  address-family ipv6 unicast autonomous-system 2042
+  !
+  af-interface Ethernet0/1
+   summary-address 2002:101::/64
+  exit-af-interface
   !
   topology base
   exit-af-topology
