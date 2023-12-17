@@ -83,7 +83,6 @@ router eigrp SPB
   !
   topology base
    auto-summary
-   distribute-list prefix eigrp_summ out Ethernet0/1
   exit-af-topology
   network 1.1.17.17 0.0.0.0
   network 10.123.42.0 0.0.0.1
