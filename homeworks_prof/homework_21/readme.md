@@ -4,7 +4,7 @@
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_21/images/eigrp.png)
 
 **R16**  
-Настроим секцию для EIGRP и включим EIGRP IPv6 на интерфейсах, так же включим - auto-summary, чтобы маршрутизатор отдавал суммарные маршруты:
+Настроим секцию для EIGRP и включим EIGRP IPv6 на интерфейсах, так же включим - auto-summary и настроим - summary-address для IPv6, чтобы маршрутизатор отдавал суммарные маршруты:
 ```
 configure terminal
 interface Loopback0 
@@ -59,7 +59,7 @@ ipv6 prefix-list eigrp_default seq 10 permit ::/0
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_21/images/R16.png)
 
 **R17**  
-Настроим секцию для EIGRP и включим EIGRP IPv6 на интерфейсах, так же включим - auto-summary, чтобы маршрутизатор отдавал суммарные маршруты:
+Настроим секцию для EIGRP и включим EIGRP IPv6 на интерфейсах, так же включим - auto-summary и настроим - summary-address для IPv6, чтобы маршрутизатор отдавал суммарные маршруты:
 ```
 configure terminal
 interface Loopback0
