@@ -44,6 +44,8 @@ router ospf 1
  passive-interface Loopback0
  default-information originate always
 ```
+Посмотрим соседей и полученые маршруты IPv4/IPv6, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_15/images/R14.png)
 
 **R15**  
 Настроим секцию OSPF для IPv4/IPv6 и включим OSPF на интерфейсах:
@@ -96,6 +98,8 @@ ipv6 prefix-list deny_area_101 seq 5 deny 2001:DB8:1001:1001::4/127
 ipv6 prefix-list deny_area_101 seq 10 deny 2002:101::19:19/128
 ipv6 prefix-list deny_area_101 seq 15 permit ::/0 le 128
 ```
+Посмотрим соседей и полученые маршруты IPv4/IPv6, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_15/images/R15.png)
 
 **R12**  
 Настроим секцию OSPF для IPv4/IPv6 и включим OSPF на интерфейсах:
@@ -140,6 +144,8 @@ router ospf 1
  router-id 1.1.12.12
  passive-interface Loopback0
 ```
+Посмотрим соседей и полученые маршруты IPv4/IPv6, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_15/images/R12.png)
 
 **R13**  
 Настроим секцию OSPF для IPv4/IPv6 и включим OSPF на интерфейсах:
@@ -184,6 +190,8 @@ router ospf 1
  router-id 1.1.13.13
  passive-interface Loopback0
 ```
+Посмотрим соседей и полученые маршруты IPv4/IPv6, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_15/images/R13.png)
 
 **R19**  
 Настроим секцию OSPF для IPv4/IPv6 и включим OSPF на интерфейсах:
@@ -212,6 +220,8 @@ router ospf 1
  area 101 stub no-summary
  passive-interface Loopback0
 ```
+Посмотрим соседей и полученые маршруты IPv4/IPv6, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_15/images/R19.png)
 
 **R20**  
 Настроим секцию OSPF для IPv4/IPv6 и включим OSPF на интерфейсах:
@@ -239,6 +249,8 @@ router ospf 1
  router-id 1.1.20.20
  passive-interface Loopback0
 ```
+Посмотрим соседей и полученые маршруты IPv4/IPv6, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_15/images/R20.png)
 
 **SW4**  
 Настроим секцию OSPF для IPv4/IPv6 и включим OSPF на интерфейсах:
@@ -277,6 +289,8 @@ router ospf 1
  router-id 1.1.4.4
  passive-interface Loopback0
 ```
+Посмотрим соседей и полученые маршруты IPv4/IPv6, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_15/images/SW4.png)
 
 **SW5**  
 Настроим секцию OSPF для IPv4/IPv6 и включим OSPF на интерфейсах:
@@ -315,3 +329,5 @@ router ospf 1
  router-id 1.1.5.5
  passive-interface Loopback0
 ```
+Посмотрим соседей и полученые маршруты IPv4/IPv6, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_15/images/SW5.png)
