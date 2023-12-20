@@ -29,6 +29,11 @@ router bgp 1001
 route-map rm_low_preference permit 5
  set local-preference 10
 ```
+Посмотрим соседей IPv4/IPv6, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_27/images/R14.png)
+
+Посмотрим, что выход из офиса осуществялется через оператора Ламас, для этого посмотрим на перфикс - 1.1.18.18 (2002:101::18:18/128), который принадлежит маршрутизатору в офисе СПб, как видим, он прилетает нам от нашего iBGP-соседа и считается как лучший:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_27/images/R14_show.png)
 
 **R15**
 ```
@@ -50,6 +55,8 @@ address-family ipv6
   neighbor 2002:101::14:14 soft-reconfiguration inbound
  exit-address-family
 ```
+Посмотрим соседей IPv4/IPv6, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_27/images/R15.png)
 
   * Настроим iBGP у оператора Триада:
 
