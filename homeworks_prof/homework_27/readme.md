@@ -99,6 +99,8 @@ router bgp 520
   neighbor 2002:101::26:26 soft-reconfiguration inbound
  exit-address-family
 ```
+Посмотрим соседей IPv4/IPv6, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_27/images/R23.png)
 
 **R24**
 ```
@@ -120,6 +122,8 @@ router bgp 520
   neighbor 2002:101::23:23 soft-reconfiguration inbound
  exit-address-family
 ```
+Посмотрим соседей IPv4/IPv6, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_27/images/R24.png)
 
 **R25**
 ```
@@ -141,6 +145,8 @@ router bgp 520
   neighbor 2002:101::23:23 soft-reconfiguration inbound
  exit-address-family
 ```
+Посмотрим соседей IPv4/IPv6, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_27/images/R25.png)
 
 **R26**
 ```
@@ -162,6 +168,8 @@ router bgp 520
   neighbor 2002:101::23:23 soft-reconfiguration inbound
  exit-address-family
 ```
+Посмотрим соседей IPv4/IPv6, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_27/images/R26.png)
 
   * Настроим BGP в офисе СПб так, чтобы трафик до любого офиса распределялся по двум линкам одновременно:
 
@@ -177,3 +185,5 @@ router bgp 2042
   maximum-paths 2
  exit-address-family
 ```
+Сделаем трассировку до адреса оператора Киторн, видим, что есть несколько путей, как показано на рисунке:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_27/images/R18_trace.png)
