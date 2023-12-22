@@ -1,0 +1,188 @@
+R21#sh run
+Building configuration...
+
+Current configuration : 3359 bytes
+!
+! Last configuration change at 15:01:00 UTC Fri Dec 22 2023
+!
+version 15.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname R21
+!
+boot-start-marker
+boot-end-marker
+!
+aqm-register-fnf
+!
+!
+no aaa new-model
+mmi polling-interval 60
+no mmi auto-configure
+no mmi pvc
+mmi snmp-timeout 180
+!         
+!
+!
+!
+!
+!
+
+
+!
+!
+!
+!
+ip cef
+ipv6 unicast-routing
+ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!         
+!
+!
+redundancy
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 1.1.21.21 255.255.255.255
+ ipv6 address 2002:101::21:21/128
+!
+interface Ethernet0/0
+ ip address 85.75.123.33 255.255.255.252
+ ipv6 address 2002:5555::14/127
+!
+interface Ethernet0/1
+ ip address 85.75.123.30 255.255.255.252
+ ipv6 address 2002:5555::9/127
+!
+interface Ethernet0/2
+ ip address 85.75.123.6 255.255.255.252
+ ipv6 address 2002:5555::7/127
+!
+interface Ethernet0/3
+ no ip address
+ shutdown
+!
+interface Ethernet1/0
+ no ip address
+ shutdown
+!
+interface Ethernet1/1
+ no ip address
+ shutdown
+!         
+interface Ethernet1/2
+ no ip address
+ shutdown
+!
+interface Ethernet1/3
+ no ip address
+ shutdown
+!
+router bgp 301
+ bgp router-id 1.1.21.21
+ bgp log-neighbor-changes
+ neighbor 2002:5555::6 remote-as 520
+ neighbor 2002:5555::6 description Triada
+ neighbor 2002:5555::8 remote-as 101
+ neighbor 2002:5555::8 description Kitorn
+ neighbor 2002:5555::15 remote-as 1001
+ neighbor 2002:5555::15 description Moscow
+ neighbor 85.75.123.5 remote-as 520
+ neighbor 85.75.123.5 description Triada
+ neighbor 85.75.123.29 remote-as 101
+ neighbor 85.75.123.29 description Kitorn
+ neighbor 85.75.123.34 remote-as 1001
+ neighbor 85.75.123.34 description Moscow
+ !
+ address-family ipv4
+  network 1.1.21.21 mask 255.255.255.255
+  no neighbor 2002:5555::6 activate
+  no neighbor 2002:5555::8 activate
+  no neighbor 2002:5555::15 activate
+  neighbor 85.75.123.5 activate
+  neighbor 85.75.123.5 soft-reconfiguration inbound
+  neighbor 85.75.123.29 activate
+  neighbor 85.75.123.29 soft-reconfiguration inbound
+  neighbor 85.75.123.34 activate
+  neighbor 85.75.123.34 default-originate
+  neighbor 85.75.123.34 soft-reconfiguration inbound
+  neighbor 85.75.123.34 route-map rm_default out
+  neighbor 85.75.123.34 filter-list 50 out
+ exit-address-family
+ !
+ address-family ipv6
+  network 2002:101::21:21/128
+  neighbor 2002:5555::6 activate
+  neighbor 2002:5555::6 soft-reconfiguration inbound
+  neighbor 2002:5555::8 activate
+  neighbor 2002:5555::8 soft-reconfiguration inbound
+  neighbor 2002:5555::15 activate
+  neighbor 2002:5555::15 default-originate
+  neighbor 2002:5555::15 soft-reconfiguration inbound
+  neighbor 2002:5555::15 route-map rm_default_ipv6 out
+  neighbor 2002:5555::15 filter-list 50 out
+ exit-address-family
+!
+ip forward-protocol nd
+!
+ip as-path access-list 50 permit _2042$
+!
+no ip http server
+no ip http secure-server
+!
+!
+ip prefix-list pl_default seq 10 permit 0.0.0.0/0
+ip prefix-list pl_default seq 15 permit 1.1.18.18/32
+!
+!
+ipv6 prefix-list pl_default_ipv6 seq 10 permit ::/0
+ipv6 prefix-list pl_default_ipv6 seq 15 permit 2002:101::18:18/128
+route-map rm_default permit 10
+ match ip address pl_default
+!
+route-map rm_default_ipv6 permit 10
+ match ipv6 address prefix-list pl_default_ipv6
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+ logging synchronous
+line aux 0
+line vty 0 4
+ login
+ transport input none
+!
+!         
+end

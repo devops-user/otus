@@ -1,0 +1,179 @@
+R24#sh run
+Building configuration...
+
+Current configuration : 2944 bytes
+!
+version 15.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname R24
+!
+boot-start-marker
+boot-end-marker
+!
+aqm-register-fnf
+!
+!
+no aaa new-model
+mmi polling-interval 60
+no mmi auto-configure
+no mmi pvc
+mmi snmp-timeout 180
+!
+!
+!         
+!
+!
+!
+
+
+!
+!
+!
+!
+no ip domain lookup
+ip cef
+ipv6 unicast-routing
+ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+!         
+!
+redundancy
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 1.1.24.24 255.255.255.255
+ ipv6 address 2002:101::24:24/128
+!
+interface Ethernet0/0
+ ip address 85.75.123.5 255.255.255.252
+ ipv6 address 2002:5555::6/127
+!
+interface Ethernet0/1
+ ip address 10.123.52.4 255.255.255.254
+ ip router isis 
+ ipv6 address FE80::24 link-local
+ ipv6 address 2001:DB8:1212:1212::4/127
+ ipv6 router isis 
+!
+interface Ethernet0/2
+ ip address 10.123.52.3 255.255.255.254
+ ip router isis 
+ ipv6 address FE80::24 link-local
+ ipv6 address 2001:DB8:1212:1212::3/127
+ ipv6 router isis 
+!
+interface Ethernet0/3
+ ip address 85.75.123.25 255.255.255.252
+ ipv6 address 2002:5555::14/127
+!
+interface Ethernet1/0
+ no ip address
+ shutdown 
+!
+interface Ethernet1/1
+ no ip address
+ shutdown
+!
+interface Ethernet1/2
+ no ip address
+ shutdown
+!
+interface Ethernet1/3
+ no ip address
+ shutdown
+!
+router isis
+ net 49.0024.1000.1024.0024.00
+ passive-interface Loopback0
+!
+router bgp 520
+ bgp router-id 1.1.24.24
+ bgp log-neighbor-changes
+ neighbor 1.1.23.23 remote-as 520
+ neighbor 1.1.23.23 update-source Loopback0
+ neighbor 2002:101::23:23 remote-as 520
+ neighbor 2002:101::23:23 update-source Loopback0
+ neighbor 2002:5555::7 remote-as 301
+ neighbor 2002:5555::7 description Lamas
+ neighbor 2002:5555::15 remote-as 2042
+ neighbor 2002:5555::15 description SPB
+ neighbor 85.75.123.6 remote-as 301
+ neighbor 85.75.123.6 description Lamas
+ neighbor 85.75.123.26 remote-as 2042
+ neighbor 85.75.123.26 description SPB
+ !
+ address-family ipv4
+  network 1.1.24.24 mask 255.255.255.255
+  neighbor 1.1.23.23 activate
+  neighbor 1.1.23.23 next-hop-self
+  neighbor 1.1.23.23 soft-reconfiguration inbound
+  no neighbor 2002:101::23:23 activate
+  no neighbor 2002:5555::7 activate
+  no neighbor 2002:5555::15 activate
+  neighbor 85.75.123.6 activate
+  neighbor 85.75.123.6 soft-reconfiguration inbound
+  neighbor 85.75.123.26 activate
+  neighbor 85.75.123.26 soft-reconfiguration inbound
+ exit-address-family
+ !
+ address-family ipv6
+  network 2002:101::24:24/128
+  neighbor 2002:101::23:23 activate
+  neighbor 2002:101::23:23 soft-reconfiguration inbound
+  neighbor 2002:5555::7 activate
+  neighbor 2002:5555::7 soft-reconfiguration inbound
+  neighbor 2002:5555::15 activate
+  neighbor 2002:5555::15 soft-reconfiguration inbound
+ exit-address-family
+!
+ip forward-protocol nd
+!
+!
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+control-plane
+!
+!         
+!
+!
+!
+!
+!
+!
+line con 0
+ logging synchronous
+line aux 0
+line vty 0 4
+ login
+ transport input none
+!
+!
+end

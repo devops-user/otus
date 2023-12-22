@@ -1,0 +1,190 @@
+R15#sh run
+Building configuration...
+
+Current configuration : 3596 bytes
+!
+! Last configuration change at 09:29:00 UTC Fri Dec 22 2023
+!
+version 15.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname R15
+!
+boot-start-marker
+boot-end-marker
+!
+aqm-register-fnf
+!
+!
+no aaa new-model
+mmi polling-interval 60
+no mmi auto-configure
+no mmi pvc
+mmi snmp-timeout 180
+!         
+!
+!
+!
+!
+!
+
+
+!
+!
+!
+!
+no ip domain lookup
+ip cef
+ipv6 unicast-routing
+ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!         
+!
+!
+!
+redundancy
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 1.1.15.15 255.255.255.255
+ ip ospf 1 area 0
+ ipv6 address 2002:101::15:15/128
+ ipv6 ospf 1 area 0
+!
+interface Ethernet0/0
+ ip address 10.101.101.13 255.255.255.254
+ ip ospf network point-to-point
+ ip ospf 1 area 0
+ ipv6 address FE80::15 link-local
+ ipv6 address 2001:DB8:1001:1001::7/127
+ ipv6 ospf 1 area 0
+ ipv6 ospf network point-to-point
+!
+interface Ethernet0/1
+ ip address 10.101.101.7 255.255.255.254
+ ip ospf network point-to-point
+ ip ospf 1 area 0
+ ipv6 address FE80::15 link-local
+ ipv6 address 2001:DB8:1001:1001::9/127
+ ipv6 ospf 1 area 0
+ ipv6 ospf network point-to-point
+!
+interface Ethernet0/2
+ ip address 85.75.123.34 255.255.255.252
+ ipv6 address 2002:5555::15/127
+!
+interface Ethernet0/3
+ ip address 10.101.101.18 255.255.255.254
+ ip ospf network point-to-point
+ ip ospf 1 area 102
+ ipv6 address FE80::15 link-local
+ ipv6 address 2001:DB8:1001:1001::11/127
+ ipv6 ospf 1 area 102
+ ipv6 ospf network point-to-point
+!
+router ospfv3 1
+ router-id 1.1.15.15
+ !
+ address-family ipv6 unicast
+  passive-interface Loopback0
+  default-information originate always
+  area 102 filter-list prefix deny_area_101 in
+ exit-address-family
+!
+router ospf 1
+ router-id 1.1.15.15
+ area 102 filter-list prefix deny_area_101 in
+ passive-interface Loopback0
+ default-information originate always
+!
+router bgp 1001
+ bgp router-id 1.1.15.15
+ bgp log-neighbor-changes
+ neighbor 1.1.14.14 remote-as 1001
+ neighbor 1.1.14.14 update-source Loopback0
+ neighbor 2002:101::14:14 remote-as 1001
+ neighbor 2002:101::14:14 update-source Loopback0
+ neighbor 2002:5555::14 remote-as 301
+ neighbor 2002:5555::14 description Lamas
+ neighbor 85.75.123.33 remote-as 301
+ neighbor 85.75.123.33 description Lamas
+ !
+ address-family ipv4
+  network 1.1.15.15 mask 255.255.255.255
+  neighbor 1.1.14.14 activate
+  neighbor 1.1.14.14 next-hop-self
+  neighbor 1.1.14.14 soft-reconfiguration inbound
+  no neighbor 2002:101::14:14 activate
+  no neighbor 2002:5555::14 activate
+  neighbor 85.75.123.33 activate
+  neighbor 85.75.123.33 soft-reconfiguration inbound
+  neighbor 85.75.123.33 filter-list 99 out
+ exit-address-family
+ !
+ address-family ipv6
+  network 2002:101::15:15/128
+  neighbor 2002:101::14:14 activate
+  neighbor 2002:101::14:14 next-hop-self
+  neighbor 2002:101::14:14 soft-reconfiguration inbound
+  neighbor 2002:5555::14 activate
+  neighbor 2002:5555::14 soft-reconfiguration inbound
+  neighbor 2002:5555::14 filter-list 99 out
+ exit-address-family
+!
+ip forward-protocol nd
+!
+ip as-path access-list 99 permit ^$
+!
+no ip http server
+no ip http secure-server
+!
+!
+ip prefix-list deny_area_101 seq 5 deny 10.101.101.16/31
+ip prefix-list deny_area_101 seq 10 deny 1.1.19.19/32
+ip prefix-list deny_area_101 seq 15 permit 0.0.0.0/0 le 32
+!
+!
+ipv6 prefix-list deny_area_101 seq 5 deny 2001:DB8:1001:1001::4/127
+ipv6 prefix-list deny_area_101 seq 10 deny 2002:101::19:19/128
+ipv6 prefix-list deny_area_101 seq 15 permit ::/0 le 128
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+ logging synchronous
+line aux 0
+line vty 0 4
+ login
+ transport input none
+!
+!
+end
