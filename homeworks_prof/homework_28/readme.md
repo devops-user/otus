@@ -1,6 +1,6 @@
 # BGP фильтрация
 
-  * Настроим оператора Киторн, чтобы в сторону Москвы анонсировался только default-маршрут:  
+  * Настроим оператора Киторн, чтобы в сторону Москвы анонсировался только default'й-маршрут:  
 **R22**
 ```
 router bgp 101
@@ -42,5 +42,5 @@ router bgp 101
   neighbor 2002:5555::13 route-map rm_default_ipv6 out
  exit-address-family
 ```
-  * Пооверим, что мы анонсируем по eBGP IPv4/IPv6 в сторону Москвы:
+  * Пооверим, что мы анонсируем по eBGP IPv4/IPv6 в сторону Москвы, как можно увидеть, только default'й-маршрут:
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_28/images/R22.png)
