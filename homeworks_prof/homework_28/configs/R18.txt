@@ -178,6 +178,7 @@ ip route 0.0.0.0 0.0.0.0 85.75.123.21 254
 ip prefix-list pl_msc seq 5 permit 1.1.14.14/32
 ip prefix-list pl_msc seq 10 permit 1.1.15.15/32
 ip prefix-list pl_msc seq 15 deny 0.0.0.0/0 le 32
+!
 ipv6 route ::/0 2002:5555::14 254
 ipv6 route ::/0 2002:5555::16 254
 !
@@ -185,6 +186,7 @@ ipv6 route ::/0 2002:5555::16 254
 ipv6 prefix-list pl_msc_ipv6 seq 5 permit 2002:101::14:14/128
 ipv6 prefix-list pl_msc_ipv6 seq 10 permit 2002:101::15:15/128
 ipv6 prefix-list pl_msc_ipv6 seq 15 deny ::/0 le 128
+!
 route-map rm_msc_ipv6 permit 10
  match ipv6 address prefix-list pl_msc_ipv6
 !
