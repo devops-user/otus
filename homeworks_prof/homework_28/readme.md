@@ -6,11 +6,11 @@
 router bgp 101
  !
  address-family ipv4
-  neighbor 85.75.123.38 soft-reconfiguration inbound
+  neighbor 85.75.123.38 default-originate
  exit-address-family
  !
  address-family ipv6
-  neighbor 2002:5555::13 soft-reconfiguration inbound
+  neighbor 2002:5555::13 default-originate
  exit-address-family
 ```
   * Создадим prefix-list и route-map для IPv4/IPv6:
@@ -51,11 +51,11 @@ router bgp 101
 router bgp 101
  !
  address-family ipv4
-  neighbor neighbor 85.75.123.34 soft-reconfiguration inbound
+  neighbor neighbor 85.75.123.34 default-originate
  exit-address-family
  !
  address-family ipv6
-  neighbor neighbor 2002:5555::15 soft-reconfiguration inbound
+  neighbor neighbor 2002:5555::15 default-originate
  exit-address-family
 ```
   * С помощью filter-list отфильтруем префиксы и оставим только тот, что принадлежит СПб:
