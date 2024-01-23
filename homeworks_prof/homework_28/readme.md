@@ -58,22 +58,13 @@ router bgp 101
   neighbor neighbor 2002:5555::15 default-originate
  exit-address-family
 ```
-  * С помощью filter-list отфильтруем префиксы и оставим только тот, что принадлежит СПб:
+  * С помощью as-path отфильтруем префиксы и оставим только тот, что принадлежит СПб:
 ```
 !
 ip as-path access-list 50 permit _2042$
 !
-router bgp 101
- !
- address-family ipv4
-  neighbor 85.75.123.34 filter-list 50 out
- exit-address-family
- !
- address-family ipv6
-  neighbor 2002:5555::15 filter-list 50 out
- exit-address-family
 ```
-  * Создадим prefix-list и route-map для IPv4/IPv6 (больше как best practises, т.к. мы оператор, нельзя оставлять без фильтров):
+  * Создадим prefix-list и route-map для IPv4/IPv6, так же в route-map'ы добавим соответствие нашему as-path:
 ```
 !
 ip prefix-list pl_default seq 10 permit 0.0.0.0/0
@@ -85,8 +76,10 @@ ipv6 prefix-list pl_default_ipv6 seq 15 permit 2002:101::18:18/128
 !
 route-map rm_default permit 10
  match ip address pl_default
+ match as-path 50
 !
 route-map rm_default_ipv6 permit 10
+ match as-path 50
  match ipv6 address prefix-list pl_default_ipv6
 !
 ```
