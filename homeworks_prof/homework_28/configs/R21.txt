@@ -130,7 +130,6 @@ router bgp 301
   neighbor 85.75.123.34 default-originate
   neighbor 85.75.123.34 soft-reconfiguration inbound
   neighbor 85.75.123.34 route-map rm_default out
-  neighbor 85.75.123.34 filter-list 50 out
  exit-address-family
  !
  address-family ipv6
@@ -143,7 +142,6 @@ router bgp 301
   neighbor 2002:5555::15 default-originate
   neighbor 2002:5555::15 soft-reconfiguration inbound
   neighbor 2002:5555::15 route-map rm_default_ipv6 out
-  neighbor 2002:5555::15 filter-list 50 out
  exit-address-family
 !
 ip forward-protocol nd
@@ -162,8 +160,10 @@ ipv6 prefix-list pl_default_ipv6 seq 10 permit ::/0
 ipv6 prefix-list pl_default_ipv6 seq 15 permit 2002:101::18:18/128
 route-map rm_default permit 10
  match ip address pl_default
+ match as-path 50
 !
 route-map rm_default_ipv6 permit 10
+ match as-path 50
  match ipv6 address prefix-list pl_default_ipv6
 !
 !
