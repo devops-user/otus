@@ -5,6 +5,7 @@
 **R14**
 ```
 interface Tunnel0
+ description GRE_to_SPB_R18
  ip address 172.16.0.14 255.255.255.0
  ip mtu 1400
  ip tcp adjust-mss 1360
@@ -16,6 +17,7 @@ end
 **R18**
 ```
 interface Tunnel0
+ description GRE_to_MSK_R14
  ip address 172.16.0.18 255.255.255.0
  ip mtu 1400
  ip tcp adjust-mss 1360
