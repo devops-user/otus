@@ -1,6 +1,6 @@
 # VPN. GRE. DmVPN
 
-  * Настроим GRE между офисами Москва и С.-Петербург
+  * Настроим GRE между офисами Москва и С.-Петербург:
 
 **R14**
 ```
@@ -25,3 +25,5 @@ end
 ```
 Проверим IP-связность:  
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_36/images/gre.png)
+
+  * Настроим DMVPN между офисами Москва и Чокурдах, Лабытнанги:
