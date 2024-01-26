@@ -143,6 +143,7 @@ router bgp 520
  address-family ipv6
   network 2002:101::24:24/128
   neighbor 2002:101::23:23 activate
+  neighbor 2002:101::23:23 next-hop-self
   neighbor 2002:101::23:23 soft-reconfiguration inbound
   neighbor 2002:5555::7 activate
   neighbor 2002:5555::7 soft-reconfiguration inbound
