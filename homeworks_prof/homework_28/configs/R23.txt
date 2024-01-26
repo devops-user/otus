@@ -157,12 +157,15 @@ router bgp 520
   network 2002:101::23:23/128
   neighbor 2002:101::24:24 activate
   neighbor 2002:101::24:24 route-reflector-client
+  neighbor 2002:101::24:24 next-hop-self
   neighbor 2002:101::24:24 soft-reconfiguration inbound
   neighbor 2002:101::25:25 activate
   neighbor 2002:101::25:25 route-reflector-client
+  neighbor 2002:101::25:25 next-hop-self
   neighbor 2002:101::25:25 soft-reconfiguration inbound
   neighbor 2002:101::26:26 activate
   neighbor 2002:101::26:26 route-reflector-client
+  neighbor 2002:101::26:26 next-hop-self
   neighbor 2002:101::26:26 soft-reconfiguration inbound
   neighbor 2002:5555::10 activate
   neighbor 2002:5555::10 soft-reconfiguration inbound
