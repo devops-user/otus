@@ -58,7 +58,7 @@ router bgp 101
   neighbor neighbor 2002:5555::15 default-originate
  exit-address-family
 ```
-  * С помощью as-path отфильтруем префиксы и оставим только тот, что принадлежит СПб:
+  * С помощью as-path отфильтруем префиксы и оставим только тот, что принадлежит СПб укажем автономную систему - 2042:
 ```
 !
 ip as-path access-list 50 permit _2042$
