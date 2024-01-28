@@ -26,3 +26,15 @@ ntp update-calendar
 
 **R20**  
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_33/images/R20.png)
+
+**SW4**  
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_33/images/SW4.png)
+
+**SW5**  
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_33/images/SW5.png)
+
+**SW3**  
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_33/images/SW3.png)
+
+**SW2**  
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_33/images/SW2.png)
