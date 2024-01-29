@@ -19,7 +19,16 @@ ip dhcp pool LAN_55
  default-router 192.168.55.1 
  dns-server 192.168.55.1 
 ```
+Проверим состояние на SW4 и SW5:  
+**SW4**  
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_33/images/SW4_dhcp.png)
 
+**SW5**  
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_33/images/SW5_dhcp.png)
+Видим, что адреса выделились из наших пулов для каждого VPC.
+
+Проверим состояние на VPC1 и VPC7:  
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_33/images/vpc.png)
 
   * Настроим NTP сервер на R12 и R13.
 
