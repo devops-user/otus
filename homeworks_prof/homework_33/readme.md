@@ -1,3 +1,26 @@
+  * Настроим DHCP-сервер для IPv4 в офисе Москва на SW4 и SW5.
+
+**SW4**
+```
+ip dhcp excluded-address 192.168.155.1 192.168.155.4
+!
+ip dhcp pool LAN_155
+ network 192.168.155.0 255.255.255.240
+ default-router 192.168.155.1 
+ dns-server 192.168.155.1 
+```
+
+**SW5**
+```
+ip dhcp excluded-address 192.168.55.1 192.168.55.4
+!
+ip dhcp pool LAN_55
+ network 192.168.55.0 255.255.255.240
+ default-router 192.168.55.1 
+ dns-server 192.168.55.1 
+```
+
+
   * Настроим NTP сервер на R12 и R13.
 
 **R12**
