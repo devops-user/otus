@@ -1,3 +1,27 @@
+  * Настроим статический NAT для R20.
+
+ **R15**
+```
+ip nat inside source static 1.1.20.20 100.100.20.20
+```
+Добавим статический маршрут:
+```
+ip route 100.100.20.20 255.255.255.255 Null0
+```
+Теперь объявим этот префик в BGP
+```
+router bgp 1001
+address-family ipv4
+  network 100.100.20.20 mask 255.255.255.255
+```
+
+Выполним пинг с R20 до оператора Ламас и Триада:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_33/images/R20_nat.png)
+
+Теперь посмотрим таблицу nat translations на роутере R15:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_33/images/R15_nat.png)
+
+
   * Настроим DHCP-сервер для IPv4 в офисе Москва на SW4 и SW5.
 
 **SW4**
