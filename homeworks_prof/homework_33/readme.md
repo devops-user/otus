@@ -1,4 +1,8 @@
-  * Настроим NAT(PAT) на R18. Трансляция должна осуществляться в пул из 5 адресов автономной системы AS2042.
+#### 1. Настроим NAT(PAT) на R14 и R15. Трансляция должна осуществляться в адрес автономной системы AS1001.
+
+
+
+#### 2. Настроим NAT(PAT) на R18. Трансляция должна осуществляться в пул из 5 адресов автономной системы AS2042.
 
 **R18**
 ```
@@ -37,7 +41,7 @@ router bgp 2042
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_33/images/R18_nat.png)
 
 
-  * Настроим статический NAT для R20.
+#### 3. Настроим статический NAT для R20.
 
  **R15**
 ```
@@ -60,7 +64,9 @@ address-family ipv4
 Теперь посмотрим таблицу nat translations на роутере R15:
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_33/images/R15_nat.png)
 
-  * Настроим статический NAT(PAT) для офиса Чокурдах.
+#### 4. Настроим NAT так, чтобы R19 был доступен с любого узла для удаленного управления..
+
+#### 5. Настроим статический NAT(PAT) для офиса Чокурдах.
 
 **R28**
 ```
@@ -87,7 +93,7 @@ interface Ethernet0/1
 На R28 посмотрим NAT-трансляцию:
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_33/images/R28_pat.png)
 
-  * Настроим DHCP-сервер для IPv4 в офисе Москва на SW4 и SW5.
+#### 6. Настроим DHCP-сервер для IPv4 в офисе Москва на SW4 и SW5.
 
 **SW4**
 ```
@@ -119,7 +125,7 @@ ip dhcp pool LAN_55
 Проверим состояние на VPC1 и VPC7:  
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_33/images/vpc.png)
 
-  * Настроим NTP сервер на R12 и R13.
+#### 7. Настроим NTP сервер на R12 и R13.
 
 **R12**
 ```
