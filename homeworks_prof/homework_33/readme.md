@@ -21,6 +21,32 @@ address-family ipv4
 Теперь посмотрим таблицу nat translations на роутере R15:
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_33/images/R15_nat.png)
 
+  * Настроим статический NAT(PAT) для офиса Чокурдах.
+
+**R28**
+```
+ip access-list standard PAT_LAN
+ permit 192.168.50.0 0.0.0.7
+!
+ip nat inside source list PAT_LAN interface Loopback0 overload
+!
+interface Loopback0
+ ip nat inside
+!
+interface Ethernet0/2.50
+ ip nat inside
+!
+interface Ethernet0/0
+ ip nat outside
+!
+interface Ethernet0/1
+ ip nat outside
+```
+Запустим пинг на VPC до офиса Москва до R15:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_33/images/ping.png)
+
+На R28 посмотрим NAT-трансляцию:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_33/images/R28_pat.png)
 
   * Настроим DHCP-сервер для IPv4 в офисе Москва на SW4 и SW5.
 
