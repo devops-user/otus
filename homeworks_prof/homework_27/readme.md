@@ -24,7 +24,7 @@ router bgp 1001
   neighbor 2002:5555::12 route-map rm_low_preference in
  exit-address-family
 ```
-  * Так же создадим route-map с низким приоритеом и повесим его в сторону оператора Киторн:
+  * Создадим route-map с низким приоритеом и повесим его в сторону оператора Киторн:
 ```
 route-map rm_low_preference permit 5
  set local-preference 10
@@ -35,11 +35,22 @@ route-map rm_low_preference permit 5
 Посмотрим, что выход из офиса осуществялется через оператора Ламас, для этого посмотрим на префикс - 1.1.18.18 (2002:101::18:18/128), который принадлежит маршрутизатору в офисе СПб, как видим, он прилетает нам от нашего iBGP-соседа и считается как лучший:
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_27/images/R14_show.png)
 
-* Так же создадим route-map с увеличением as-path и повесим его в сторону оператора Киторн:
+* Создадим route-map с увеличением as-path и повесим его в сторону оператора Киторн:
 ```
 route-map rm_as_prepend permit 5
  set as-path prepend 1001 1001
 ```
+```
+router bgp 1001
+  address-family ipv4
+  neighbor 85.75.123.37 route-map rm_as_prepend out
+ exit-address-family
+!
+ address-family ipv6
+  neighbor 2002:5555::12 route-map rm_as_prepend out
+ exit-address-family
+```
+
 На R22 посмотрим, что наш as-path стал длиннее:  
 Как было до установки route-map на R14 в сторону Киторн
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_27/images/R22_before.png)
