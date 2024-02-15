@@ -36,7 +36,7 @@ route-map rm_low_preference permit 5
 Посмотрим, что выход из офиса осуществялется через оператора Ламас, для этого посмотрим на префикс - 1.1.18.18 (2002:101::18:18/128), который принадлежит маршрутизатору в офисе СПб, как видим, он прилетает нам от нашего iBGP-соседа и считается как лучший:
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_27/images/R14_show.png)
 
-Псомотри, что наш as-path стал длиннее:
+Посмотрим, что наш as-path стал длиннее:
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_27/images/R14_prepend.png)
 
 
