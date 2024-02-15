@@ -1,3 +1,42 @@
+  * Настроим NAT(PAT) на R18. Трансляция должна осуществляться в пул из 5 адресов автономной системы AS2042.
+
+**R18**
+```
+interface Loopback99
+ description ###For_NAT###
+ ip address 209.165.200.225 255.255.255.248
+ ip nat inside
+!
+interface Ethernet0/0
+ ip nat inside
+!
+interface Ethernet0/1
+ ip nat inside
+!
+interface Ethernet0/2
+ ip nat outside
+!
+interface Ethernet0/3
+ ip nat outside
+!
+ip nat pool PUBLIC_ACCESS 209.165.200.226 209.165.200.230 netmask 255.255.255.248
+!
+ip access-list standard NAT_LAN
+ permit 192.168.242.0 0.0.0.7
+!
+router bgp 2042
+ address-family ipv4
+  network 209.165.200.224 mask 255.255.255.248
+ exit-address-family
+```
+
+Запустим пинг на VPCs:  
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_33/images/vpcs.png)
+
+На R18 посмотрим NAT-трансляцию, как видно адреса берутся из нашего пула:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_33/images/R18_nat.png)
+
+
   * Настроим статический NAT для R20.
 
  **R15**
