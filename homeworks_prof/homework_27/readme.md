@@ -63,47 +63,40 @@ address-family ipv6
 **R23**
 ```
 router bgp 520
- neighbor 1.1.24.24 remote-as 520
- neighbor 1.1.24.24 update-source Loopback0
- neighbor 1.1.25.25 remote-as 520
- neighbor 1.1.25.25 update-source Loopback0
- neighbor 1.1.26.26 remote-as 520
- neighbor 1.1.26.26 update-source Loopback0
- neighbor 2002:101::24:24 remote-as 520
- neighbor 2002:101::24:24 update-source Loopback0
- neighbor 2002:101::25:25 remote-as 520
- neighbor 2002:101::25:25 update-source Loopback0
- neighbor 2002:101::26:26 remote-as 520
- neighbor 2002:101::26:26 update-source Loopback0
+ bgp router-id 1.1.23.23
+ bgp log-neighbor-changes
+ neighbor TRIADA_peergroup peer-group
+ neighbor TRIADA_peergroup remote-as 520
+ neighbor TRIADA_peergroup update-source Loopback0
+ neighbor TRIADA_peergroup_IPv6 peer-group
+ neighbor TRIADA_peergroup_IPv6 remote-as 520
+ neighbor TRIADA_peergroup_IPv6 update-source Loopback0
+ neighbor 1.1.24.24 peer-group TRIADA_peergroup
+ neighbor 1.1.25.25 peer-group TRIADA_peergroup
+ neighbor 1.1.26.26 peer-group TRIADA_peergroup
+ neighbor 2002:101::24:24 peer-group TRIADA_peergroup_IPv6
+ neighbor 2002:101::25:25 peer-group TRIADA_peergroup_IPv6
+ neighbor 2002:101::26:26 peer-group TRIADA_peergroup_IPv6
  !
  address-family ipv4
+  network 1.1.23.23 mask 255.255.255.255
+  neighbor TRIADA_peergroup route-reflector-client
+  neighbor TRIADA_peergroup next-hop-self
   neighbor 1.1.24.24 activate
-  neighbor 1.1.24.24 route-reflector-client
-  neighbor 1.1.24.24 next-hop-self
-  neighbor 1.1.24.24 soft-reconfiguration inbound
   neighbor 1.1.25.25 activate
-  neighbor 1.1.25.25 route-reflector-client
-  neighbor 1.1.25.25 next-hop-self
-  neighbor 1.1.25.25 soft-reconfiguration inbound
   neighbor 1.1.26.26 activate
-  neighbor 1.1.26.26 route-reflector-client
-  neighbor 1.1.26.26 next-hop-self
-  neighbor 1.1.26.26 soft-reconfiguration inbound
   no neighbor 2002:101::24:24 activate
   no neighbor 2002:101::25:25 activate
   no neighbor 2002:101::26:26 activate
  exit-address-family
  !
  address-family ipv6
+  network 2002:101::23:23/128
+  neighbor TRIADA_peergroup_IPv6 route-reflector-client
+  neighbor TRIADA_peergroup_IPv6 next-hop-self
   neighbor 2002:101::24:24 activate
-  neighbor 2002:101::24:24 route-reflector-client
-  neighbor 2002:101::24:24 soft-reconfiguration inbound
   neighbor 2002:101::25:25 activate
-  neighbor 2002:101::25:25 route-reflector-client
-  neighbor 2002:101::25:25 soft-reconfiguration inbound
   neighbor 2002:101::26:26 activate
-  neighbor 2002:101::26:26 route-reflector-client
-  neighbor 2002:101::26:26 soft-reconfiguration inbound
  exit-address-family
 ```
 Посмотрим соседей IPv4/IPv6, как показано на рисунке:
