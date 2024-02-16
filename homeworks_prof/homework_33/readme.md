@@ -129,7 +129,29 @@ address-family ipv4
 Теперь посмотрим таблицу nat translations на роутере R15:
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_33/images/R15_nat.png)
 
-#### 4. Настроим NAT так, чтобы R19 был доступен с любого узла для удаленного управления..
+#### 4. Настроим NAT так, чтобы R19 был доступен с любого узла для удаленного управления.
+
+**R15**
+```
+ip route 100.100.19.19 255.255.255.255 Null0
+!
+ip nat inside source static tcp 1.1.19.19 22 100.100.19.19 22 extendable
+!
+router bgp 1001
+ address-family ipv4
+  network 100.100.19.19 mask 255.255.255.255
+ exit-address-family
+```
+
+На R15 посмотрим NAT-трансляцию:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_33/images/R15_ssh.png)
+
+Попробуем зайти с роутера оператора Киторн:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_33/images/R22_ssh.png)
+
+Попробуем зайти с роутера оператора Триада:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_33/images/R24_ssh.png)
+
 
 #### 5. Настроим статический NAT(PAT) для офиса Чокурдах.
 
