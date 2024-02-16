@@ -1,5 +1,70 @@
 #### 1. Настроим NAT(PAT) на R14 и R15. Трансляция должна осуществляться в адрес автономной системы AS1001.
 
+**R14**
+```
+ip access-list standard vlan155
+ permit 192.168.155.0 0.0.0.7
+ip access-list standard vlan55
+ permit 192.168.55.0 0.0.0.7
+!
+ip nat inside source list vlan155 interface Loopback0 overload
+ip nat inside source list vlan55 interface Loopback0 overload
+!
+interface Loopback0
+ ip nat inside
+!
+interface Ethernet0/0
+ ip nat inside
+!
+interface Ethernet0/1
+ ip nat inside
+!
+interface Ethernet0/2
+ ip nat outside
+!
+router bgp 1001
+ !
+ address-family ipv4
+  network 192.168.55.0 mask 255.255.255.248
+  network 192.168.155.0 mask 255.255.255.248
+ exit-address-family
+```
+
+**R15**
+```
+ip access-list standard vlan155
+ permit 192.168.155.0 0.0.0.7
+ip access-list standard vlan55
+ permit 192.168.55.0 0.0.0.7
+!
+ip nat inside source list vlan155 interface Loopback0 overload
+ip nat inside source list vlan55 interface Loopback0 overload
+!
+interface Loopback0
+ ip nat inside
+!
+interface Ethernet0/0
+ ip nat inside
+!
+interface Ethernet0/1
+ ip nat inside
+!
+interface Ethernet0/2
+ ip nat outside
+!
+router bgp 1001
+ !        
+ address-family ipv4
+  network 192.168.55.0 mask 255.255.255.248
+  network 192.168.155.0 mask 255.255.255.248
+ exit-address-family
+```
+
+Запустим пинг на VPCs до оператора Триада:  
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_33/images/vpcs_msc.png)
+
+Посмотрим NAT-трансляцию на R14 и R15, как можно увидеть на R14 нет NAT-трансляции, т.к. выход во вне идет через R15:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_33/images/R14_R15.png)
 
 
 #### 2. Настроим NAT(PAT) на R18. Трансляция должна осуществляться в пул из 5 адресов автономной системы AS2042.
