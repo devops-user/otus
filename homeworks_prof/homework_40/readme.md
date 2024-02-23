@@ -119,5 +119,12 @@ end
 ```
 
   * Запустим пинг и посмотрим на статус IPSEC:
+```
+R18#ping 172.16.0.14
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 172.16.0.14, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 4/5/7 ms
+```
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_40/images/R14_gre_ipsec.png)
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_40/images/R18_gre_ipsec.png)
