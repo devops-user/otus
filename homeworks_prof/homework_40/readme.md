@@ -184,7 +184,7 @@ crypto key generate rsa label VPN modulus 2048
 crypto pki trustpoint VPN
   enrollment url http://1.1.14.14
   source interface Loopback0
-  subject-name CN=R18,OU=DMVPN,O=Otus,C=RU 
+  subject-name CN=R27,OU=DMVPN,O=Otus,C=RU 
   rsakeypair VPN
   revocation-check none
 !
@@ -226,9 +226,58 @@ interface Tunnel100
 end
 ```
 
+**R27**
+```
+crypto key generate rsa label VPN modulus 2048
+crypto pki trustpoint VPN
+  enrollment url http://1.1.14.14
+  source interface Loopback0
+  subject-name CN=R28,OU=DMVPN,O=Otus,C=RU 
+  rsakeypair VPN
+  revocation-check none
+!
+crypto pki authenticate DMVPN
+crypto pki enroll DMVPN
+!
+crypto ikev2 proposal DMVPN_PHASE1 
+ encryption aes-cbc-128
+ integrity md5
+ group 2
+!
+crypto ikev2 policy IKEV2 
+ proposal DMVPN_PHASE1
+!
+crypto ikev2 profile DMVPN_PROFILE1
+ match address local interface Loopback0
+ match identity remote address 0.0.0.0 
+ authentication remote rsa-sig
+ authentication local rsa-sig
+ pki trustpoint DMVPN
+!
+crypto ipsec transform-set IPSEC_TS esp-aes esp-md5-hmac 
+ mode tunnel
+!
+interface Tunnel100
+ description DmVPN_R15
+ ip address 10.254.0.28 255.255.255.0
+ no ip redirects
+ ip mtu 1400
+ ip nhrp map multicast 1.1.15.15
+ ip nhrp map multicast 10.254.0.15
+ ip nhrp map 10.254.0.15 1.1.15.15
+ ip nhrp network-id 254
+ ip nhrp nhs 10.254.0.15
+ ip tcp adjust-mss 1360
+ tunnel source Loopback0
+ tunnel mode gre multipoint
+ tunnel protection ipsec profile IPSEC_PROFILE_DMVPN
+end
+```
+
   * Посмотрим статус:
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_40/images/R15_cert.png)
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_40/images/R27_cert.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_40/images/R28_cert.png)
 
   * Запустим пинг и посмотрим на статус IPSEC:
 ```
@@ -239,3 +288,12 @@ Sending 5, 100-byte ICMP Echos to 10.254.0.15, timeout is 2 seconds:
 Success rate is 100 percent (5/5), round-trip min/avg/max = 5/6/7 ms
 ```
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_40/images/R27_gre_ipsec.png)
+
+```
+R28#ping 10.254.0.15 
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.254.0.15, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 4/5/7 ms
+```
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/homework_40/images/R28_gre_ipsec.png)
