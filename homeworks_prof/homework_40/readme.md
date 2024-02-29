@@ -164,6 +164,10 @@ crypto ikev2 profile DMVPN_PROFILE1
 crypto ipsec transform-set IPSEC_TS esp-aes esp-md5-hmac 
  mode tunnel
 !
+crypto ipsec profile IPSEC_PROFILE_DMVPN
+ set transform-set IPSEC_TS 
+ set ikev2-profile DMVPN_PROFILE1
+!
 interface Tunnel100
  description DmVPV_R27_R28
  ip address 10.254.0.15 255.255.255.0
@@ -208,6 +212,10 @@ crypto ikev2 profile DMVPN_PROFILE1
 !
 crypto ipsec transform-set IPSEC_TS esp-aes esp-md5-hmac 
  mode tunnel
+!
+crypto ipsec profile IPSEC_PROFILE_DMVPN
+ set transform-set IPSEC_TS 
+ set ikev2-profile DMVPN_PROFILE1
 !
 interface Tunnel100
  description DmVPN_R15
@@ -256,6 +264,10 @@ crypto ikev2 profile DMVPN_PROFILE1
 !
 crypto ipsec transform-set IPSEC_TS esp-aes esp-md5-hmac 
  mode tunnel
+!
+crypto ipsec profile IPSEC_PROFILE_DMVPN
+ set transform-set IPSEC_TS 
+ set ikev2-profile DMVPN_PROFILE1
 !
 interface Tunnel100
  description DmVPN_R15
