@@ -46,7 +46,7 @@
 На примере офисов Екатеринбург и Санкт-Петербург будут приведены примеры, в офисе Екатеринбург будут организованы два VPN-канала от двух разных операторов связи с возможностью резервирования, 
 в офисе Санкт-Петербург будет организован один канал связи от оператора и резервный канал через Интернет, где уже поверх будет настроен GRE/IPSEC до гавного офиса и поднято iBGP.
 
-  * Настроим BGP в офисе Екатеринбург:  
+  * Настроим BGP в филиале Екатеринбург:  
 **EKT-R1**
 ```
 router bgp 5665
@@ -66,7 +66,9 @@ router bgp 5665
  !
  bgp log-neighbor-changes
  neighbor 10.177.123.13 remote-as 8997
+ neighbor 10.177.123.13 description SPATEN-TELECOM
  neighbor 10.177.123.17 remote-as 25080
+ neighbor 10.177.123.17 description BUDWEISER-TELECOM
  !
  address-family ipv4
   network 10.66.30.0 mask 255.255.255.128
@@ -146,5 +148,61 @@ router bgp 5665
   neighbor 10.254.0.78 route-map PEER_2 in
  exit-address-family
 ```
-Посмотрим более детально один из префиксов филиала Екатеринбург, как видим через одного оператора приходит с community - 5665:666, а через другого с community - 5665:777, так же согласной нашей логике, мы определяем разные local-preference, чтобы работать в один момент через одного оператора связи, можно заметить, что префиксы из филиала Екатеринбург приходят от разных операторво, но лучший путь выбирается один через оператора BUDWEISER-TELECOM - 10.177.123.5, в случае падения одного из каналов, префиксы будут доступны через другого операторв связи:
+Посмотрим более детально один из префиксов филиала Екатеринбург, как видим через одного оператора приходит с community - 5665:666, а через другого с community - 5665:777, так же согласной нашей логике, мы определяем разные local-preference, чтобы работать в один момент через одного оператора связи, можно заметить, что префиксы из филиала Екатеринбург приходят от разных операторов, но лучший путь (*best*) выбирается через оператора *BUDWEISER-TELECOM - 10.177.123.5*, в случае падения одного из каналов, префиксы будут доступны через другого операторв связи:
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/final_project/images/kwood_bgp_2.png)
+
+  * Перейдем к настройкам филиала Санкт-Петербург:
+
+**SPB-R1**
+```
+router bgp 5665
+ template peer-policy sp1
+  route-map rm-sp1-out out
+  weight 1500
+  soft-reconfiguration inbound
+  send-community both
+ exit-peer-policy
+ !
+ template peer-policy sp2
+  route-map rm-sp2-out out
+  weight 1000
+  soft-reconfiguration inbound
+  send-community both
+ exit-peer-policy
+ !
+ bgp log-neighbor-changes
+ neighbor 10.177.123.21 remote-as 25080
+ neighbor 10.177.123.21 description BUDWEISER-TELECOM
+ neighbor 10.254.0.1 remote-as 5665
+ !
+ address-family ipv4
+  network 10.78.30.0 mask 255.255.255.128
+  network 10.78.40.0 mask 255.255.255.128
+  network 10.199.78.0 mask 255.255.255.128
+  neighbor 10.177.123.21 activate
+  neighbor 10.177.123.21 inherit peer-policy sp1
+  neighbor 10.177.123.21 weight 1500
+  neighbor 10.177.123.21 filter-list 99 out
+  neighbor 10.254.0.1 activate
+  neighbor 10.254.0.1 inherit peer-policy sp2
+  neighbor 10.254.0.1 weight 1000
+  neighbor 10.254.0.1 allowas-in
+  neighbor 10.254.0.1 filter-list 99 out
+ exit-address-family
+ip bgp-community new-format
+```
+
+Здесь так же есть prefix-list с анонсируемыми подсетями филиала и два route-map с назначение наших community:
+```
+ip prefix-list pl-sp-out seq 10 permit 10.78.30.0/25
+ip prefix-list pl-sp-out seq 20 permit 10.78.40.0/25
+ip prefix-list pl-sp-out seq 30 permit 10.199.78.0/25
+!
+route-map rm-sp2-out permit 10
+ match ip address prefix-list pl-sp-out
+ set community 5665:777
+!
+route-map rm-sp1-out permit 10
+ match ip address prefix-list pl-sp-out
+ set community 5665:666
+```
