@@ -192,7 +192,7 @@ router bgp 5665
 ip bgp-community new-format
 ```
 
-Здесь так же есть prefix-list с анонсируемыми подсетями филиала и два route-map с назначение наших community:
+Здесь так же есть prefix-list с анонсируемыми подсетями филиала и два route-map с назначением наших community:
 ```
 ip prefix-list pl-sp-out seq 10 permit 10.78.30.0/25
 ip prefix-list pl-sp-out seq 20 permit 10.78.40.0/25
@@ -206,3 +206,124 @@ route-map rm-sp1-out permit 10
  match ip address prefix-list pl-sp-out
  set community 5665:666
 ```
+
+Для филиала Санкт-Петербург у нас организован один VPN-канал через оператора BUDWEISER-TELECOM и обычный интернет канал, который мы будем использовать в качестве резервного VPN-канала через оператора INTERNET-TELECOM. Для начало настроим GRE-тунель и поднимем DMVPN между главным офисов и филиалом Санкт-Петербург через канал интернет:
+
+**KWOO-HQ_HUB-R1**
+```
+interface Tunnel100
+ description DmVPN_To_SPB
+ ip address 10.254.0.1 255.255.255.0
+ no ip redirects
+ ip mtu 1400
+ ip nhrp map multicast dynamic
+ ip nhrp network-id 254
+ ip tcp adjust-mss 1360
+ tunnel source Ethernet0/3
+ tunnel mode gre multipoint
+ tunnel protection ipsec profile IPSEC_PROFILE
+end
+```
+
+**SPB-R1**
+```
+interface Tunnel100
+ description DmVPN_To_KWOOD
+ ip address 10.254.0.78 255.255.255.0
+ no ip redirects
+ ip mtu 1400
+ ip nhrp map multicast 95.167.167.95
+ ip nhrp map multicast 10.254.0.1
+ ip nhrp map 10.254.0.1 95.167.167.95
+ ip nhrp network-id 254
+ ip nhrp nhs 10.254.0.1
+ ip tcp adjust-mss 1360
+ tunnel source Ethernet0/3
+ tunnel mode gre multipoint
+ tunnel protection ipsec profile IPSEC_PROFILE
+end
+```
+
+Посмотрим статус DMVPN в главном офисе и в филиале СПб:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/final_project/images/dmvpn.png)
+
+Дальше между главным офисов и филиалом настроим IPSEC:
+**KWOO-HQ_HUB-R1**
+```
+ip domain name kitchenwood.ru
+ip http server
+crypto key generate rsa general-keys label CA exportable modulus 2048
+crypto pki server CA 
+  no shutdown
+crypto pki server CA grant
+!
+crypto key generate rsa label DMVPN modulus 2048
+crypto pki trustpoint DMVPN
+ enrollment url http://10.254.0.1:80
+ subject-name CN=KWOO-HQ_HUB-R1,OU=DMVPN,O=kitchenwood,C=RU 
+ revocation-check none
+ rsakeypair DMVPN
+!
+crypto pki authenticate DMVPN
+crypto pki enroll DMVPN
+!crypto ikev2 proposal PHASE1 
+ encryption aes-cbc-128
+ integrity md5
+ group 2
+crypto ikev2 policy IKEV2 
+ proposal PHASE1
+crypto ikev2 profile PROFILE1
+ match address local interface Ethernet0/3
+ match identity remote address 0.0.0.0 
+ authentication remote rsa-sig
+ authentication local rsa-sig
+ pki trustpoint DMVPN
+!
+crypto ipsec transform-set IPSEC_TS esp-null esp-md5-hmac 
+ mode tunnel
+!
+crypto ipsec profile IPSEC_PROFILE
+ set transform-set IPSEC_TS 
+ set ikev2-profile PROFILE1
+```
+
+**SPB-R1**
+```
+crypto key generate rsa label DMVPN modulus 2048
+crypto pki trustpoint DMVPN
+ enrollment url http://10.254.0.1:80
+ subject-name CN=SPB-R1,OU=DMVPN,O=kitchenwood,C=RU 
+ revocation-check none
+ rsakeypair DMVPN
+!
+crypto pki authenticate DMVPN
+crypto pki enroll DMVPN
+!crypto ikev2 proposal PHASE1 
+ encryption aes-cbc-128
+ integrity md5
+ group 2
+crypto ikev2 policy IKEV2 
+ proposal PHASE1
+crypto ikev2 profile PROFILE1
+ match address local interface Ethernet0/3
+ match identity remote address 0.0.0.0 
+ authentication remote rsa-sig
+ authentication local rsa-sig
+ pki trustpoint DMVPN
+!
+crypto ipsec transform-set IPSEC_TS esp-null esp-md5-hmac 
+ mode tunnel
+!
+crypto ipsec profile IPSEC_PROFILE
+ set transform-set IPSEC_TS 
+ set ikev2-profile PROFILE1
+```
+
+Посмотрим состояние IPSEC в главнов офисе:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/final_project/images/ipsec_1.png)
+
+Посмотрим состояние IPSEC в филиале СПб:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/final_project/images/ipsec_2.png)
+
+Теперь посмотрим состояние BGP в филиале СПб и что мы анонсируем, как видим ниже, BGP-сессии поднялись и наши префиксы анонсируются оператору связи и напрямую через GRE-тунель главному офису:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/final_project/images/spb_bgp.png)
