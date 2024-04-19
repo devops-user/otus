@@ -328,8 +328,12 @@ crypto ipsec profile IPSEC_PROFILE
 Посмотрим состояние BGP в филиале СПб и что мы анонсируем, как видим ниже, BGP-сессии поднялись и наши префиксы анонсируются оператору связи и напрямую через GRE-тунель главному офису:
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/final_project/images/spb_bgp.png)
 
-Посмотрим состояние BGP в главном офисе и что мы получаем от филиала СПб, как видим ниже, BGP-сессии поднялись и мы получаем наши префиксы из филиала Санкт-Петербург, можно заметить символ **i** напротив префиксов филиала СПб, это означает, что они пришли через IGP, а именно через iBGP:
+Посмотрим состояние BGP в главном офисе и что мы получаем от филиала СПб, как видим ниже, BGP-сессии поднялись и мы получаем наши префиксы из филиала Санкт-Петербург, можно заметить символ **i** напротив префиксов филиала СПб это означает, что они пришли через IGP, а именно через iBGP:
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/final_project/images/kwood_bgp_3.png)
 
 Посмотрим более детально один из префиксов филиала СПб, как видим через одного оператора приходит с community - 5665:666, а через iBGP с community - 5665:777, так видим, что префиксы доступны через два разных оператора связи и лучший маршрут через оператора BUDWEISER-TELECOM:
 ![](https://github.com/devops-user/otus/blob/main/homeworks_prof/final_project/images/kwood_bgp_4.png)
+
+Посмотрим, что мы получаем в филиалах Екатеринбург и СПб, как видим мы получаем префиксы главного офиса, и в филиале СПб можно заметить, что один путь обозначен символом **i** , что они пришли через IGP, а именно через iBGP и он выбирает как резервный маршрут:
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/final_project/images/ekt_bgp_2.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks_prof/final_project/images/spb_bgp_2.png)
