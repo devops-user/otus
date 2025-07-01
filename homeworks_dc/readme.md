@@ -1,1 +1,8 @@
-
+  * [Основы проектирования сети](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_03/readme.md)
+  * [Построение Underlay сети(OSPF)](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_05/readme.md)
+  * [Построение Underlay сети(ISIS)](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_06/readme.md)
+  * [Построение Underlay сети(eBGP)](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_08/readme.md)
+  * [VxLAN. EVPN L2](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_11/readme.md)
+  * [VxLAN. EVPN L3](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_12/readme.md)
+  * [VxLAN. Аналоги VPC](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_14/readme.md)
+  * [VxLAN. Оптимизация таблиц маршрутизации](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_15/readme.md)
