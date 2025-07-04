@@ -186,3 +186,12 @@ interface Loopback0
 ```
 
 Проверка IP-связанности между устройствами:
+![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_06/images/spine_1.png)
+
+![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_06/images/spine_2.png)
+
+![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_06/images/leaf_1.png)
+
+![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_06/images/leaf_2.png)
+
+![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_06/images/leaf_3.png)
