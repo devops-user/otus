@@ -47,7 +47,6 @@ router bgp 65101
    neighbor 10.2.1.0 bfd
    neighbor 10.2.2.0 remote-as 65000
    neighbor 10.2.2.0 bfd
-   network 10.0.0.1/32
    redistribute connected
 !
 ```
@@ -63,7 +62,6 @@ router bgp 65102
    neighbor 10.2.1.2 bfd
    neighbor 10.2.2.2 remote-as 65000
    neighbor 10.2.2.2 bfd
-   network 10.0.0.2/32
    redistribute connected
 !
 ```
@@ -79,7 +77,6 @@ router bgp 65103
    neighbor 10.2.1.4 bfd
    neighbor 10.2.2.4 remote-as 65000
    neighbor 10.2.2.4 bfd
-   network 10.0.0.3/32
    redistribute connected
 !
 ```
