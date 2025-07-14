@@ -123,3 +123,41 @@ interface Vxlan1
 ![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_11/images/ping_vpc7.JPG)
 
 ![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_11/images/ping_vpc8.JPG)
+
+Проверим какие mac-addressa видны на Leaf'ах:
+```
+DC1-LEAF-1A#show vxlan address-table
+          Vxlan Mac Address Table
+----------------------------------------------------------------------
+
+VLAN  Mac Address     Type      Prt  VTEP             Moves   Last Move
+----  -----------     ----      ---  ----             -----   ---------
+ 100  0050.7966.6807  EVPN      Vx1  10.0.0.2         1       0:00:10 ago
+ 100  0050.7966.6808  EVPN      Vx1  10.0.0.3         1       0:00:02 ago
+Total Remote Mac Addresses for this criterion: 2
+```
+
+```
+DC1-LEAF-1B#show vxlan address-table
+          Vxlan Mac Address Table
+----------------------------------------------------------------------
+
+VLAN  Mac Address     Type      Prt  VTEP             Moves   Last Move
+----  -----------     ----      ---  ----             -----   ---------
+ 100  0050.7966.6806  EVPN      Vx1  10.0.0.1         1       0:00:42 ago
+ 100  0050.7966.6808  EVPN      Vx1  10.0.0.3         1       0:00:34 ago
+Total Remote Mac Addresses for this criterion: 2
+```
+
+```
+DC1-LEAF-1C#show vxlan address-table 
+          Vxlan Mac Address Table
+----------------------------------------------------------------------
+
+VLAN  Mac Address     Type      Prt  VTEP             Moves   Last Move
+----  -----------     ----      ---  ----             -----   ---------
+ 100  0050.7966.6806  EVPN      Vx1  10.0.0.1         1       0:03:39 ago
+ 100  0050.7966.6807  EVPN      Vx1  10.0.0.2         1       0:03:39 ago
+Total Remote Mac Addresses for this criterion: 2
+```
+Можно увидеть, что mac-adddress'a наших хостов есть в таблице и они находятся за своим vtep'ом. 
