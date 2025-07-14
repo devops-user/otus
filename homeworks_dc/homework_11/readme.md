@@ -35,3 +35,12 @@ interface Vxlan1
    vxlan vlan 100 vni 10100
 !
 ```
+**DC1-LEAF-1B**
+```
+!
+```
+
+**DC1-LEAF-1C**
+```
+!
+```
