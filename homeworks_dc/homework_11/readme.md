@@ -15,17 +15,12 @@ router bgp 65101
    neighbor 10.1.0.3 update-source Loopback1
    neighbor 10.1.0.3 ebgp-multihop 3
    neighbor 10.1.0.3 send-community extended
-   neighbor 10.2.1.0 remote-as 65000
-   neighbor 10.2.1.0 bfd
-   neighbor 10.2.2.0 remote-as 65000
-   neighbor 10.2.2.0 bfd
-   redistribute connected route-map rm-LOOPBACK0
+   redistribute connected
    !
-   vlan-aware-bundle PC
-      rd 1.1.1.1:10100
+   vlan 100
+      rd 65101:10100
       route-target both 1:1
       redistribute learned
-      vlan 100
    !
    address-family evpn
       bgp next-hop-unchanged
