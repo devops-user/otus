@@ -7,6 +7,8 @@
 **DC1-LEAF-1A**
 ```
 !
+vlan 100
+!
 router bgp 65101
    router-id 10.0.0.1
    timers bgp 5 15
@@ -43,6 +45,8 @@ interface Vxlan1
 ```
 **DC1-LEAF-1B**
 ```
+!
+vlan 100
 !
 router bgp 65102
    router-id 10.0.0.2
@@ -81,6 +85,8 @@ interface Vxlan1
 
 **DC1-LEAF-1C**
 ```
+!
+vlan 100
 !
 router bgp 65103
    router-id 10.0.0.3
