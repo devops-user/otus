@@ -7,7 +7,7 @@
 **DC1-LEAF-1A**
 ```
 !
-vlan 100,200
+vlan 100
 !
 vrf instance OTUS
 !
