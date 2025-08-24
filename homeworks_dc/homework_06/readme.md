@@ -234,6 +234,12 @@ interface Loopback0
 !
 ```
 
+Проверим bfd:
+![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_06/images/bfd_spine1.png)
+
+![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_06/images/bfd_spine2.png)
+
+
 Проверка IP-связанности между устройствами:
 ![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_06/images/spine_1.png)
 
