@@ -13,7 +13,21 @@ router bgp 65000
    bgp listen range 10.2.1.0/24 peer-group LEAFS peer-filter ASN_LEAFS
    neighbor LEAFS peer group
    neighbor LEAFS bfd
-   network 10.0.1.0/32
+   neighbor 2002:5555::1 remote-as 65101
+   neighbor 2002:5555::1 bfd
+   neighbor 2002:5555::3 remote-as 65102
+   neighbor 2002:5555::3 bfd
+   neighbor 2002:5555::5 remote-as 65103
+   neighbor 2002:5555::5 bfd
+   !
+   address-family ipv4
+      network 10.0.1.0/32
+   !
+   address-family ipv6
+      neighbor 2002:5555::1 activate
+      neighbor 2002:5555::3 activate
+      neighbor 2002:5555::5 activate
+      network 2002:101::/128
 !
 peer-filter ASN_LEAFS
    10 match as-range 65101-65103 result accept
@@ -29,7 +43,21 @@ router bgp 65000
    bgp listen range 10.2.2.0/24 peer-group LEAFS peer-filter ASN_LEAFS
    neighbor LEAFS peer group
    neighbor LEAFS bfd
-   network 10.0.2.0/32
+   neighbor 2002:5555:2222::1 remote-as 65101
+   neighbor 2002:5555:2222::1 bfd
+   neighbor 2002:5555:2222::3 remote-as 65102
+   neighbor 2002:5555:2222::3 bfd
+   neighbor 2002:5555:2222::5 remote-as 65103
+   neighbor 2002:5555:2222::5 bfd
+   !
+   address-family ipv4
+      network 10.0.2.0/32
+   !
+   address-family ipv6
+      neighbor 2002:5555:2222::1 activate
+      neighbor 2002:5555:2222::3 activate
+      neighbor 2002:5555:2222::5 activate
+      network 2002:202::/128
 !
 peer-filter ASN_LEAFS
    10 match as-range 65101-65103 result accept
@@ -47,7 +75,15 @@ router bgp 65101
    neighbor 10.2.1.0 bfd
    neighbor 10.2.2.0 remote-as 65000
    neighbor 10.2.2.0 bfd
+   neighbor 2002:5555:: remote-as 65000
+   neighbor 2002:5555:: bfd
+   neighbor 2002:5555:2222:: remote-as 65000
+   neighbor 2002:5555:2222:: bfd
    redistribute connected
+   !
+   address-family ipv6
+      neighbor 2002:5555:: activate
+      neighbor 2002:5555:2222:: activate
 !
 ```
 
@@ -62,7 +98,16 @@ router bgp 65102
    neighbor 10.2.1.2 bfd
    neighbor 10.2.2.2 remote-as 65000
    neighbor 10.2.2.2 bfd
+   neighbor 2002:5555::2 remote-as 65000
+   neighbor 2002:5555::2 bfd
+   neighbor 2002:5555:2222:: bfd
+   neighbor 2002:5555:2222::2 remote-as 65000
+   neighbor 2002:5555:2222::2 bfd
    redistribute connected
+   !
+   address-family ipv6
+      neighbor 2002:5555::2 activate
+      neighbor 2002:5555:2222::2 activate
 !
 ```
 
@@ -77,7 +122,15 @@ router bgp 65103
    neighbor 10.2.1.4 bfd
    neighbor 10.2.2.4 remote-as 65000
    neighbor 10.2.2.4 bfd
+   neighbor 2002:5555::4 remote-as 65000
+   neighbor 2002:5555::4 bfd
+   neighbor 2002:5555:2222::4 remote-as 65000
+   neighbor 2002:5555:2222::4 bfd
    redistribute connected
+   !
+   address-family ipv6
+      neighbor 2002:5555::4 activate
+      neighbor 2002:5555:2222::4 activate
 !
 ```
 
