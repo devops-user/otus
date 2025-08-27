@@ -160,7 +160,7 @@ router bgp 65103
 !
 ```
 
-Проверка IP-связанности между устройствами:
+Проверка IPv4-связанности между устройствами:
 ![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_08/images/spine_1.png)
 
 ![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_08/images/spine_2.png)
@@ -170,3 +170,19 @@ router bgp 65103
 ![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_08/images/leaf_2.png)
 
 ![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_08/images/leaf_3.png)
+
+Проверка IPv6-связанности между устройствами:
+![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_08/images/spine_1v6.png)
+
+![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_08/images/spine_2v6.png)
+
+![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_08/images/leaf_1v6.png)
+
+![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_08/images/leaf_2v6.png)
+
+![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_08/images/leaf_3v6.png)
+
+Проверка bfd IPv4/IPv6 для bgp:
+![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_08/images/spine_1_bfd.PNG)
+
+![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_08/images/spine_2_bfd.PNG)
