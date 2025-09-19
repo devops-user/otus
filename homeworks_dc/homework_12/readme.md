@@ -1,6 +1,6 @@
 # VxLAN. EVPN L3
 ### Топология
-![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_12/images/topology.JPG)
+![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_12/images/topology.PNG)
 
 Настроим маршрутизацию в рамках Overlay между клиентами
 
