@@ -179,7 +179,8 @@ router bgp 65103
 
 Проверим IP-связность между хостами:
 ![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_12/images/vpc6.png)
-![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_12/images/vpc6.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_12/images/vpc7.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_12/images/vpc9.png)
 
 Посмотрим какие типы маршрутов мы видим:
 ```
