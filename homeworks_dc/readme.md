@@ -6,3 +6,4 @@
   * [VxLAN. EVPN L3](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_12/readme.md)
   * [VxLAN. Аналоги VPC](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_14/readme.md)
   * [VxLAN. Оптимизация таблиц маршрутизации](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_15/readme.md)
+  * [Проектная работа](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_16/readme.md)
