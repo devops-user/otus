@@ -87,7 +87,7 @@ bgp 64532
 
 Посмотрим поднялась-ли bgp-сессия:
 ```
-HRP_M<SM-GLO-CORE-FW1>display bgp peer   
+HRP_M<HUAWEI-FW1>display bgp peer   
 2025-11-12 16:49:10.192 +03:00
  BGP local router ID        : 11.11.11.11
  Local AS number            : 64532
