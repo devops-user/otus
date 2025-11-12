@@ -61,3 +61,26 @@ HRP_S<HUAWEI-FW2>display hrp state
  Stable time: 50 days, 23 hours, 29 minutes
  Last state change information: 2025-09-22 17:07:02 The HRP core state changed due to "Local priority changed". (old_state=standby, new_state=load sharing (secondary), local_fault_indicator=0, local_robustness_indicator=2, peer_fault_indicator=0, peer_robustness_indicator=2)
 ```
+
+Firewalls будут общаться с нашими BorderLeafs по протоколу eBGP:
+```
+#
+bgp 64532
+ router-id 11.11.11.11
+ private-4-byte-as enable
+ peer <IP_ADDRESS_PEER> as-number 64530
+ peer <IP_ADDRESS_PEER> connect-interface <YOU_INTERFACE>
+ peer <IP_ADDRESS_PEER> bfd min-tx-interval 150 min-rx-interval 150
+ peer <IP_ADDRESS_PEER> bfd enable
+ peer <IP_ADDRESS_PEER> as-number 64530
+ peer <IP_ADDRESS_PEER> connect-interface <YOU_INTERFACE>
+ peer <IP_ADDRESS_PEER> bfd min-tx-interval 150 min-rx-interval 150
+ peer <IP_ADDRESS_PEER> bfd enable
+#
+ #
+ ipv4-family unicast
+  maximum load-balancing ebgp 2
+  peer <IP_ADDRESS_PEER> enable
+  peer <IP_ADDRESS_PEER> enable
+#
+```
