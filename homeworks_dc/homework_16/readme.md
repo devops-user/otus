@@ -84,3 +84,17 @@ bgp 64532
   peer <IP_ADDRESS_PEER> enable
 #
 ```
+
+Посмотрим поднялась-ли bgp-сессия:
+```
+HRP_M<SM-GLO-CORE-FW1>display bgp peer   
+2025-11-12 16:49:10.192 +03:00
+ BGP local router ID        : 11.11.11.11
+ Local AS number            : 64532
+ Total number of peers      : 2
+ Peers in established state : 2
+
+  Peer                             V          AS  MsgRcvd  MsgSent  OutQ  Up/Down       State  PrefRcv
+  <IP_ADDRESS_PEER>                    4       64530    36659    36154     0 0522h45m Established       13
+  <IP_ADDRESS_PEER>                    4       64530    62697    61772     0 0894h08m Established       14
+```
