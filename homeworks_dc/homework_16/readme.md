@@ -10,5 +10,9 @@
 
 И даже с этим как-то можно жить, но к этому добавляются стыки с операторами связи, стыки с удаленными офисами. На уровне ядра/распределения имеем разные ACL (access-lists) для ограничения доступа/связности между хостами. Так же нет целевой схемы включения удаленных офисов.
 ![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_16/images/Three_Layer_2.jpg)
-В сторону уровня доступа настроен VRRP, что так же не отвечает требованиям современного ЦОД
 
+В сторону уровня доступа настроен VRRP, что так же не отвечает требованиям современного ЦОД
+![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_16/images/vrrp1.png)
+![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_16/images/vrrp2.png)
+
+В итоге хотим прийдти в топологии CLOS
