@@ -15,4 +15,31 @@
 ![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_16/images/vrrp1.png)
 ![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_16/images/vrrp2.png)
 
-В итоге хотим прийдти в топологии CLOS
+В итоге хотим прийдти к топологии CLOS и получить сеть такого вида:
+![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_16/images/Leaf-Spine.jpg)
+
+Работы разделим на несколько этапов:
+1) Монтаж и запуск NGFW Huawei USG 6615F, настройка правил по требованиям ИБ - уходим от access-lists, переносим всё на Firewall.
+2) Перенос физических стыков для удаленных офисов и Интернет-провайдеров - переносим физические линки с будущих Spines.
+3) Отключение стеков - расключаем стеки, в дальнейшем каждый из стеков будут отдельными Leafs, два Leafs будут в одной автономной системе (по аналогии два коммутатора в одном стеке).
+4) Настраиваем EVPN/VxLAN - смотрим, что все туннели поднялись между будущими Leaf's
+5) Переносим все sub/vlanIf-интерфейсы на Leaf's.
+
+На выходе получаем чистую фабрику без лишних стыков на уровне Spine, весь L3 у нас будет жить на уровне Leaf.
+
+В качестве Firewall's используем два Huawei USG 6615F, в качестве Primary/Secondary, которые так же будут "шарить" нагрузку между собой.
+Настроим их, между собой Firewalls будут общаться по проприетарному протоколу HRP (High-availability Redundancy Protocol), конфигурация одинаковая на обоих Firewalls:
+```
+#
+hrp enable
+hrp preempt delay 600
+hrp auto-sync config static-route
+hrp auto-sync config policy-based-route
+hrp mirror session enable
+hrp interface <YOU_INTERFACE> remote <IP_ADDRESS>
+hrp authentication-key <YOU_KEY>
+hrp escape enable
+#
+```
+
+Посмотрим статус:
