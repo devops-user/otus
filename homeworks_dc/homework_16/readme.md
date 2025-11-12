@@ -42,4 +42,22 @@ hrp escape enable
 #
 ```
 
-Посмотрим статус:
+Посмотрим статусы на USG 6615F и увидим, что у одного роль - **Primary** и в имени хоста появилась надпись - **HRP_M**, второй имеет роль - **Secondary** и в имени хоста появилась надпись - **HRP_S**:
+```
+HRP_M<HUAWEI-FW1>display hrp state 
+2025-11-12 16:33:34.692 +03:00
+ Local role: Load Sharing (Primary), Peer role: Load Sharing (Secondary)
+ Local priority: 0:2, Peer priority: 0:2
+ Connection state: succeeded
+ Stable time: 50 days, 23 hours, 27 minutes
+ Last state change information: 2025-09-22 17:07:02 The HRP core state changed due to "Peer priority changed". (old_state=active, new_state=load sharing (primary), local_fault_indicator=0, local_robustness_indicator=2, peer_fault_indicator=0, peer_robustness_indicator=2)
+```
+```
+HRP_S<HUAWEI-FW2>display hrp state
+2025-11-12 16:35:15.160 +03:00
+ Local role: Load Sharing (Secondary), Peer role: Load Sharing (Primary)
+ Local priority: 0:2, Peer priority: 0:2
+ Connection state: succeeded
+ Stable time: 50 days, 23 hours, 29 minutes
+ Last state change information: 2025-09-22 17:07:02 The HRP core state changed due to "Local priority changed". (old_state=standby, new_state=load sharing (secondary), local_fault_indicator=0, local_robustness_indicator=2, peer_fault_indicator=0, peer_robustness_indicator=2)
+```
