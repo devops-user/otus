@@ -95,6 +95,6 @@ HRP_M<HUAWEI-FW1>display bgp peer
  Peers in established state : 2
 
   Peer                             V          AS  MsgRcvd  MsgSent  OutQ  Up/Down       State  PrefRcv
-  <IP_ADDRESS_PEER>                    4       64530    36659    36154     0 0522h45m Established       13
-  <IP_ADDRESS_PEER>                    4       64530    62697    61772     0 0894h08m Established       14
+  <IP_ADDRESS_PEER>                4       64530    36659    36154     0 0522h45m Established       13
+  <IP_ADDRESS_PEER>                4       64530    62697    61772     0 0894h08m Established       14
 ```
