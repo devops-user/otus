@@ -98,3 +98,6 @@ HRP_M<HUAWEI-FW1>display bgp peer
   <IP_ADDRESS_PEER>                4       64530    36659    36154     0 0522h45m Established       13
   <IP_ADDRESS_PEER>                4       64530    62697    61772     0 0894h08m Established       14
 ```
+
+Будем уходить от access-lists на уровне распределения и ядра, делаем правила на firewall, пример правила:
+![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_16/images/rule.png)
