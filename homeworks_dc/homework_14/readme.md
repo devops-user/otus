@@ -1,6 +1,6 @@
 # VxLAN. Аналоги VPC
 ### Топология
-![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_14/images/topology.PNG)
+![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_14/images/topology.png)
 
 Настроим порты Eth2 на DC1-LEAF-1B и DC1-LEAF-1C, чтобы использовать их в качествет одного Port-Channel и настроим сам Port-Channel:
 
