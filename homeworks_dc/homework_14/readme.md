@@ -277,3 +277,6 @@ DC1-LEAF-1C#
 
 Попингуем с наших VPC-6 и VPC-8 виртуальную машину:
 ![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_14/images/vpc_ping.PNG)
+
+При выключении одного из портов на виртуальнйо машине, теряется один пакет (наверное глюк виртуализации):
+![](https://github.com/devops-user/otus/blob/main/homeworks_dc/homework_14/images/ping.PNG)
